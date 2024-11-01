@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iranian History Timeline - Medieval Period</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+               /* Integrate the entire PeydaWeb font family */
+               @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-Thin.woff2') format('woff2');
+            font-weight: 100; /* Thin */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-ExtraBold.woff2') format('woff2');
+            font-weight: 800; /* Extra Bold */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-Bold.woff2') format('woff2');
+            font-weight: bold; /* Bold */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-SemiBold.woff2') format('woff2');
+            font-weight: 600; /* Semi Bold */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-Medium.woff2') format('woff2');
+            font-weight: 500; /* Medium */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/peydaWeb-light.woff2') format('woff2');
+            font-weight: 300; /* Light */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/peydaWeb-extralight.woff2') format('woff2');
+            font-weight: 200; /* Extra Light */
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'PeydaWeb';
+            src: url('./fonts/PeydaWeb/PeydaWeb-Black.woff2') format('woff2');
+            font-weight: 900; /* Black */
+            font-style: normal;
+        }
+
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PeydaWeb', sans-serif; /* Use the custom font */
+        }
+
+body {
+    background: #f5f5f5;
+    color: #181148;
+    line-height: 1.6;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    padding: 30px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: #4B35DB;
+    top: 50px;
+    left: 40px;
+    height: 0;
+    animation: growLine 2s ease-out forwards;
+    will-change: height;
+}
+
+@keyframes growLine {
+    from {
+        height: 0;
+    }
+    to {
+        height: 30150px;
+    }
+}
+
+.timeline-item {
+    padding: 20px 0 20px 80px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeIn 0.8s ease forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #4B35DB;
+    left: 19px;
+    top: 60px;
+    transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(75, 53, 219, 0.3);
+}
+
+.timeline-content {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.period {
+    font-size: 50px;
+    font-weight: 999;
+    color: #4B35DB;
+    transition: color 0.3s ease;
+    text-align: right;
+    padding-right: 20px;
+
+}
+
+.timeline-content:hover .period {
+    color: #3727A1;
+}
+
+.date {
+    font-weight: 600;
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    left: 30px;
+    top: 42px;
+    background-color: #cb252b;
+    border-radius: 50px;
+    padding: 2px 15px;
+    text-align: center;
+    width: 170px;
+    height: 40px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+}
+
+.date:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(219, 25, 30, 0.3);
+}
+
+.rulers {
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-weight: 300;
+    padding-right: 30px; /* Changed to padding-right for RTL */
+    text-align: right; /* Align text to the right */
+    direction: rtl; /* Set direction to right-to-left */
+}
+
+.rulers h3 {
+    font-weight: 700;
+    color: #2D1F83;
+    margin-bottom: 8px;
+}
+
+.rulers ul {
+    list-style-type: none;
+    padding-right: 0; /* Changed to padding-right for RTL */
+    padding-left: 0; /* Ensure no left padding */
+}
+
+.rulers li {
+    position: relative;
+    margin-bottom: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.rulers li:hover {
+    transform: translateX(-5px); /* Adjust direction of hover effect */
+    padding-right: 5px; /* Adjust padding for RTL */
+}
+
+.rulers h3::before {
+    content: "\f521";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px; /* Change to margin-left for RTL */
+    color: #ffb700;
+}
+
+.events {
+    margin: 20px 0;
+    padding: 30px;
+    direction: rtl; /* Set direction to right-to-left */
+}
+
+.events h3 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2C1F82;
+    text-align: right; /* Align text to the right */
+}
+
+.events h3::before {
+    content: "\f783";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px; /* Changed to margin-left for RTL */
+    color: #ffb700;
+}
+
+.events ul {
+    list-style-type: none;
+    padding-right: 0; /* Ensure no right padding */
+}
+
+.events li {
+    margin-bottom: 8px;
+    font-weight: 500;
+    padding-right: 20px; /* Change to padding-right for RTL */
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.events li:hover {
+    transform: translateX(-5px); /* Adjust direction of hover effect */
+    padding-right: 25px; /* Adjust padding for RTL */
+}
+
+.events li::before {
+    content: "❖";
+    position: absolute;
+    right: 0; /* Change to right for RTL positioning */
+    color: #4A34D9;
+}
+
+.achievements {
+    background: #fffbe9;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    direction: rtl; /* Set direction to right-to-left */
+}
+
+.achievements:hover {
+    transform: translateX(-10px); /* Change direction of hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievements h3 {
+    font-weight: 700;
+    color: #ffb700;
+    margin-bottom: 10px;
+    text-align: right; /* Align text to the right */
+}
+
+.achievements h3::before {
+    content: "\f091";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px; /* Change to margin-left for RTL */
+    color: #ffb700;
+}
+
+.achievements ul {
+    list-style-type: none;
+}
+
+.achievements li {
+    margin-bottom: 6px;
+    font-weight: 300;
+    padding-right: 20px; /* Change to padding-right for RTL */
+    position: relative;
+    color: #710000;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.achievements li:hover {
+    transform: translateX(-5px); /* Change direction of hover effect */
+    padding-right: 25px; /* Change padding for RTL */
+}
+
+.achievements li::before {
+    content: "✦";
+    position: absolute;
+    right: 0; /* Change to right for RTL positioning */
+    color: #710000;
+}
+
+.header {
+    font-size: 150px;
+    font-weight: 900;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 170px;
+    line-height: 1.2;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-30px) scale(1.1); /* Start from above and slightly larger */
+    animation: slideIn 1s ease forwards; /* Slide-in animation */
+    animation-delay: 0.5s; /* Delay before starting the animation */
+}
+
+.header h1 {
+    font-size: 110px; /* Reduced font size */
+    font-weight: 1000;
+    color: #4B35DB;
+    margin-bottom: 500px; /* Reduced margin-bottom */
+    line-height: 1.2;
+    text-align: center; /* Center alignment */
+}
+
+/* Keyframes for modern slideIn animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(1.1); /* Start above and larger */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); /* End at original position and size */
+    }
+}
+
+
+.header p {
+    font-size: 35px;
+    font-weight: 700;
+    color: #4B35DB;
+}
+
+.cultural-impact {
+    margin-top: 15px;
+    padding: 15px;
+    background: #edfbef;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    direction: rtl; /* Set direction to right-to-left */
+}
+
+.cultural-impact:hover {
+    transform: translateX(-10px); /* Change direction of hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cultural-impact h3 {
+    font-weight: 700;
+    color: #16db65;
+    margin-bottom: 10px;
+    text-align: right; /* Align text to the right */
+}
+
+.cultural-impact h3::before {
+    content: "\f0ac";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px; /* Change to margin-left for RTL */
+    color: #16db65;
+}
+
+.cultural-impact ul {
+    list-style-type: none;
+}
+
+.cultural-impact li {
+    margin-bottom: 6px;
+    font-weight: 300;
+    padding-right: 20px; /* Change to padding-right for RTL */
+    position: relative;
+    color: #0f582c;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.cultural-impact li:hover {
+    transform: translateX(-5px); /* Change direction of hover effect */
+    padding-right: 25px; /* Change padding for RTL */
+}
+
+.cultural-impact li::before {
+    content: "✦";
+    position: absolute;
+    right: 0; /* Change to right for RTL positioning */
+    color: #0f582c;
+}
+
+.legacy {
+    margin-top: 15px;
+    padding: 15px;
+    background: #edf2fb;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    direction: rtl; /* Set direction to right-to-left */
+}
+
+.legacy:hover {
+    transform: translateX(-10px); /* Change direction of hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.legacy h3 {
+    font-weight: 700;
+    color: #4B35DB;
+    margin-bottom: 10px;
+    text-align: right; /* Align text to the right */
+}
+
+.legacy h3::before {
+    content: "\f66f";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 8px; /* Change to margin-left for RTL */
+    color: #4B35DB;
+}
+
+.legacy ul {
+    list-style-type: none;
+}
+
+.legacy li {
+    margin-bottom: 6px;
+    font-weight: 300;
+    padding-right: 20px; /* Change to padding-right for RTL */
+    position: relative;
+    color: #3727A1;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.legacy li:hover {
+    transform: translateX(-5px); /* Change direction of hover effect */
+    padding-right: 25px; /* Change padding for RTL */
+}
+
+.legacy li::before {
+    content: "✦";
+    position: absolute;
+    right: 0; /* Change to right for RTL positioning */
+    color: #3727A1;
+}
+
+
+.achievements:hover::after,
+.cultural-impact:hover::after,
+.legacy:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.2) 100%
+    );
+    pointer-events: none;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+
+/* Add these new animation classes to your existing CSS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-in-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease-out;
+}
+
+.scale-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Optional animation delays for staggered effects */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+/* Glassy effect for cards */
+.achievements, .cultural-impact, .legacy {
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Light border for glassy look */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 2px 35px rgba(188, 188, 188, 0.033); /* Soft shadow */
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+/* Slight lift on hover for interactivity */
+.timeline-content:hover, .achievements:hover, .cultural-impact:hover, .legacy:hover, .supplementary-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 35px rgba(0, 0, 0, 0.184);
+}
+
+/* Font adjustments for readability on glassy background */
+.timeline-content p, .achievements p, .cultural-impact p, .legacy p {
+    color: #ffffff; /* Make text white for contrast */
+}
+
+/* Adjust date pill style */
+.date {
+    background: rgba(219, 25, 31, 0.841); /* Semi-transparent for glassy look */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+}
+
+/* Additional mobile-friendly styling */
+@media (max-width: 768px) {
+    .timeline-content, .achievements, .cultural-impact, .legacy {
+        padding: 20px; /* Less padding for smaller screens */
+        border-radius: 10px;
+    }
+    .date {
+        font-size: 18px;
+        padding: 3px 10px;
+        width: auto; /* Adaptive width */
+        top: -5px; /* Adjust positioning */
+        transform: translateX(-50%);
+    }
+    /* Scale down header font sizes for mobile */
+    .header {
+        font-size: 80px;
+    }
+    .header h1 {
+        font-size: 60px;
+    }
+}
+.supplementary-info {
+    font-size: 18px;
+    color: #4B35DB;
+    background-color: #f7f9fc;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #d1d9e6;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    direction: rtl;
+}
+
+.supplementary-info h3 {
+    color: #4B35DB;
+    font-size: 28px;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: right;
+    position: relative;
+}
+
+.supplementary-info h4 {
+    font-size: 22px;
+    color: #4B35DB;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: right;
+    border-right: 4px solid #4B35DB;
+    padding-right: 8px;
+}
+
+.supplementary-info p, .supplementary-info ul {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #2a2b57;
+    text-align: right;
+}
+
+.supplementary-info ul {
+    list-style-type: none;
+    padding-right: 20px;
+    margin: 0;
+}
+
+.supplementary-info ul li {
+    margin-bottom: 10px;
+    font-weight: 400;
+    padding-right: 25px;
+    position: relative;
+    color: #2a2b57;
+    transition: all 0.3s ease;
+}
+
+.supplementary-info ul li::before {
+    content: "✦";
+    position: absolute;
+    right: 0;
+    color: #4B35DB;
+    font-size: 14px;
+}
+
+.supplementary-info ul li:hover {
+    color: #3a4c8d;
+    transform: translateX(-3px);
+}
+
+.supplementary-info:hover {
+    background-color: #f0f4fc;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.supplementary-info .note {
+    font-size: 15px;
+    color: #717a94;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: right;
+}
+
+.sources {
+    font-size: 16px;
+    color: #4B35DB;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Space between sources and copyright */
+    line-height: 1.6;
+    direction: rtl; /* Set direction to RTL */
+}
+
+.sources h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4B35DB;
+    margin-bottom: 15px;
+    text-align: right; /* Align heading to the right */
+}
+
+.sources ul {
+    list-style-type: disc; /* Set to disc for bullets */
+    padding-right: 20px; /* Use padding to align bullets properly */
+}
+
+.sources li {
+    margin-bottom: 10px;
+    color: #191438;
+    font-weight: 300;
+    text-align: right; /* Align list items to the right */
+}
+
+.copyright {
+    font-size: 12px;
+    color: #888888;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 30px;
+}
+
+
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>تایملاین تاریخی ایران پس از اسلام</h1>
+            <p>بخش 1: دورهٔ میان‌سالی (637-1501)</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Rashidun Caliphate -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">خلافت راشدین</div>
+                    <div class="date">637-651 CE</div>
+                    
+                    <div class="rulers">
+                        <h3>حاکمان</h3>
+                        <ul>
+                            <li>ابوبکر (632-634)</li>
+                            <li>عمر بن خطاب (634-644)</li>
+                            <li>عثمان بن عفان (644-656)</li>
+                            <li>علی بن ابی‌طالب (656-661)</li>
+                        </ul>
+                    </div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>637: نبرد قادسیه منجر به فتح عرب‌ها بر ایران شد</li>
+                            <li>642: نبرد نهاوند شکست تعیین‌کننده‌ای برای امپراتوری ساسانی بود</li>
+                            <li>644: تأسیس نخستین نظام اداری اسلامی</li>
+                            <li>650: مرگ یزدگرد سوم، آخرین امپراتور ساسانی</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تأسیس نخستین نظام اداری اسلامی</li>
+                            <li>معرفی زبان و خط عربی</li>
+                            <li>ایجاد نخستین سیستم پولی اسلامی</li>
+                            <li>توسعه استراتژی‌های نظامی جدید</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>معرفی اسلام به ایران</li>
+                            <li>ادغام تدریجی فرهنگ‌های فارسی و اسلامی</li>
+                            <li>حفظ شیوه‌های اداری فارسی</li>
+                            <li>آغاز تأثیر عربی بر زبان فارسی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>پایه‌گذاری ترکیب اسلامی-فارسی</li>
+                            <li>ایجاد پیشینه‌ای برای تحمل مذهبی نسبت به زرتشتیان</li>
+                            <li>ایجاد نظام‌های اداری که بر امپراتوری‌های اسلامی بعدی تأثیر گذاشتند</li>
+                            <li>معرفی عناصر معماری اسلامی در حالی که سبک‌های فارسی حفظ شد</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Umayyad Caliphate -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">خلافت اموی</div>
+                    <div class="date">661-750 CE</div>
+
+                    <div class="rulers">
+                        <h3>حاکمان اصلی</h3>
+                        <ul>
+                            <li>زیاد بن ابی‌سفیان (665-673)</li>
+                            <li>الحجاج بن یوسف (694-714)</li>
+                            <li>قُتَیبه بن مسلم (705-715)</li>
+                        </ul>
+                    </div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>661: تأسیس سلطهٔ امویان</li>
+                            <li>674-676: ساخت نخستین مساجد در شهرهای بزرگ ایران</li>
+                            <li>696-697: معرفی سکه‌های اسلامی خالص</li>
+                            <li>702: عربی به زبان رسمی اداره تبدیل شد</li>
+                            <li>747: آغاز انقلاب عباسی در خراسان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>توسعهٔ سیستم‌های آبیاری</li>
+                            <li>تأسیس شهرها و پایگاه‌های نظامی جدید</li>
+                            <li>ایجاد سیستم پستی کارآمد</li>
+                            <li>استانداردسازی شیوه‌های اداری</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>عربی‌سازی زبان اداری</li>
+                            <li>توسعهٔ سبک‌های هنری فارسی-اسلامی</li>
+                            <li>رشد علم دینی</li>
+                            <li>ظهور ادبیات فارسی-اسلامی اولیه</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>نوآوری‌های معماری ترکیبی از سبک‌های فارسی و اسلامی</li>
+                            <li>توسعهٔ خوشنویسی فارسی-عربی</li>
+                            <li>تأسیس مؤسسات آموزشی</li>
+                            <li>ایجاد سیستم‌های اداری که بر سلطنت‌های بعدی تأثیر گذاشتند</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abbasid Caliphate -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">خلافت عباسی</div>
+                    <div class="date">750-1258 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>750: پیروزی انقلاب عباسی با حمایت ایرانیان</li>
+                            <li>762: تأسیس بغداد با معماری ایرانی</li>
+                            <li>786-809: عصر طلایی تحت خلافت هارون‌الرشید</li>
+                            <li>821: تأسیس سلسله نیمه‌خودمختار طاهریان</li>
+                            <li>875: ظهور سلسله صفاریان و افزایش استقلال ایران</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تأسیس بیت‌الحکمه</li>
+                            <li>ترجمه متون مهم فارسی به عربی</li>
+                            <li>توسعه علوم اسلامی</li>
+                            <li>پیشرفت در ریاضیات، نجوم و پزشکی</li>
+                            <li>ایجاد سیستم‌های آبیاری پیشرفته</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>رنسانس ایرانی (جنبش شعوبیه)</li>
+                            <li>توسعه ادبیات فارسی جدیدe</li>
+                            <li>ادغام شیوه‌های اداری ایرانی</li>
+                            <li>رشد نفوذ فرهنگ ایرانی در تمدن اسلامی</li>
+                            <li>ظهور فلسفه فارسی-اسلامی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>حفظ و پیشرفت دانش یونانی-ایرانی</li>
+                            <li>توسعه علوم عصر طلایی اسلامی</li>
+                            <li>خلق سبک‌های معماری فارسی-اسلامی</li>
+                            <li>تأسیس نهادهای آموزشی (مدارس)</li>
+                            <li>احیای هویت فرهنگی ایرانی در چارچوب اسلامی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Tahirid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله طاهریان</div>
+                    <div class="date">821-873 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>821: تأسیس حکومت نیمه‌خودمختار در خراسان</li>
+                            <li>822: انتقال پایتخت به نیشابور</li>
+                            <li>828: گسترش کنترل بر فرارود</li>
+                            <li>850: اصلاحات عمده کشاورزی</li>
+                            <li>873: برکناری توسط صفاریان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>توسعه سیستم مالیاتی کارآمد</li>
+                            <li>نوآوری‌های کشاورزی</li>
+                            <li>حمایت از دانشمندان و شاعران</li>
+                            <li>ساخت سیستم‌های آبیاری</li>
+                            <li>تأسیس کتابخانه‌ها</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>احیای سنت‌های ادبی فارسی</li>
+                            <li>توسعه سبک معماری خراسانی</li>
+                            <li>ترویج دانش اسلامی</li>
+                            <li>حمایت از شعر فارسی</li>
+                            <li>ادغام عناصر نظامی ترک</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>الگویی برای حکومت نیمه‌خودمختار ایرانی</li>
+                            <li>سیستم‌های اداری مورد استفاده توسط سلسله‌های بعدی</li>
+                            <li>اصلاحات کشاورزی که قرن‌ها ادامه داشت</li>
+                            <li>مؤسسات آموزشی</li>
+                            <li>نظام حمایت از ادبیات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Saffarid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله صفاریان</div>
+                    <div class="date">861-1003 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>861: به قدرت رسیدن یعقوب بن لیث</li>
+                            <li>873: فتح سرزمین‌های طاهریان</li>
+                            <li>876: تصرف کرمان</li>
+                            <li>900: از دست دادن فرارود به سامانیان</li>
+                            <li>1003: شکست نهایی به دست غزنویان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد نخستین امپراتوری ایرانی پس از اسلام</li>
+                            <li>توسعه فناوری نظامی ایرانی</li>
+                            <li>احیای شیوه‌های اداری فارسی</li>
+                            <li>ساخت استحکامات بزرگ</li>
+                            <li>ایجاد شبکه‌های تجاری</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>ترویج زبان فارسی در امور اداری</li>
+                            <li>توسعه سنت‌های نظامی ایرانی</li>
+                            <li>حمایت از ادبیات فارسی</li>
+                            <li>خلق سبک‌های معماری جدید</li>
+                            <li>ادغام رسوم اسلامی و ایرانی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>الگویی برای سلسله‌های ایرانی بعدی</li>
+                            <li>نوآوری‌های نظامی</li>
+                            <li>سیستم‌های اداری</li>
+                            <li>سبک‌های معماری</li>
+                            <li>احیای فرهنگ ایرانی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Samanid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله سامانیان</div>
+                    <div class="date">819-999 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>819: منصوب شدن به عنوان والیان خراسان</li>
+                            <li>875: دستیابی به استقلال عملی</li>
+                            <li>892: تأسیس پایتخت در بخارا</li>
+                            <li>900: اوج عصر طلایی فرهنگی</li>
+                            <li>999: سقوط به دست غزنویان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد سیستم پستی کارآمد</li>
+                            <li>توسعه ادبیات فارسی</li>
+                            <li>تأسیس کتابخانه‌های بزرگ</li>
+                            <li>نوآوری‌های کشاورزی</li>
+                            <li>توسعه شبکه‌های تجاری</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>عصر طلایی ادبیات فارسی نو</li>
+                            <li>توسعه معماری فارسی-اسلامی</li>
+                            <li>احیای سنت‌های فرهنگی ایرانی</li>
+                            <li>ترویج علوم اسلامی</li>
+                            <li>ادغام عناصر نظامی ترکی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>رنسانس ادبی فارسی</li>
+                            <li>سیستم‌های اداری</li>
+                            <li>ایجاد سبک‌های معماری فارسی-اسلامی</li>
+                            <li>نوآوری‌های معماری</li>
+                            <li>الگویی برای همگرایی فرهنگی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Ghaznavid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله غزنویان</div>
+                    <div class="date">977-1186 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>977: تأسیس سلسله در غزنی</li>
+                            <li>1001: نخستین حمله به هند</li>
+                            <li>1017: فتح خوارزم</li>
+                            <li>1025: حمله به معبد سومنات</li>
+                            <li>از دست دادن خراسان به سلجوقیان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد امپراتوری نظامی گسترده</li>
+                            <li>توسعه فرهنگ درباری فارسی</li>
+                            <li>ایجاد شبکه‌های تجاری عمده</li>
+                            <li>ساخت بناهای باشکوه</li>
+                            <li>حملات منظم به هند</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>عصر طلایی ادبیات فارسی</li>
+                            <li>گسترش اسلام در جنوب آسیا</li>
+                            <li>توسعه معماری هند و اسلامی</li>
+                            <li>همگرایی سنت‌های نظامی فارسی و ترکی</li>
+                            <li>حفظ سنت‌های فرهنگی ایرانی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>Legacy</h3>
+                        <ul>
+                            <li>گسترش فرهنگ فارسی به هند</li>
+                            <li>سیستم‌های اداری نظامی</li>
+                            <li>تأثیر اسلامی در جنوب آسیا</li>
+                            <li>سنت‌های ادبی و هنری</li>
+                            <li>الگویی برای سلسله‌های ترکی-فارسی بعدی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seljuk Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله سلجوقیان</div>
+                    <div class="date">1037-1194 CE</div>
+
+                    <div class="rulers">
+                        <h3>حاکمان اصلی</h3>
+                        <ul>
+                            <li>طغرل (1037-1063)</li>
+                            <li>آلپ ارسلان (1063-1072)</li>
+                            <li>ملکشاه اول (1072-1092)</li>
+                            <li>محمود اول (1092-1094)</li>
+                            <li>برکیارق (1094-1105)</li>
+                            <li>محمد اول (1105-1118)</li>
+                            <li>سنجر (1118-1157)</li>
+                            <li>ارسلان شاه (1161-1176)</li>
+                            <li>طغرل سوم (1176-1194)</li>
+                        </ul>
+                    </div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1037: تأسیس حکومت سلجوقی</li>
+                            <li>1055: ورود به بغداد و به رسمیت شناخته شدن توسط خلیفه عباسی</li>
+                            <li>1071: نبرد ملازگرد علیه بیزانسی‌ها</li>
+                            <li>1092: مرگ ملکشاه و آغاز تجزیه</li>
+                            <li>1118: از دست دادن سرزمین‌های غربی</li>
+                            <li>1194: سقوط به دست خوارزمیان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد امپراتوری وسیع از آناتولی تا آسیای مرکزی</li>
+                            <li>توسعه سیستم زمین‌داری اقطاع</li>
+                            <li>تأسیس شبکه مدارس نظامیه</li>
+                            <li>ساخت بناهای مهم</li>
+                            <li>نوآوری‌های نظامی</li>
+                            <li>احیای اسلام سنی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>توسعه سیستم اداری فارسی</li>
+                            <li>تأسیس مدارس نظامیه</li>
+                            <li>ترک‌سازی آناتولی</li>
+                            <li>پیشرفت در معماری اسلامی</li>
+                            <li>حمایت از ادبیات فارسی</li>
+                            <li>ادغام فرهنگ ترکی و فارسی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>پایه‌گذاری امپراتوری عثمانی</li>
+                            <li>سیستم‌های آموزشی و اداری</li>
+                            <li>سبک‌های معماری اسلامی</li>
+                            <li>الگوهای سازمان نظامی</li>
+                            <li>شکل‌گیری فرهنگ ترکی-اسلامی</li>
+                            <li>سیستم‌های حفاظت از مسیرهای تجاری</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khwarazmian Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله خوارزمشاهیان</div>
+                    <div class="date">1077-1231 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1077: انتصاب به عنوان حاکمان خوارزم</li>
+                            <li>1156: اعلام استقلال از سلجوقیان</li>
+                            <li>1194: شکست آخرین سلطان سلجوقی</li>
+                            <li>1200: گسترش به سوی ایران</li>
+                            <li>1218: اعدام تجار مغول</li>
+                            <li>1220: آغاز حمله مغول</li>
+                            <li>1231: شکست نهایی به دست مغول‌ها</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد امپراتوری از هند تا عراق</li>
+                            <li>توسعه شبکه‌های تجاری</li>
+                            <li>ساخت استحکامات دفاعی</li>
+                            <li>یکپارچگی اداری</li>
+                            <li>بازسازی نظامی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>ترویج ادبیات فارسی</li>
+                            <li>توسعه فناوری‌های نظامی</li>
+                            <li>پیشرفت در علوم اسلامی</li>
+                            <li>ادغام سنت‌های آسیای مرکزی</li>
+                            <li>توسعه شهری</li>
+                            <li>حفاظت از مسیرهای تجاری</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>Legacy</h3>
+                        <ul>
+                            <li>آخرین امپراتوری بزرگ اسلامی پیش از مغول‌ها</li>
+                            <li>تکنیک‌های دفاعی نظامی</li>
+                            <li>ساختارهای اداری</li>
+                            <li>الگوهای سیستم تجاری</li>
+                            <li>حفظ فرهنگ فارسی</li>
+                            <li>نمونه‌ای از فروپاشی سریع امپراتوری</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Eldiguzid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله اتابکان ایلدگز (ایلدگوزیان)</div>
+                    <div class="date">1135-1225 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1135: برقراری کنترل در آذربایجان</li>
+                            <li>1160: کسب قدرت و نفوذ بر سلطان سلجوقی</li>
+                            <li>1175: اوج گسترش قلمرو</li>
+                            <li>1191: کنترل بر بیشتر نواحی شمال غربی ایران</li>
+                            <li>1225: فتح توسط خوارزمیان</li>
+                            <li>1225: پایان سلسله</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد حکومتی خودمختار در آذربایجان</li>
+                            <li>توسعه سازمان نظامی</li>
+                            <li>ساخت استحکامات دفاعی</li>
+                            <li>حمایت از فرهنگ فارسی</li>
+                            <li>ایجاد شبکه‌های تجاری منطقه‌ای</li>
+                            <li>حفظ سیستم‌های اداری سلجوقی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>حفظ و ترویج سنت‌های فارسی</li>
+                            <li>توسعه معماری آذربایجانی</li>
+                            <li>استفاده از روش‌های اداری فارسی</li>
+                            <li>همگرایی فرهنگ ترکی-فارسی</li>
+                            <li>ترویج هنرهای محلی</li>
+                            <li>پیشرفت تکنیک‌های نظامی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>الگوهای مدیریتی منطقه‌ای</li>
+                            <li>نوآوری‌های معماری</li>
+                            <li>سیستم‌های سازماندهی نظامی</li>
+                            <li>الگوهای همگرایی فرهنگی</li>
+                            <li>روش‌های حفاظت از مسیرهای تجاری</li>
+                            <li>تأثیر بر هویت آذربایجانی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Atabegs of Yazd -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">اتابکان یزد</div>
+                    <div class="date">1141-1319 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1141: استقرار حکومت اتابکان در یزد</li>
+                            <li>1188: تقویت قدرت محلی</li>
+                            <li>1220: مقاومت در برابر حملات اولیه مغول</li>
+                            <li>1233: پذیرش حاکمیت مغول</li>
+                            <li>1275: اوج شکوفایی فرهنگی</li>
+                            <li>1319: پیوستن به ایلخانیان</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>حفظ خودمختاری محلی</li>
+                            <li>توسعه سیستم‌های مدیریت آب</li>
+                            <li>ساخت دیوارهای دفاعی</li>
+                            <li>حمایت از صنایع دستی محلی</li>
+                            <li>ایجاد مراکز آموزشی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>توسعه معماری یزدی</li>
+                            <li>حفظ سنت‌های فارسی</li>
+                            <li>حمایت از صنعت نساجی</li>
+                            <li>پیشرفت مهندسی آب</li>
+                            <li>سازگاری با شرایط کویری</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>سیستم‌های مدیریت آب</li>
+                            <li>سبک‌های معماری</li>
+                            <li>وسعه شهرهای کویری</li>
+                            <li>روش‌های حفاظت فرهنگی</li>
+                            <li>مدل خودمختاری اداری</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Mihrabanid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">خاندان مهربانیان</div>
+                    <div class="date">1236-1601 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1236: تأسیس سلسله در سیستان</li>
+                            <li>1260: پذیرش سروری مغول</li>
+                            <li>1346: اوج نفوذ منطقه‌ای</li>
+                            <li>1383: مقاومت در برابر تیمور</li>
+                            <li>1480: آغاز افول</li>
+                            <li>1601: پایان سلسله</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>حفظ خودمختاری محلی</li>
+                            <li>توسعه سیستم‌های آبیاری</li>
+                            <li>ساخت استحکامات</li>
+                            <li>توسعه کشاورزی</li>
+                            <li>حفظ فرهنگ سیستانی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>حفظ سنت‌های محلی</li>
+                            <li>توسعه معماری منطقه‌ای</li>
+                            <li>حمایت از ادبیات فارسی</li>
+                            <li>ادغام عناصر قومی</li>
+                            <li>حفاظت از صنایع دستی محلی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>مدل‌های حکمرانی منطقه‌ای</li>
+                            <li>تکنیک‌های آبیاری</li>
+                            <li>روش‌های حفظ فرهنگ</li>
+                            <li>سیستم‌های کشاورزی</li>
+                            <li>سنت‌های اداری محلی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!--  Kurt Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله کورت</div>
+                    <div class="date">1245-1389 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1245: تأسیس در هرات</li>
+                            <li>1278: شناسایی توسط ایلخانان</li>
+                            <li>1332: اوج گسترش سرزمینی</li>
+                            <li>1370: مواجهه با فشار تیموری</li>
+                            <li>1381: اولین حمله تیموری</li>
+                            <li>1389: فتح نهایی توسط تیمور</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد یک دولت نیمه‌مستقل</li>
+                            <li>توسعه هرات به عنوان مرکز فرهنگی</li>
+                            <li>ساخت استحکامات</li>
+                            <li>تأسیس شبکه‌های تجاری</li>
+                            <li>حمایت از هنرها و ادبیات</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>توسعه معماری هراتی</li>
+                            <li>حمایت از ادبیات فارسی</li>
+                            <li>پیشرفت در تولید نسخ خطی</li>
+                            <li>ادغام فرهنگ ترکی-فارسی</li>
+                            <li>ترویج هنرهای محلی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>توسعه فرهنگی هرات</li>
+                            <li>سیستم‌های اداری</li>
+                            <li>نوآوری‌های معماری</li>
+                            <li>الگوهای حمایت از ادبیات</li>
+                            <li>مؤسسات آموزشی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sarbadars -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سربداران</div>
+                    <div class="date">1337-1381 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1337: قیام مردمی در سبزوار</li>
+                            <li>1338: تأسیس دولت</li>
+                            <li>1344: گسترش به نیشابور</li>
+                            <li>1353: اتحاد با رهبران شیعه</li>
+                            <li>1361: اوج کنترل سرزمینی</li>
+                            <li>1381: تسلیم به تیمور</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد دولت مردمی</li>
+                            <li>توسعه مدیریت شهری</li>
+                            <li>نوآوری در سازماندهی نظامی</li>
+                            <li>سیاست‌های تساهل مذهبی</li>
+                            <li>سیستم‌های حمایت از تجارت</li>
+                            <li>اصلاحات اجتماعی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>ترویج اسلام شیعه</li>
+                            <li>توسعه حاکمیت مردمی</li>
+                            <li>حمایت از علمای دینی</li>
+                            <li>ادغام طبقات اجتماعی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>الگوی مقاومت مردمی</li>
+                            <li>سیستم‌های حاکمیت مذهبی</li>
+                            <li>روش‌های مدیریت شهری</li>
+                            <li>نمونه‌هایی از اصلاحات اجتماعی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timurid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله تیموری</div>
+                    <div class="date">1370-1507 CE</div>
+
+                    <div class="rulers">
+                        <h3>حاکمان اصلی</h3>
+                        <ul>
+                            <li>تیمور (1370-1405)</li>
+                            <li>شاهرخ (1405-1447)</li>
+                            <li>سلطان حسین بایقرا (1469-1506)</li>
+                        </ul>
+                    </div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1370: صعود تیمور به قدرت در سمرقند</li>
+                            <li>1387: فتح ایران و شام</li>
+                            <li>1398: غارت دهلی</li>
+                            <li>1405: مرگ تیمور و جنگ‌های جانشینی</li>
+                            <li>1447: تحکیم دولت توسط شاهرخ</li>
+                            <li>1469: دوران سلطنت سلطان حسین بایقرا، عصر طلایی هرات</li>
+                            <li>1507: سرنگونی توسط اوزبک‌ها</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>ایجاد امپراتوری وسیع فراملی</li>
+                            <li>توسعه سبک معماری تیموری</li>
+                            <li>حمایت از هنر، ادبیات و علم</li>
+                            <li>پیشرفت مطالعات نجومی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>شکوفایی زبان و فرهنگ فارسی</li>
+                            <li>رنسانس تیموری در هنر و یادگیری</li>
+                            <li>گسترش تأثیرات اسلامی به مناطق جدید</li>
+                            <li>ادغام سنت‌های ترک-مغول و فارسی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>الگویی برای ساخت امپراتوری‌های سلطنتی</li>
+                            <li>سنت‌های معماری و هنری</li>
+                            <li>پیشرفت فرهنگ فارسی</li>
+                            <li>ساختارهای اداری و بوروکراسی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">
+                    <p>بخش 2: دورهٔ مدرن اولیه (1501-1925)</p>
+                </div>
+
+            <!-- Safavid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله صفویه</div>
+                    <div class="date">1501-1736 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1501: تأسیس دولت توسط شاه اسماعیل اول</li>
+                            <li>1514: نبرد چالدران در برابر عثمانی‌ها</li>
+                            <li>1598: انتقال پایتخت به اصفهان</li>
+                            <li>1629: اوج قدرت تحت سلطنت شاه عباس اول</li>
+                            <li>1722: حمله افغان‌ها</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>استقرار شیعه دوازده‌امامی</li>
+                            <li>ایجاد ارتش دائمی (قزلباش)</li>
+                            <li>توسعه صنعت فرش ایرانی</li>
+                            <li>پروژه‌های بزرگ معماری</li>
+                            <li>شبکه‌های تجاری بین‌المللی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>هویت اسلامی شیعه</li>
+                            <li>رنسانس هنری فارسی</li>
+                            <li>توسعه نقاشی مینیاتوری</li>
+                            <li>ادغام عناصر فرهنگی مختلف</li>
+                            <li>سبک‌های جدید معماری</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>هویت مدرن ایرانی</li>
+                            <li>نهادهای مذهبی</li>
+                            <li>سنت‌های هنری</li>
+                            <li>آثار معماری برجسته</li>
+                            <li>سیستم‌های اداری</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Hotaki Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله هوتکیان</div>
+                    <div class="date">1709-1738 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1709: میر ویس هوتک علیه صفویان شورش می‌کند.</li>
+                            <li>1715: محمود هوتک اصفهان را تسخیر می‌کند و حکومت صفویان را به پایان می‌رساند.</li>
+                            <li>1722: محمود هوتک به ایران حمله کرده و پایتخت صفویان را تصرف می‌کند.</li>
+                            <li>1725:  اشرف هوتک ارتش صفویان را شکست می‌دهد و سلسله را گسترش می‌دهد.</li>
+                            <li>1729: اشرف هوتک توسط نادرشاه افشار شکست می‌خورد.</li>
+                            <li>1738: حسین هوتک به نادرشاه تسلیم می‌شود و سلسله به پایان می‌رسد.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تأسیس یک دولت مستقل افغان.</li>
+                            <li>فتح امپراتوری صفوی در ایران.</li>
+                            <li>حمایت از فرهنگ و ادبیات افغان.</li>
+                            <li>گسترش شبکه‌های تجاری و بازرگانی.</li>
+                            <li>اصلاحات در مالیات و مدیریت.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>ترویج زبان و فرهنگ پشتو.</li>
+                            <li>احیای ملی‌گرایی و هویت افغان.</li>
+                            <li>تقویت اسلام سنی در منطقه.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>به عنوان الگویی برای سلسله‌های آینده افغان خدمت کرد.</li>
+                            <li>به کاهش قدرت صفویان در ایران کمک کرد.</li>
+                            <li>پایه‌های استقلال افغان را بنا نهاد.</li>
+                            <li>بر توسعه تجارت منطقه تأثیر گذاشت.</li>
+                            <li>سنت‌های فرهنگی و زبانی افغان را ترویج کرد.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Afsharid Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسه افشاریه</div>
+                    <div class="date">1736-1796 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1736: نادرشاه آخرین حاکم هوتکی را برکنار کرده و سلسله افشاری را تأسیس می‌کند.</li>
+                            <li>1738: نادرشاه به هندوستان حمله کرده و امپراتوری مغول را فتح می‌کند و دهلی را غارت می‌کند.</li>
+                            <li>1747: نادرشاه به قتل می‌رسد و در پی آن رقابت‌های قدرت آغاز می‌شود.</li>
+                            <li>1748: عادل شاه به مدت کوتاهی به تخت می‌نشیند و سپس توسط شاه‌رخ برکنار می‌شود.</li>
+                            <li>1796: شاه‌رخ، آخرین حاکم افشاری، نابینا و زندانی می‌شود.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تأسیس یک امپراتوری ایرانی قدرتمند که رقیب مغول‌ها و عثمانی‌ها بود.</li>
+                            <li>فتح سرزمین‌های صفوی و گسترش به آناتولی، آسیای مرکزی و هند.</li>
+                            <li>حمایت از هنرها، علوم و معماری، از جمله ساخت مقبره نادرشاه.</li>
+                            <li>اصلاحات اداری، از جمله سازماندهی مجدد ارتش و سیستم‌های مالیاتی.</li>
+                            <li>تلاش برای احیای سنت‌های فرهنگی ترک-ایرانی.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>گسترش فرهنگ و زبان فارسی در سراسر منطقه.</li>
+                            <li>ادغام سنت‌های نظامی ترکی در دولت ایرانی.</li>
+                            <li>پیشرفت شعر فارسی، نقاشی و دیگر اشکال هنری.</li>
+                            <li>ترویج اسلام شیعه، با رویکردی جامع‌تر نسبت به صفویان.</li>
+                            <li>نوآوری‌های معماری، از جمله ترکیب سبک‌های آسیای مرکزی و ایرانی.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>به عنوان الگویی برای دودمان‌های آینده ایرانی، به‌ویژه قاجاریان خدمت کرد.</li>
+                            <li>به تضعیف امپراتوری مغول و ظهور قدرت‌های منطقه‌ای در آسیای جنوبی کمک کرد.</li>
+                            <li>تأثیر ماندگاری بر چشم‌انداز سیاسی و فرهنگی ایران و آسیای مرکزی گذاشت.</li>
+                            <li>پتانسیل امپراتوری ایرانی را برای رقابت با عثمانی‌ها و مغول‌ها به نمایش گذاشت.</li>
+                            <li>راه را برای تعامل بیشتر بین ایران و همسایگانش هموار کرد.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Zand Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله زندیه</div>
+                    <div class="date">1750-1794 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1750: کریم‌خان قدرت را به دست می‌گیرد و سلسله زند را در شیراز تأسیس می‌کند.</li>
+                            <li>1760s: کریم‌خان کنترل خود را بر ایران جنوبی و مرکزی تحکیم می‌بخشد.</li>
+                            <li>1779: کریم‌خان درگذشت و به رقابت‌های قدرت میان جانشینانش منجر شد.</li>
+                            <li>1789: جعفرخان به تخت می‌نشیند، اما با چالش‌هایی از سوی گروه‌های رقیب روبرو می‌شود.</li>
+                            <li>1794: سلسله زند توسط آقا محمدخان، بنیان‌گذار سلسله قاجار، سرنگون می‌شود.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تأسیس حکومتی نسبتاً باثبات و موفق در ایران جنوبی و مرکزی.</li>
+                            <li>حمایت از هنرها، معماری و توسعه زیرساخت‌ها در شیراز.</li>
+                            <li>اصلاحات در سیستم مالیاتی و ساختارهای اداری.</li>
+                            <li>گسترش روابط تجاری و تجاری با اروپا و هند.</li>
+                            <li>تلاش برای توازن قدرت میان گروه‌ها و قبایل رقیب.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>شکوفایی فرهنگ، شعر و معماری فارسی در شیراز.</li>
+                            <li>ترویج شیراز به عنوان مرکز هنر و دانش.</li>
+                            <li>ادغام سنت‌های ترکی و ایرانی در دربار سلطنتی.</li>
+                            <li>حفظ سبک‌ها و مهارت‌های هنری دوره صفوی.</li>
+                            <li>بهبود روابط با قدرت‌های اروپایی و منجر به تبادل فرهنگی.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>به عنوان دوره‌ای انتقالی بین سلسله‌های صفوی و قاجار خدمت کرد.</li>
+                            <li>پتانسیل یک سلسله ایرانی متمرکز بر منطقه‌ای را به نمایش گذاشت.</li>
+                            <li>به توسعه شیراز به عنوان یک مرکز فرهنگی و اقتصادی کمک کرد.</li>
+                            <li>الگویی برای توازن منافع گروه‌ها و قبایل مختلف فراهم کرد.</li>
+                            <li>راه را برای ظهور سلسله قاجار که متمرکزتر بود هموار کرد.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Qajar Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله قاجار</div>
+                    <div class="date">1785-1925 CE</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1785:  آقا محمدخان پس از شکست زندها، دودمان قاجار را تأسیس می‌کند.</li>
+                            <li>1796: آقا محمدخان ترور می‌شود و فتحعلی‌شاه به جای او می‌نشیند.</li>
+                            <li>1813:  امضای قرارداد گلستان که منجر به واگذاری سرزمین‌هایی به امپراتوری روسیه می‌شود.</li>
+                            <li>1856-1857: جنگ انگلیس و ایران منجر به واگذاری‌های بیشتر سرزمینی به بریتانیا می‌شود.</li>
+                            <li>1906-1911: انقلاب مشروطه ایران مجلس را تأسیس می‌کند.</li>
+                            <li>1925: احمدشاه عزل می‌شود و دودمان پهلوی تأسیس می‌گردد.</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>تحکیم کنترل بر اکثر سرزمین‌های ایران و منطقه قفقاز.</li>
+                            <li>حمایت از هنرها، معماری و مدرنیزاسیون نهادهای دولتی.</li>
+                            <li>تلاش برای توازن تأثیر قدرت‌های اروپایی و حفظ استقلال ایران.</li>
+                            <li>اصلاحات در سیستم مالیاتی، نظامی و بوروکراسی.</li>
+                            <li>گسترش روابط تجاری و اقتصادی با اروپا.</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>شکوفایی شعر، نقاشی و هنرهای تزئینی فارسی در قرن نوزدهم.</li>
+                            <li>حفظ سنت‌های فرهنگی و سبک‌های معماری فارسی.</li>
+                            <li>افزایش تعامل بین ایران و غرب، منجر به تبادل فرهنگی.</li>
+                            <li>ظهور هویت و آگاهی ملی مدرن ایرانی.</li>
+                            <li>ترویج شیعه‌گری به عنوان عنصر مرکزی هویت ایرانی.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>تأسیس دودمانی قوی که بیش از یک قرن حکومت کرد.</li>
+                            <li>تلاش برای حفظ استقلال ایران در برابر امپریالیسم اروپایی.</li>
+                            <li>پایه‌گذاری مدرنیزاسیون دولت ایرانی.</li>
+                            <li>کمک به ظهور ملی‌گرایی ایرانی و انقلاب مشروطه.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">
+                    <p>بخش 3: دوران مدرن (1925-تا کنون)</p>
+                </div>
+
+            <!-- Pahlavi Dynasty -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">سلسله پهلوی</div>
+                    <div class="date">1925-1979 CE</div>
+
+                    <div class="rulers">
+                        <h3>حاکمان</h3>
+                        <ul>
+                            <li>رضا شاه (1925-1941)</li>
+                            <li>محمدرضا شاه (1941-1979)</li>
+                        </ul>
+                    </div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1925: تاج‌گذاری رضا شاه</li>
+                            <li>1935: تغییر نام به ایران</li>
+                            <li>1941: اشغال متفقین</li>
+                            <li>1953: عملیات آژاکس</li>
+                            <li>1963: انقلاب سفید</li>
+                            <li>1979: انقلاب ایران</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>نوسازی زیرساخت‌ها</li>
+                            <li>اصلاحات آموزشی</li>
+                            <li>توسعه صنعتی</li>
+                            <li>نوسازی نظامی</li>
+                            <li>اصلاحات در سیستم حقوقی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>غربی‌سازی</li>
+                            <li>سیستم آموزشی مدرن</li>
+                            <li>پیشرفت حقوق زنان</li>
+                            <li>حکومت سکولار</li>
+                            <li>توسعه جامعه صنعتی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>زیرساخت‌های مدرن</li>
+                            <li>مؤسسات آموزشی</li>
+                            <li>پایه صنعتی</li>
+                            <li>سازمان های نظامی</li>
+                            <li>چارچوب قانونی</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Islamic Republic of Iran -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="period">جمهوری اسلامی ایران</div>
+                    <div class="date">1979-الان</div>
+
+                    <div class="events">
+                        <h3>رویدادهای کلیدی</h3>
+                        <ul>
+                            <li>1979: انقلاب اسلامی</li>
+                            <li>1980-1988: جنگ ایران و عراق</li>
+                            <li>1989: درگذشت آیت‌الله خمینی</li>
+                            <li>1997-2005: جنبش اصلاحات</li>
+                            <li>2015: توافق هسته‌ای</li>
+                            <li>2018: خروج ایالات متحده از توافق هسته‌ای</li>
+                            <li>2024: نابودی نیروهای نیابتی جمهوری اسلامی</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>دستاوردهای عمده</h3>
+                        <ul>
+                            <li>توسعه فناوری هسته‌ای</li>
+                            <li>پیشرفت برنامه فضایی</li>
+                            <li>صنعت نظامی خودکفا</li>
+                            <li>گسترش آموزش</li>
+                            <li>توسعه تحقیقات علمی</li>
+                        </ul>
+                    </div>
+
+                    <div class="cultural-impact">
+                        <h3>تأثیرات فرهنگی</h3>
+                        <ul>
+                            <li>مدل حکمرانی اسلامی</li>
+                            <li>سیستم آموزش دینی</li>
+                            <li>بازتعریف نقش زنان</li>
+                            <li>تأکید بر استقلال فرهنگی</li>
+                            <li>تمرکز بر پیشرفت علمی</li>
+                        </ul>
+                    </div>
+
+                    <div class="legacy">
+                        <h3>میراث</h3>
+                        <ul>
+                            <li>درد برای مردم</li>
+                        </ul>
+                    </div>
+                    <div class="supplementary-info">
+                        <h3>نکات آکادمیک و اطلاعات تکمیلی</h3>
+                    
+                        <p>این تایملاین تلاش کرده است دوره‌های تاریخی و تأثیرات مهم سیاسی، فرهنگی و مذهبی در تاریخ ایران پس از اسلام را با بهره‌گیری از منابع معتبر ارائه دهد. این نمایش فشرده از تاریخ، با وجود جامعیت، نمی‌تواند پیچیدگی‌های کامل تحولات تاریخی ایران را دربر گیرد. برای پژوهشگران و دانشجویان، توجه به نکات زیر درک عمیق‌تری از این موضوعات به‌دست می‌دهد.</p>
+                    
+                        <div class="methodological-considerations">
+                            <h4>دیسکلیمر و ملاحظات روش‌شناسی</h4>
+                            <p>این تایملاین بر اساس ترکیبی از منابع دست‌اول و پژوهش‌های جدید تهیه شده است. با این حال، ماهیت برخی از منابع تاریخی و رویدادهای پیچیده، می‌تواند به برداشت‌های مختلفی منجر شود. توجه به این نکته ضروری است که دوره‌های تاریخی و اطلاعات به نمایش درآمده ممکن است از نظر برخی پژوهشگران جای بازبینی داشته باشد. خوانندگان توصیه می‌شوند برای درک کامل‌تر، به منابع تخصصی و متعدد دیگر نیز مراجعه کنند.</p>
+                        </div>
+                    
+                        <div class="historical-complexities">
+                            <h4>۱. تقسیم‌بندی‌های زمانی و درک تحولات داخلی</h4>
+                            <p>تقسیم‌بندی این تایملاین به دوره‌های «میان‌سالی»، «مدرن اولیه» و «مدرن» بیشتر از سنت‌های تاریخ‌نگاری غربی الگو گرفته است و ممکن است کاملاً با تحولات داخلی ایران سازگار نباشد. در برخی موارد، معیارهای محلی مانند ظهور تشیع در دوران صفویه و تثبیت نفوذ فرهنگی ایرانی می‌تواند نشان‌دهنده‌ی شروع یا پایان دوره‌ای باشد که با مفاهیم دوره‌بندی غربی هماهنگ نیست. به عنوان مثال، عبور از خلافت اموی و عباسی به سلسله‌های ایرانی مانند طاهریان و صفاریان، یک نقطه عطف داخلی است که نمی‌توان آن را صرفاً بر اساس تغییرات حکومت مرکزی اسلامی طبقه‌بندی کرد.</p>
+                    
+                            <h4>۲. منابع و تاریخ‌نگاری: محدودیت‌ها و پیچیدگی‌ها</h4>
+                            <p>بسیاری از منابع اولیه دوره اسلامی، به ویژه آن‌هایی که توسط مورخان درباری ثبت شده‌اند، ممکن است وقایع را به گونه‌ای ایدئولوژیک یا با تمجید از حکام ارائه دهند. این منابع گاهی با تحریف و بزرگ‌نمایی مواجه‌اند و حتی در مواردی روایت‌های متفاوتی از یک رویداد ارائه می‌دهند. از طرف دیگر، یافته‌های باستان‌شناسی اخیر در برخی موارد با اسناد مکتوب همخوانی ندارند و درک جدیدتری از دوران‌های تاریخی ارائه کرده‌اند. به‌طور مثال، برخی از یافته‌های اخیر نشان داده‌اند که تأثیرات فرهنگی ایران بر عباسیان بسیار بیشتر از چیزی بوده که متون قدیمی منعکس کرده‌اند.</p>
+                    
+                            <h4>۳. پیچیدگی‌های ساختار سیاسی و فرهنگی</h4>
+                            <p>حاکمیت و مفهوم قدرت مرکزی در دوره‌های مختلف ایران به شدت متغیر بوده و برخی قدرت‌های محلی، مانند بویهیان و سامانیان، به‌صورت نیمه‌مستقل عمل می‌کردند. افزون بر این، «همگرایی فارسی-اسلامی» که به ظهور یک فرهنگ مشترک اشاره دارد، به‌تدریج و با گذشت قرن‌ها شکل گرفت و شامل تأثیرات فرهنگی ترکی، عربی، و مغولی نیز می‌شود. این تعاملات فرهنگی و سیاسی به ویژه در هنر، ادبیات، و معماری نمایان است و ایران را به محوری از تمدن‌های اسلامی-ایرانی تبدیل کرده است.</p>
+                            
+                            <h4>۴. تمایزات مذهبی: تحولات شیعه و سنی در ایران</h4>
+                            <p>در دوره‌های اولیه اسلامی، تمایزات شیعه و سنی به وضوح امروز نبود و مرزهای مذهبی در این دوره‌ها به شدت متغیر بودند. با تأسیس سلسله صفویه، شیعه‌گری به عنوان مذهب رسمی کشور معرفی شد و این تحولات مذهبی به تقویت هویت شیعی ایران کمک کرد. به مرور، این تفکیک مذهبی بر روابط ایران با دیگر ممالک مسلمان و حکومت‌های همسایه نیز تأثیر گذاشت.</p>
+                    
+                            <h4>۵. ملاحظات جغرافیایی و مرزی: مفهوم «ایران» و «فارس» در طول تاریخ</h4>
+                            <p>واژه‌های «ایران» و «فارس» در طول تاریخ به مفاهیم جغرافیایی و سیاسی متفاوتی اشاره داشته‌اند. در دوره‌های مختلف، محدوده‌های جغرافیایی و مرزهای امپراتوری‌های ایرانی در حال تغییر بوده‌اند و مفهوم ایران کنونی با جغرافیای تاریخی آن هم‌خوانی ندارد. به همین دلیل، این تایملاین سعی کرده است این تفاوت‌ها را تا حد امکان منعکس کند، اما ممکن است برخی دوره‌ها به‌دلیل تغییرات مرزی، تصویری متفاوت از ساختار جغرافیایی امروز ارائه دهند.</p>
+                        </div>
+                    
+                        <div class="modern-scholarship">
+                            <h4>پژوهش‌های نوین و کشفیات جدید در باستان‌شناسی و تاریخ‌نگاری</h4>
+                    
+                            <h4>تحولات اخیر</h4>
+                            <p>در سال‌های اخیر، کشفیات باستان‌شناسی و استفاده از فناوری‌های نوین در تحلیل داده‌ها به درک بهتر از برخی از دوره‌های تاریخی ایران کمک کرده است. ابزارهای دیجیتال مانند تحلیل‌های رایانه‌ای و روش‌های میان‌رشته‌ای به شناسایی لایه‌های جدیدی از تمدن و فرهنگ ایرانی پرداخته‌اند. به عنوان مثال، کشفیات اخیر در خراسان و سیستان نمایانگر تأثیرات فرهنگی این مناطق در دوران سامانی و غزنوی است که با اطلاعات متون قدیمی سازگار نبوده است.</p>
+                    
+                            <h4>زمینه‌های مورد بحث در تاریخ‌نگاری معاصر</h4>
+                            <p>موضوعات مختلفی از جمله رابطه دین و سیاست، میزان نفوذ فرهنگی و سیاسی سلسله‌ها و مفهوم هویت ایرانی در دوران‌های مختلف همچنان از زمینه‌های فعال در پژوهش‌های معاصر است. همچنین، تأثیر حملات خارجی مانند حملات مغول و تیمور بر ساختارهای فرهنگی و اجتماعی ایران، و ادغام فرهنگ ایرانی با سنت‌های اسلامی، از مواردی است که توجه پژوهشگران بسیاری را به خود جلب کرده است.</p>
+                        </div>
+                    
+                        <div class="student-considerations">
+                            <h4>توصیه برای پژوهشگران و دانشجویان</h4>
+                            <p>برای دست‌یابی به درک جامع‌تر از تاریخ ایران، پیشنهاد می‌شود به منابع تخصصی مانند مجموعه‌ی <em>Cambridge History of Iran</em>، مقالات علمی در مجلات معتبر نظیر <em>Iranian Studies</em>، و آثار محققین برجسته در حوزه تاریخ ایران مراجعه شود. علاوه بر این، دانشجویان باید از محدودیت‌های موجود در رویکردهای دوره‌بندی سلسله‌محور آگاه باشند و در تحلیل تاریخ ایران، تأثیرات فرهنگی، اجتماعی و سیاسی هر دوره را در نظر بگیرند.</p>
+                        </div>
+                    
+                        <div class="note">
+                            <p>این نکات و توضیحات تکمیلی به عنوان بخشی از تلاش برای ارائه‌ی دیدگاهی دقیق‌تر از تاریخ ایران مطرح شده‌اند و خود در بستر تحولات تاریخی و پژوهشی در حال تغییر هستند. به دلیل پیشرفت‌های باستان‌شناسی و رویکردهای نوین تحقیقاتی، برداشت‌های کنونی ممکن است با گذر زمان و یافته‌های جدید اصلاح یا تکمیل شوند.</p>
+                        </div>
+                    </div>
+                    
+                <!-- Sources Section -->
+<div class="sources">
+    <h3>منابع و ابزارهای استفاده‌شده</h3>
+    <ul>
+        <li>بیش از ۵۰ مقاله علمی، کتاب، مجله و محتوای قابل استناد</li>
+        <li>ChatGPT 4o</li>
+        <li>Claude 3.5 Sonnet</li>
+        <li>Google NoteBookLM</li>
+    </ul>
+</div>
+
+<!-- Copyright Notice -->
+<div class="copyright">
+    &copy; این محتوا توسط عرفان کریمی گردآوری شده است. تمامی حقوق محفوظ است. هیچ بخشی از این مجموعه بدون اجازه قابل استفاده نیست.
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add animation classes to elements
+        document.querySelectorAll('.timeline-content').forEach((item, index) => {
+            if (index % 3 === 0) {
+                item.classList.add('fade-in');
+            } else if (index % 3 === 1) {
+                item.classList.add('slide-in-left');
+            } else {
+                item.classList.add('slide-in-right');
+            }
+            
+            // Add delay classes for staggered animation
+            item.classList.add(`delay-${index % 3 + 1}`);
+        });
+    
+        document.querySelectorAll('.achievements').forEach(item => {
+            item.classList.add('scale-in');
+        });
+    
+        document.querySelectorAll('.cultural-impact').forEach(item => {
+            item.classList.add('slide-in-left');
+        });
+    
+        document.querySelectorAll('.legacy').forEach(item => {
+            item.classList.add('slide-in-right');
+        });
+    
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Unobserve after animation
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Optional: Remove active class when element is out of view
+                    // entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+    
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+    
+        // Smooth scroll handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+    </script>
+</html>
