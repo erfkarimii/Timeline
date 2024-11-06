@@ -84,7 +84,14 @@ body {
     line-height: 1.6;
     padding: 40px 20px;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #171718; /* Darken the background */
+            color: #E0E0E0; /* Light text */
+        }
 
 .container {
     max-width: 800px;
@@ -171,6 +178,10 @@ body {
     backface-visibility: hidden;
 }
 
+.timeline-content.dark-mode {
+            background: #242426; /* Darken the timeline content */
+        }
+
 .timeline-content:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -186,8 +197,13 @@ body {
 
 }
 
+/* Dark mode for period element */
+.period.dark-mode {
+    color: #6d56ff; /* Lighter color for dark mode */
+}
+
 .timeline-content:hover .period {
-    color: #3727A1;
+    color: #4f34fe;
 }
 
 .date {
@@ -227,6 +243,12 @@ body {
     margin-bottom: 8px;
 }
 
+/* Dark mode for rulers section header */
+.rulers h3.dark-mode {
+    color: #6d56ff; /* Lighter or adjusted color for dark mode */
+}
+
+
 .rulers ul {
     list-style-type: none;
     padding-right: 0; /* Changed to padding-right for RTL */
@@ -243,6 +265,7 @@ body {
 .rulers li:hover {
     transform: translateX(-5px); /* Adjust direction of hover effect */
     padding-right: 5px; /* Adjust padding for RTL */
+    font-weight: 700;
 }
 
 .rulers h3::before {
@@ -265,6 +288,11 @@ body {
     margin-bottom: 10px;
     color: #2C1F82;
     text-align: right; /* Align text to the right */
+}
+
+/* Dark mode for events section header */
+.events h3.dark-mode {
+    color: #6d56ff; /* Lighter color for dark mode */
 }
 
 .events h3::before {
@@ -292,6 +320,7 @@ body {
 .events li:hover {
     transform: translateX(-5px); /* Adjust direction of hover effect */
     padding-right: 25px; /* Adjust padding for RTL */
+    font-weight: 700;
 }
 
 .events li::before {
@@ -310,6 +339,12 @@ body {
     position: relative;
     overflow: hidden;
     direction: rtl; /* Set direction to right-to-left */
+}
+
+/* Dark mode for achievements */
+.achievements.dark-mode {
+    background: #26231A; /* Darken pastel background */
+    color: #E0E0E0; /* Light text color */
 }
 
 .achievements:hover {
@@ -332,6 +367,11 @@ body {
     color: #ffb700;
 }
 
+/* Dark mode for the Font Awesome icon */
+.achievements.dark-mode h3::before {
+    color: #ffb700; /* Adjusted yellow icon color for dark mode */
+}
+
 .achievements ul {
     list-style-type: none;
 }
@@ -346,9 +386,20 @@ body {
     cursor: pointer;
 }
 
+/* Dark mode for achievements list item */
+.achievements.dark-mode li {
+    color: #e8d094; /* Light text for dark mode */
+}
+
 .achievements li:hover {
     transform: translateX(-5px); /* Change direction of hover effect */
     padding-right: 25px; /* Change padding for RTL */
+    font-weight: 700;
+}
+
+/* Dark mode hover effect for achievements list item */
+.achievements.dark-mode li:hover {
+    color: #ffb700; /* Change text color on hover for dark mode */
 }
 
 .achievements li::before {
@@ -356,6 +407,11 @@ body {
     position: absolute;
     right: 0; /* Change to right for RTL positioning */
     color: #710000;
+}
+
+/* Dark mode for the symbol (before content) in achievements list item */
+.achievements.dark-mode li::before {
+    color: #ffb700; /* Lighter color for dark mode */
 }
 
 .header {
@@ -381,6 +437,11 @@ body {
     text-align: center; /* Center alignment */
 }
 
+/* Dark mode for header h1 */
+.header h1.dark-mode {
+    color: #6d56ff; /* Change color for dark mode (lighter purple) */
+}
+
 /* Keyframes for modern slideIn animation */
 @keyframes slideIn {
     0% {
@@ -395,9 +456,17 @@ body {
 
 
 .header p {
-    font-size: 35px;
-    font-weight: 700;
+    font-size: 45px;
+    font-weight: 800;
     color: #4B35DB;
+    margin-top: 300px;
+    margin-bottom: 300px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode for header p */
+.header p.dark-mode {
+    color: #6d56ff; /* Lighter color for dark mode */
 }
 
 .cultural-impact {
@@ -409,6 +478,11 @@ body {
     position: relative;
     overflow: hidden;
     direction: rtl; /* Set direction to right-to-left */
+}
+
+/* Dark mode for cultural impact card */
+.cultural-impact.dark-mode {
+    background: #1a2723; /* Dark background for dark mode */
 }
 
 .cultural-impact:hover {
@@ -423,6 +497,12 @@ body {
     text-align: right; /* Align text to the right */
 }
 
+/* Dark mode title (h3) */
+.cultural-impact.dark-mode h3 {
+    color: #16db65; /* Lighter green for dark mode */
+}
+
+
 .cultural-impact h3::before {
     content: "\f0ac";
     font-family: "Font Awesome 5 Free";
@@ -430,6 +510,12 @@ body {
     margin-left: 8px; /* Change to margin-left for RTL */
     color: #16db65;
 }
+
+/* Dark mode for Font Awesome icon */
+.cultural-impact.dark-mode h3::before {
+    color: #16db65; /* Lighter green for dark mode */
+}
+
 
 .cultural-impact ul {
     list-style-type: none;
@@ -445,16 +531,33 @@ body {
     cursor: pointer;
 }
 
+/* Dark mode for list items */
+.cultural-impact.dark-mode li {
+    color: #bdc3c7; /* Light grey for text in dark mode */
+}
+
+
 .cultural-impact li:hover {
     transform: translateX(-5px); /* Change direction of hover effect */
     padding-right: 25px; /* Change padding for RTL */
+    font-weight: 700;
 }
+
+/* Dark mode hover effect for list items */
+.cultural-impact.dark-mode li:hover {
+    color: #16db65; /* Light green hover effect in dark mode */
+}
+
 
 .cultural-impact li::before {
     content: "✦";
     position: absolute;
     right: 0; /* Change to right for RTL positioning */
     color: #0f582c;
+}
+
+.cultural-impact.dark-mode li::before {
+    color: #16db65; /* Light green color for the star symbol in dark mode */
 }
 
 .legacy {
@@ -468,8 +571,18 @@ body {
     direction: rtl; /* Set direction to right-to-left */
 }
 
+/* Dark mode for legacy card */
+.legacy.dark-mode {
+    background: #1A1B26; /* Dark background for dark mode */
+}
+
 .legacy:hover {
     transform: translateX(-10px); /* Change direction of hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode hover effect for legacy card */
+.legacy.dark-mode:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -480,12 +593,22 @@ body {
     text-align: right; /* Align text to the right */
 }
 
+/* Dark mode title (h3) */
+.legacy.dark-mode h3 {
+    color: #6970f3; /* Lighter purple for dark mode */
+}
+
 .legacy h3::before {
     content: "\f66f";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-left: 8px; /* Change to margin-left for RTL */
     color: #4B35DB;
+}
+
+/* Dark mode for Font Awesome icon */
+.legacy.dark-mode h3::before {
+    color: #6970f3; /* Lighter purple for dark mode */
 }
 
 .legacy ul {
@@ -502,9 +625,20 @@ body {
     cursor: pointer;
 }
 
+/* Dark mode for list items */
+.legacy.dark-mode li {
+    color: #c0c2ef; /* Light grey for text in dark mode */
+}
+
 .legacy li:hover {
     transform: translateX(-5px); /* Change direction of hover effect */
     padding-right: 25px; /* Change padding for RTL */
+    font-weight: 700;
+}
+
+/* Dark mode hover effect for list items */
+.legacy.dark-mode li:hover {
+    color: #6970f3; /* Light purple hover effect in dark mode */
 }
 
 .legacy li::before {
@@ -512,6 +646,12 @@ body {
     position: absolute;
     right: 0; /* Change to right for RTL positioning */
     color: #3727A1;
+}
+
+
+/* Dark mode for list item symbol */
+.legacy.dark-mode li::before {
+    color: #6970f3; /* Light purple color for the star symbol in dark mode */
 }
 
 .notable-figures {
@@ -525,8 +665,18 @@ body {
     direction: rtl; /* تنظیم جهت راست به چپ */
 }
 
+/* Dark mode for notable figures card */
+.notable-figures.dark-mode {
+    background: #261A1B; /* Dark background for dark mode */
+}
+
 .notable-figures:hover {
     transform: translateX(-10px); /* تغییر جهت اثر هاور */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode hover effect for notable figures */
+.notable-figures.dark-mode:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -537,6 +687,11 @@ body {
     text-align: right; /* تراز راست متن */
 }
 
+/* Dark mode title (h3) */
+.notable-figures.dark-mode h3 {
+    color: #ff306e; /* Lighter red for dark mode */
+}
+
 .notable-figures h3::before {
     content: "\f007"; /* یک آیکون جدید از Font Awesome */
     font-family: "Font Awesome 5 Free";
@@ -544,6 +699,12 @@ body {
     margin-left: 8px; /* تغییر به margin-left برای RTL */
     color: #ff0a54;
 }
+
+/* Dark mode for Font Awesome icon */
+.notable-figures.dark-mode h3::before {
+    color: #ff306e; /* Lighter red icon in dark mode */
+}
+
 
 .notable-figures ul {
     list-style-type: none;
@@ -559,9 +720,20 @@ body {
     cursor: pointer;
 }
 
+/* Dark mode for list items */
+.notable-figures.dark-mode li {
+    color: #c7afb0; /* Light grey text for dark mode */
+}
+
 .notable-figures li:hover {
     transform: translateX(-5px); /* تغییر جهت اثر هاور */
     padding-right: 25px; /* تنظیم padding برای RTL */
+    font-weight: 700;
+}
+
+/* Dark mode hover effect for list items */
+.notable-figures.dark-mode li:hover {
+    color: #ff306e; /* Light red hover effect in dark mode */
 }
 
 .notable-figures li::before {
@@ -569,6 +741,11 @@ body {
     position: absolute;
     right: 0; /* موقعیت به سمت راست برای RTL */
     color: #800f2f;
+}
+
+/* Dark mode for list item symbol */
+.notable-figures.dark-mode li::before {
+    color: #ff306e; /* Light red color for the star symbol in dark mode */
 }
 
 
@@ -664,6 +841,17 @@ html {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
+
+/* Dark mode specific styles for glassy effect */
+body.dark-mode .achievements, 
+body.dark-mode .cultural-impact, 
+body.dark-mode .legacy, 
+body.dark-mode .notable-figures {
+    border: 2px solid rgba(255, 255, 255, 0.025); /* Lighter border in dark mode */
+    backdrop-filter: blur(10px); /* Maintain frosted glass effect */
+    box-shadow: 0 2px 35px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
+}
+
 
 /* Slight lift on hover for interactivity */
 .timeline-content:hover, .achievements:hover, .cultural-impact:hover, .legacy:hover, .notable-figures:hover, .supplementary-info:hover {
@@ -811,12 +999,101 @@ html {
     border-top: 1px solid #e0e0e0;
     margin-top: 30px;
 }
+       
+/* Button styles */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px; /* Button size */
+    height: 50px; /* Button size */
+    background-color: #3a3a3a; /* Darker button background */
+    color: #ffffff; /* Button text color */
+    border: none;
+    border-radius: 50%; /* Make it round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 24px; /* Icon size */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode button style */
+.dark-mode-toggle.dark-mode {
+    background-color: #2c3e50; /* Dark background for dark mode */
+}
+
+/* Dark mode button hover effect */
+.dark-mode-toggle:hover {
+    background-color: #575757; /* Dark button on hover */
+}
+
+/* Initially hide the sun icon */
+.dark-mode-toggle .icon-sun {
+    display: none;
+}
+
+/* Initially show the moon icon */
+.dark-mode-toggle .icon-moon {
+    display: block;
+}
+
+/* Dark mode: Show sun icon and hide moon */
+.dark-mode-toggle.dark-mode .icon-sun {
+    display: block;
+}
+
+.dark-mode-toggle.dark-mode .icon-moon {
+    display: none;
+}
+
+
+        /* Content box styling */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* Light background for content */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .content.dark-mode {
+            background-color: #383838; /* Darker content background in dark mode */
+        }
+
+        /* Links */
+        a {
+            color: #007bff; /* Light blue links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Headers */
+        h1, h2, h3 {
+            font-weight: bold;
+        }
 
 
 }
     </style>
 </head>
 <body>
+<!-- Button to toggle dark mode -->
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <!-- Moon icon for light mode -->
+    <span class="icon-moon fas fa-moon"></span> <!-- Font Awesome Moon icon -->
+    
+    <!-- Sun icon for dark mode -->
+    <span class="icon-sun fas fa-sun"></span> <!-- Font Awesome Sun icon -->
+</button>
+
     <div class="container">
         <div class="header">
             <h1>تایملاین تاریخی ایران پس از اسلام</h1>
@@ -829,7 +1106,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">خلافت راشدین</div>
-        <div class="date">633-651 میلادی</div>
+        <div class="date">633-651</div>
         
         <div class="rulers">
             <h3>حاکمان</h3>
@@ -899,7 +1176,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">خلافت اموی</div>
-        <div class="date">661-750 میلادی</div>
+        <div class="date">661-750</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -958,10 +1235,10 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>حجاج بن یوسف - والی خون‌ریز عراق و خراسان، که سیاست سرکوب و کنترل شدید ایرانیان را پیش برد.</li>
-                <li>ابومسلم خراسانی - رهبر جنبش مقاومت علیه امویان، که در ایجاد احساس استقلال و ملی‌گرایی در میان ایرانیان تأثیرگذار بود.</li>
-                <li>فیروز - دهقان ایرانی که در قتل عمر بن خطاب نقش داشت و به عنوان یک نماد مقاومت شناخته می‌شود.</li>
-                <li>دادویه مرزبان - از دبیران ایرانی که در حفظ و تداوم سنت‌های دیوانی و اداری در دوران امویان تلاش کرد.</li>
+                <li>حجاج بن یوسف - والی قدرتمند عراق و خراسان در دوره اموی، که تأثیر عمیقی بر سیاست و فرهنگ ایران گذاشت.</li>
+                <li>عبدالرحمن بن اشعث - والی سیستان که قیام مهمی علیه حجاج رهبری کرد و بسیاری از ایرانیان به او پیوستند.</li>
+                <li>یزید بن مهلب - والی خراسان که روابط نزدیکی با ایرانیان داشت و در گسترش فرهنگ اسلامی-ایرانی نقش داشت.</li>
+                <li>قتیبه بن مسلم - فاتح ماوراءالنهر که در گسترش اسلام در شرق ایران نقش مهمی داشت.</li>
             </ul>
         </div>        
     </div>
@@ -972,7 +1249,7 @@ html {
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="period">خلافت عباسی</div>
-                    <div class="date">750-1258 CE</div>
+                    <div class="date">750-1258</div>
 
                     <div class="rulers">
                         <h3>حاکمان اصلی</h3>
@@ -1033,11 +1310,11 @@ html {
                     <div class="notable-figures">
                         <h3>شخصیت‌های برجسته</h3>
                         <ul>
-                            <li>ابومسلم خراسانی - رهبر انقلاب عباسی و مؤثر در تأسیس خلافت عباسی.</li>
-                            <li>برمکیان - خاندان وزرای ایرانی در دربار عباسی، که نقش مهمی در فرهنگ و سیاست آن دوره داشتند.</li>
-                            <li>خواجه نظام‌الملک - وزیر و بنیان‌گذار نظامیه‌ها، که در ترویج علم و ادب در دوران سلجوقی نیز تأثیرگذار بود.</li>
-                            <li>الخوارزمی - ریاضیدان و منجم برجسته که در توسعه علم ریاضی و نجوم نقش مهمی داشت.</li>
-                            <li>جابر بن حیان - پدر علم شیمی، که به خاطر کارهایش در شیمی و علوم طبیعی مشهور است.</li>
+                            <li>ابومسلم خراسانی - سردار ایرانی که نقش کلیدی در پیروزی انقلاب عباسی و تأسیس این خلافت داشت.</li>
+                            <li>خاندان برمکی - وزرای ایرانی دربار هارون‌الرشید که در شکوفایی علمی و فرهنگی عصر طلایی اسلام نقش اساسی داشتند.</li>
+                            <li>خوارزمی - دانشمند برجسته ایرانی که پایه‌گذار علم جبر و پیشرو در ریاضیات و نجوم بود.</li>
+                            <li>فضل بن سهل - وزیر مأمون عباسی که در گسترش نهضت ترجمه و علوم عقلی نقش مهمی داشت.</li>
+                            <li>طاهر ذوالیمینین - بنیانگذار سلسله طاهریان و اولین حاکم نیمه‌مستقل ایرانی در دوره عباسی.</li>
                         </ul>
                     </div>                    
                 </div>
@@ -1047,7 +1324,7 @@ html {
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="period">سلسله طاهریان</div>
-                    <div class="date">821-873 CE</div>
+                    <div class="date">821-873</div>
             
                     <div class="rulers">
                         <h3>حاکمان اصلی</h3>
@@ -1108,11 +1385,10 @@ html {
                     <div class="notable-figures">
                         <h3>شخصیت‌های برجسته</h3>
                         <ul>
-                            <li>طاهربن حسین - بنیان‌گذار سلسله طاهریان و یکی از حاکمان مؤثر در خراسان.</li>
-                            <li>ابن طاهر - پسر طاهربن حسین و جانشین او که در تثبیت قدرت طاهریان نقش داشت.</li>
-                            <li>ابن سینا - دانشمند و فیلسوف بزرگ که در این دوره به فعالیت‌های علمی و فلسفی پرداخت.</li>
-                            <li>فضل‌الله بن محمد - شاعر و نویسنده مشهور این دوران.</li>
-                            <li>مشایخ طاهری - عالمان و روحانیونی که در ترویج فرهنگ و دین در این دوره مؤثر بودند.</li>
+                            <li>طاهر ذوالیمینین - بنیانگذار سلسله طاهریان که با درایت نظامی و سیاسی توانست اولین حکومت نیمه‌مستقل ایرانی را پایه‌گذاری کند.</li>
+                            <li>عبدالله بن طاهر - مهمترین امیر طاهری که دوره او اوج شکوفایی این سلسله بود و در حمایت از شعر و ادب فارسی نقش مهمی داشت.</li>
+                            <li>طاهر بن عبدالله - سومین امیر طاهری که در گسترش فرهنگ و تمدن ایرانی-اسلامی در خراسان کوشید.</li>
+                            <li>محمد بن طاهر - آخرین امیر طاهری که در زمان او این سلسله توسط یعقوب لیث منقرض شد.</li>
                         </ul>
                     </div>                                     
                 </div>
@@ -1122,7 +1398,7 @@ html {
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="period">سلسله صفاریان</div>
-                    <div class="date">861-1003 CE</div>
+                    <div class="date">861-1003</div>
             
                     <div class="rulers">
                         <h3>حاکمان اصلی</h3>
@@ -1182,11 +1458,10 @@ html {
                     <div class="notable-figures">
                         <h3>شخصیت‌های برجسته</h3>
                         <ul>
-                            <li>محمد بن وصیف: شاعر دربار صفاری که با اشعارش به ترویج فرهنگ و ادب در دوره صفاری کمک کرده و به عنوان یکی از نمایندگان ادبیات فارسی شناخته می‌شود.</li>
-                            <li>صالح بن نصر: سردار نظامی که در دوران صفاری نقش مهمی در گسترش قدرت نظامی و سیاسی خاندان صفاری ایفا کرد و به خاطر شجاعت و مهارت‌های نظامی‌اش مشهور است.</li>
-                            <li>علی بن لیث: برادر یعقوب لیث، بنیان‌گذار دولت صفاری که به خاطر نقش خود در تثبیت و گسترش قدرت خاندان صفاری شناخته می‌شود.</li>
-                            <li>ابراهیم بن احمد: وزیر دربار که به عنوان مشاور و همراه نزدیک یعقوب لیث شناخته می‌شود و در زمینه مدیریت و اداره امور کشور تأثیرگذار بود.</li>
-                            <li>احمد بن خلف: دانشمند و ادیب معروف که آثارش در زمینه‌های مختلف علمی و ادبی از اهمیت بالایی برخوردار است و به خاطر دانش گسترده‌اش مشهور است.</li>
+                            <li>یعقوب لیث صفاری - بنیانگذار سلسله صفاری که برای اولین بار پس از اسلام، زبان فارسی را به عنوان زبان رسمی دربار برگزید.</li>
+                            <li>عمرو لیث - برادر و جانشین یعقوب که در گسترش قلمرو صفاریان و حمایت از فرهنگ ایرانی نقش مهمی داشت.</li>
+                            <li>محمد بن وصیف سیستانی - اولین شاعر پارسی‌گوی دربار صفاری که شعر فارسی را در دربار رواج داد.</li>
+                            <li>علی بن لیث - برادر یعقوب که در شکل‌گیری و تثبیت حکومت صفاری نقش داشت.</li>
                         </ul>
                     </div>                    
                 </div>
@@ -1196,7 +1471,7 @@ html {
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="period">سلسله سامانیان</div>
-                    <div class="date">819-999 CE</div>
+                    <div class="date">819-999</div>
             
                     <div class="rulers">
                         <h3>حاکمان اصلی</h3>
@@ -1257,11 +1532,11 @@ html {
                     <div class="notable-figures">
                         <h3>شخصیت‌های برجسته</h3>
                         <ul>
-                            <li>رودکی: پدر شعر فارسی، شاعر بزرگ که با اشعارش تأثیر عمیقی بر ادبیات فارسی گذاشت و به خاطر نوآوری‌هایش در شکل و محتوا شناخته می‌شود.</li>
-                            <li>ابن سینا: دانشمند و فیلسوف برجسته که به عنوان یکی از بزرگ‌ترین متفکران تاریخ علم شناخته می‌شود و آثارش در زمینه‌های پزشکی، فلسفه و ریاضیات تأثیرگذار بوده‌اند.</li>
-                            <li>فردوسی: سراینده شاهنامه، بزرگ‌ترین اثر حماسی فارسی که تاریخ و فرهنگ ایران را در قالب شعر روایت می‌کند و به عنوان یکی از برجسته‌ترین شاعران تاریخ شناخته می‌شود.</li>
-                            <li>بلعمی: مورخ و وزیر که آثارش در زمینه تاریخ‌نگاری و نوشتار ادبی از اهمیت ویژه‌ای برخوردار است و به خاطر توانایی‌اش در روایت داستان‌های تاریخی شناخته می‌شود.</li>
-                            <li>دقیقی: شاعر دربار که با اشعارش به تاریخ و فرهنگ ایران پرداخته و به خاطر تأثیرش بر شعر فارسی معروف است.</li>
+                            <li>امیر اسماعیل سامانی - مؤسس واقعی دولت سامانی که در ایجاد رنسانس فرهنگی ایرانی نقش اساسی داشت.</li>
+                            <li>امیر نصر دوم سامانی - در دوره او دربار سامانی به مرکز مهم فرهنگی و ادبی تبدیل شد.</li>
+                            <li>رودکی - پدر شعر فارسی و شاعر دربار سامانی که پایه‌گذار سبک خراسانی در شعر فارسی شد.</li>
+                            <li>ابوعلی بلعمی - وزیر دانشمند سامانی که با ترجمه تاریخ طبری به فارسی، اولین تاریخ‌نگاری رسمی به زبان فارسی را بنیان نهاد.</li>
+                            <li>دقیقی - شاعر برجسته که آغازگر سرودن شاهنامه بود و در احیای داستان‌های ملی ایران نقش داشت.</li>
                         </ul>
                     </div>                    
                 </div>
@@ -1271,7 +1546,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله غزنویان</div>
-        <div class="date">977-1186 CE</div>
+        <div class="date">977-1186</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1330,11 +1605,11 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>فردوسی: سراینده شاهنامه، بزرگ‌ترین اثر حماسی فارسی که تاریخ و فرهنگ ایران را در قالب شعر روایت می‌کند و به عنوان یکی از برجسته‌ترین شاعران تاریخ شناخته می‌شود.</li>
-                <li>عنصری: ملک‌الشعرای دربار محمود غزنوی و شاعری با آثار ارزشمند در زمینه شعر فارسی که تأثیر زیادی بر شعر کلاسیک ایران داشته است.</li>
-                <li>بیرونی: دانشمند و هند‌شناس برجسته که آثارش در زمینه‌های مختلف علمی از جمله ریاضیات، نجوم و جغرافیا شهرت دارد و به عنوان یکی از بزرگ‌ترین متفکران تاریخ علم شناخته می‌شود.</li>
-                <li>فرخی سیستانی: شاعر دربار که آثارش به خاطر زیبایی و عمق معنا در ادبیات فارسی معروف است و در تاریخ ادبیات ایران جایگاه ویژه‌ای دارد.</li>
-                <li>منوچهری دامغانی: شاعر طبیعت‌گرا که با توصیف‌های زیبا از طبیعت و زندگی روزمره به خاطر شعرهایش مشهور است و تأثیرات زیادی بر شاعران بعدی داشته است.</li>
+                <li>سلطان محمود غزنوی - مقتدرترین پادشاه غزنوی که دربارش مرکز مهم فرهنگی و علمی بود و از شاعران و دانشمندان حمایت می‌کرد.</li>
+                <li>فردوسی - شاعر حماسه‌سرای بزرگ ایران و سراینده شاهنامه که در احیای زبان و فرهنگ ایران نقش بی‌بدیلی داشت.</li>
+                <li>ابوریحان بیرونی - دانشمند جامع‌الاطراف که در ریاضیات، نجوم، تاریخ و مردم‌شناسی آثار مهمی پدید آورد.</li>
+                <li>عنصری - ملک‌الشعرای دربار محمود و پایه‌گذار سبک مدح در شعر فارسی.</li>
+                <li>فرخی سیستانی - از بزرگترین قصیده‌سرایان فارسی که در توصیف و مدح سرآمد بود.</li>
             </ul>
         </div>        
     </div>
@@ -1344,7 +1619,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله سلجوقیان</div>
-        <div class="date">1037-1194 CE</div>
+        <div class="date">1037-1194</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1408,11 +1683,11 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>خواجه نظام‌الملک: وزیر و سیاستمدار برجسته که بنیان‌گذار نظامیه‌ها (نهادهای آموزشی) و مؤسس نظام آموزشی در ایران بود و نقش مهمی در گسترش علم و فرهنگ ایفا کرد.</li>
-                <li>امام محمد غزالی: فیلسوف و متکلم برجسته که آثارش در زمینه‌های فلسفه، علم کلام و اخلاق به شدت تأثیرگذار بوده و او را یکی از بزرگ‌ترین متفکران اسلامی می‌شناسند.</li>
-                <li>عمر خیام: ریاضیدان، شاعر و ستاره‌شناس معروف که به خاطر شعرهایش در «رباعیات» و همچنین کارهایش در ریاضیات و تقویم شهرت دارد.</li>
-                <li>معزی نیشابوری: شاعر دربار و یکی از نمایندگان ادبیات فارسی در آن زمان که آثارش به زیبایی و لطافت معروف است.</li>
-                <li>احمد غزالی: عارف و نویسنده که آثارش در زمینه عرفان اسلامی و فلسفه عمیق بوده و به خاطر نظراتش در خصوص زندگی معنوی شناخته می‌شود.</li>
+                <li>خواجه نظام‌الملک - وزیر مقتدر سلجوقی که با تأسیس مدارس نظامیه، نظام آموزشی نوینی در جهان اسلام پایه‌گذاری کرد.</li>
+                <li>امام محمد غزالی - متفکر بزرگ که با تألیف "احیاء علوم الدین" و دیگر آثارش، در آشتی دادن شریعت و عرفان نقش کلیدی داشت.</li>
+                <li>عمر خیام - دانشمند و شاعر چندوجهی که در ریاضیات، نجوم و شعر آثار ماندگاری از خود به جا گذاشت.</li>
+                <li>انوری - شاعر برجسته که در تکامل قصیده فارسی و مضمون‌پردازی نقش مهمی داشت.</li>
+                <li>سنایی غزنوی - شاعر و عارفی که پایه‌گذار شعر عرفانی فارسی شد و بر مولوی و عطار تأثیر عمیقی گذاشت.</li>
             </ul>
         </div>        
     </div>
@@ -1422,7 +1697,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله خوارزمشاهیان</div>
-        <div class="date">1077-1231 CE</div>
+        <div class="date">1077-1231</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1486,11 +1761,11 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>رشیدالدین وطواط: شاعر و منشی دربار که به خاطر اشعار عاشقانه و لطیفش شناخته می‌شود و نقش مهمی در فرهنگ ادبی آن زمان داشته است.</li>
-                <li>نظامی عروضی: نویسنده و پژوهشگر مشهور که اثر معروف «چهار مقاله» را به نگارش درآورده و به خاطر پژوهش‌هایش در تاریخ و ادبیات معروف است.</li>
-                <li>زمخشری: دانشمند و مفسر قرآن که آثارش در زمینه تفسیر و زبان‌شناسی تأثیر بسزایی داشته و از بزرگ‌ترین دانشمندان اسلامی به شمار می‌آید.</li>
-                <li>نجم‌الدین کبری: عارف و صوفی برجسته که تأثیرات عمیقی بر عرفان اسلامی و فلسفه داشته و به عنوان یکی از شخصیت‌های کلیدی در تاریخ تصوف شناخته می‌شود.</li>
-                <li>عمعق بخارایی: شاعر دربار و ادیب که به خاطر آثارش در شعر فارسی و ادبیات دربار شهرت یافته و از چهره‌های ادبی آن دوران محسوب می‌شود.</li>
+                <li>رشیدالدین وطواط - شاعر و نویسنده برجسته دربار خوارزمشاهی که در نثر و نظم فارسی صاحب سبک بود.</li>
+                <li>نجم‌الدین کبری - عارف بزرگ و بنیانگذار طریقت کبرویه که در حمله مغول به خوارزم به شهادت رسید.</li>
+                <li>زمخشری - عالم و مفسر بزرگ قرآن که "الکشاف" او از مهمترین تفاسیر قرآن است.</li>
+                <li>نظامی عروضی سمرقندی - نویسنده "چهار مقاله" که اطلاعات ارزشمندی درباره فرهنگ و ادب این دوره ارائه کرده است.</li>
+                <li>فخر رازی - فیلسوف و متکلم بزرگ که در تفسیر قرآن و فلسفه اسلامی آثار ماندگاری خلق کرد.</li>
             </ul>
         </div>        
     </div>
@@ -1500,7 +1775,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله اتابکان ایلدگز (ایلدگوزیان)</div>
-        <div class="date">1135-1225 CE</div>
+        <div class="date">1135-1225</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1561,11 +1836,10 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>خاقانی شروانی: شاعر معروف و برجسته که آثارش به خاطر زبان زیبا و تصاویر شاعرانه‌اش شناخته شده است و از شاعران بزرگ ادبیات فارسی به شمار می‌آید.</li>
-                <li>نظامی گنجوی: شاعر و داستان‌سرا که به خاطر آثار حماسی و داستانی‌اش، به عنوان یکی از بزرگترین شاعران فارسی‌زبان شناخته می‌شود و مثنوی‌هایی چون «خمسه» او مشهور هستند.</li>
-                <li>فلکی شروانی: شاعر و منجم که آثارش در ادبیات فارسی و نجوم اهمیت زیادی دارد و به خاطر دیدگاه‌های فلسفی‌اش شناخته شده است.</li>
-                <li>مجیرالدین بیلقانی: شاعر و ادیب که در دوران خود به خاطر نوآوری‌هایش در شعر فارسی معروف شد و آثارش نمایانگر زیبایی‌شناسی هنری آن زمان است.</li>
-                <li>عبدالمجید طبیب: پزشک و دانشمند که در زمینه‌های پزشکی و علوم طبیعی فعالیت داشته و از شخصیت‌های علمی برجسته دوره الگدرز به شمار می‌آید.</li>
+                <li>نظامی گنجوی - شاعر بزرگ و خالق خمسه که در داستان‌سرایی منظوم به اوج هنر رسید و تأثیر عمیقی بر ادبیات فارسی گذاشت.</li>
+                <li>خاقانی شروانی - شاعر نوآور و قصیده‌سرای بزرگ که در ابداع مضامین تازه و ترکیبات بدیع شهره بود.</li>
+                <li>مجیرالدین بیلقانی - شاعر برجسته دربار ایلدگزیان که در قصیده‌سرایی و مدح شهرت داشت.</li>
+                <li>فلکی شروانی - شاعر دربار که در سرودن قصاید فنی و علمی تبحر داشت.</li>
             </ul>
         </div>        
     </div>
@@ -1575,7 +1849,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">اتابکان یزد</div>
-        <div class="date">1141-1319 CE</div>
+        <div class="date">1141-1319</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1636,11 +1910,11 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>عزالدین یزدی: شاعر و ادیب مشهور که آثارش در ادبیات فارسی نمایانگر فرهنگ و هنر آن دوران است.</li>
-                <li>شرف‌الدین علی یزدی: مورخ و نویسنده‌ای برجسته که با نگارش تاریخ یزد و تأثیرات فرهنگی آن، نقش مهمی در ثبت وقایع تاریخی ایفا کرده است.</li>
-                <li>تاج‌الدین احمد وزیر: معمار و مهندس که در ساخت بناهای مهم و زیبا در یزد و تأسیس زیرساخت‌های شهری سهم بسزایی داشت.</li>
-                <li>ضیاءالدین یزدی: عالم و فقیه معتبر که در علوم دینی و فلسفه فعالیت داشت و تأثیر عمیقی بر تربیت نسل‌های آینده گذاشت.</li>
-                <li>رکن‌الدین یزدی: خوشنویس و هنرمند که آثارش در خوشنویسی به عنوان نمونه‌های بارز هنر اسلامی شناخته می‌شود و تأثیر زیادی بر هنر خوشنویسی ایرانی داشته است.</li>
+                <li>سید رکن‌الدین محمد قاضی یزد - از مهم‌ترین وزرای اتابکان یزد که نقش کلیدی در رونق فرهنگی و هنری یزد داشت و مدارس و مساجد متعددی به دستور او ساخته شد.</li>
+                <li>شرف‌الدین علی یزدی (قرن ۹ه.ق) - مورخ و نویسنده مشهور کتاب ظفرنامه و از بزرگترین نویسندگان تاریخ یزد در دوره تیموری که در دوره پایانی اتابکان می‌زیست.</li>
+                <li>علاءالدوله اتابک یزد - از حکمرانان مهم این سلسله که در گسترش معماری و هنر یزد نقش داشت و در زمان او مجموعه‌های معماری مهمی ساخته شد.</li>
+                <li>قطب‌الدین محمد - از اتابکان مهم یزد که در دوره او هنر کاشی‌کاری و معماری یزد به اوج رسید و مسجد جامع یزد در زمان او توسعه یافت.</li>
+                <li>یوسف شاه مظفری - آخرین اتابک یزد که در زمان او مدارس و کتابخانه‌های متعددی ساخته شد و نقش مهمی در گسترش علم و هنر داشت.</li>
             </ul>
         </div>        
     </div>
@@ -1650,7 +1924,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">خاندان مهربانیان</div>
-        <div class="date">1236-1601 CE</div>
+        <div class="date">1236-1601</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1711,11 +1985,10 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>شمس‌الدین علی: شاعر و نویسنده برجسته که با آثارش در ادبیات فارسی تأثیر عمیقی گذاشت و به عنوان نماینده فرهنگی این دوره شناخته می‌شود.</li>
-                <li>کمال‌الدین سیستانی: معمار و مهندس معروف که طراحی‌هایش در ساخت بناهای عمومی و مذهبی مهربانیان تأثیرگذار بود و ویژگی‌های خاصی به معماری ایرانی افزود.</li>
-                <li>نصیرالدین مهربانی: بنیان‌گذار سلسله مهربانیان و حامی هنر، که تحت حکومت او، فرهنگ و هنر شکوفا شدند و از هنرمندان حمایت شد.</li>
-                <li>سید غیاث‌الدین: مشوق صنایع دستی و هنرهای بومی که با ترویج و حمایت از صنایع دستی، به حفظ و رونق هنرهای محلی کمک کرد.</li>
-                <li>ابوالفضل سیستانی: خوشنویس و ادیب برجسته که آثارش در خوشنویسی به عنوان نمونه‌های عالی هنر اسلامی شناخته می‌شوند و تأثیر زیادی بر نسل‌های بعدی داشت.</li>
+                <li>تاج‌الدین عثمان شاه - بنیانگذار سلسله مهربانیان که در توسعه معماری و هنر سیستان نقش مهمی داشت و در زمان او چندین بنای مهم ساخته شد.</li>
+                <li>قطب‌الدین محمد مهربانی - از مهمترین حاکمان این سلسله که در دوره او هنر و معماری سیستان به اوج خود رسید و کتابخانه‌های متعددی تأسیس شد.</li>
+                <li>نظام‌الدین محمد مهربانی - آخرین حکمران مهربانی که در حفظ و گسترش هنرهای سنتی سیستان کوشید و از شاعران و هنرمندان حمایت می‌کرد.</li>
+                <li>شمس‌الدین علی سیستانی - از شاعران و نویسندگان مهم این دوره که آثارش بازتاب‌دهنده فرهنگ و هنر سیستان در عصر مهربانیان است.</li>
             </ul>
         </div>        
     </div>
@@ -1726,7 +1999,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله کورت</div>
-        <div class="date">1245-1389 CE</div>
+        <div class="date">1245-1389</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1787,12 +2060,12 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>غیاث‌الدین: حامی بزرگ ادبیات و هنر که در دوران خود نقش مهمی در رونق فرهنگی هرات ایفا کرد و به حمایت از شاعران و هنرمندان پرداخت.</li>
-                <li>شمس‌الدین محمد: بنیان‌گذار سلسله کورت و توسعه‌دهنده هرات که با ابتکارهای خود به شکوفایی اقتصادی و فرهنگی این منطقه کمک کرد.</li>
-                <li>معزالدین حسین: مشوق اصلی علوم و هنرها در هرات که با حمایت‌هایش از علمای زمان، هرات را به مرکز علمی مهمی تبدیل کرد.</li>
-                <li>رکن‌الدین ابراهیم: نوساز و بهبوددهنده ساختارهای حکومتی که تلاش کرد تا حکومتی کارآمد و متعادل در کورت ایجاد کند.</li>
-                <li>ملک فخرالدین: آخرین حاکم کورت که در برابر تهدیدهای تیمور ایستادگی کرد و به عنوان مدافع سرسخت هرات شناخته می‌شود.</li>
-            </ul>
+                <li>شمس‌الدین محمد (۶۴۳-۶۷۷ه.ق) - بنیان‌گذار سلسله کورت که در احیای فرهنگی هرات نقش داشت و مدارس و کتابخانه‌های متعددی ساخت.</li>
+                <li>فخرالدین کرت (۷۰۶-۷۲۹ه.ق) - از مهم‌ترین حکمرانان این سلسله که در دوره او هنر و معماری هرات به اوج رسید و مسجد جامع هرات را گسترش داد.</li>
+                <li>معزالدین حسین کرت (۷۳۲-۷۷۱ه.ق) - در دوره او هرات به مرکز مهم فرهنگی و هنری تبدیل شد و هنرمندان و دانشمندان زیادی به دربار او آمدند.</li>
+                <li>غیاث‌الدین کرت (۷۷۱-۷۲۹ه.ق) - از حامیان بزرگ هنر و معماری که در زمان او مجموعه‌های معماری مهمی در هرات ساخته شد.</li>
+                <li>ملک غیاث‌الدین پیر علی (۷۹۱-۷۹۲ه.ق) - آخرین حکمران کرت که تا پایان از هنر و فرهنگ هرات حمایت کرد.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -1801,7 +2074,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سربداران</div>
-        <div class="date">1337-1381 CE</div>
+        <div class="date">1337-1381</div>
 
         <div class="rulers">
             <h3>رهبران اصلی</h3>
@@ -1860,11 +2133,12 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>عبدالرزاق باشتینی: بنیان‌گذار جنبش سربداران و رهبر قیامی که به دنبال استقلال و عدالت اجتماعی در ایران بود و نقش کلیدی در شکل‌گیری حکومت سربداران ایفا کرد.</li>
-                <li>حسن جوری: رهبر مذهبی و یکی از حامیان برجسته استقلال شیعیان که تأثیر زیادی بر تقویت هویت مذهبی و فرهنگی این گروه داشت.</li>
-                <li>فضل‌الله: شخصیت سیاسی و نظامی مؤثر که در تقویت ساختار دولت سربداران و ارتقای نظام سیاسی نقش داشت.</li>
-                <li>خلیفه علی مؤید: آخرین حاکم سربداران که در برابر تهدیدهای تیموریان ایستادگی کرد و به عنوان مدافع سرسخت استقلال سربداران شناخته می‌شود.</li>
-            </ul>
+                <li>عبدالرزاق باشتینی (۷۳۷ه.ق) - بنیانگذار جنبش سربداران که قیام مردمی را رهبری کرد و در شکل‌گیری اولین حکومت شیعی ایران نقش داشت.</li>
+                <li>شیخ حسن جوری - رهبر معنوی و فکری سربداران که اندیشه‌های او در معماری مذهبی و هنر این دوره تأثیرگذار بود.</li>
+                <li>وجیه‌الدین مسعود (۷۳۸-۷۴۳ه.ق) - از مهم‌ترین حاکمان سربدار که در دوره او هنر و معماری سبزوار رونق گرفت.</li>
+                <li>خواجه علی مؤید (۷۶۶-۷۸۸ه.ق) - آخرین حاکم سربداران که مدارس و مساجد متعددی ساخت و از هنرمندان حمایت کرد.</li>
+                <li>شمس‌الدین علی - از وزرای مهم این دوره که در گسترش هنر و معماری شیعی نقش داشت.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -1873,7 +2147,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله تیموری</div>
-        <div class="date">1370-1507 CE</div>
+        <div class="date">1370-1507</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -1930,12 +2204,13 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>تیمور: بنیان‌گذار امپراتوری تیموری که به رغم بی‌رحمی‌هایش، حامی هنر و معماری بود و تأثیر عمیقی بر شکل‌گیری هویت فرهنگی منطقه گذاشت.</li>
-                <li>شاهرخ: پسر تیمور که در تقویت فرهنگ و هنر در امپراتوری تیموری نقش برجسته‌ای ایفا کرد و به ترویج ادبیات و علوم پرداخت.</li>
-                <li>بایسنقر میرزا: فرزند شاهرخ و یکی از حامیان برجسته هنر و کتاب‌آرایی که در دربار او هنرهای تجسمی و نگارش شکوفا شدند.</li>
-                <li>سلطان حسین بایقرا: حاکم دوران طلایی هرات که به عنوان حامی بزرگ هنر و ادبیات شناخته می‌شود و هرات را به مرکز فرهنگی و هنری تبدیل کرد.</li>
-                <li>جامی: شاعر و متفکر برجسته که در دوران سلطان حسین بایقرا زندگی می‌کرد و آثارش در ادبیات فارسی به‌ویژه در زمینه عرفان و فلسفه شناخته شده است.</li>
-            </ul>
+                <li>تیمور (۷۷۱-۸۰۷ه.ق) - بنیانگذار سلسله تیموری که با جمع‌آوری هنرمندان از سراسر ایران، موجب شکل‌گیری مکتب هنری سمرقند شد.</li>
+                <li>شاهرخ (۸۰۷-۸۵۰ه.ق) - دوران او اوج شکوفایی هنر تیموری بود. کتابخانه سلطنتی هرات را تاسیس کرد و مکتب هنری هرات در زمان او پایه‌گذاری شد.</li>
+                <li>بایسنقر میرزا (۷۹۹-۸۳۷ه.ق) - مهمترین حامی هنر کتاب‌آرایی که کتابخانه-کارگاه او در هرات، شاهکارهای نگارگری و خوشنویسی را خلق کرد.</li>
+                <li>سلطان حسین بایقرا (۸۷۵-۹۱۱ه.ق) - در دوران او هرات به مهمترین مرکز هنری جهان اسلام تبدیل شد. کمال‌الدین بهزاد در دربار او به اوج هنر نگارگری رسید.</li>
+                <li>الغ بیگ (۸۵۰-۸۵۳ه.ق) - در سمرقند مدرسه و رصدخانه ساخت و مرکز علمی-هنری مهمی ایجاد کرد.</li>
+                <li>گوهرشاد آغا - همسر شاهرخ که مسجد گوهرشاد و مجموعه‌های معماری مهمی در مشهد و هرات ساخت.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -1950,7 +2225,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله صفویه</div>
-        <div class="date">1501-1736 CE</div>
+        <div class="date">1501-1736</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2008,12 +2283,13 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>شیخ صفی‌الدین اردبیلی: نیای معنوی صفویان و پایه‌گذار طریقت صوفیه، که تأثیر عمیقی بر شکل‌گیری هویت فرهنگی و مذهبی این سلسله داشت.</li>
-                <li>شاه عباس اول: یکی از بزرگ‌ترین پادشاهان صفویه که به شدت حامی هنر و فرهنگ بود و با توسعه اصفهان به عنوان مرکز فرهنگی ایران، تغییرات عمده‌ای در هنر و معماری کشور به وجود آورد.</li>
-                <li>میرعماد: خطاط برجسته و استاد نستعلیق در دربار صفوی که آثارش به عنوان نمونه‌هایی از زیبایی و ظرافت خط فارسی شناخته می‌شود.</li>
-                <li>رضا عباسی: نقاش مشهور مینیاتور در دوران شاه عباس، که با آثارش تأثیر بسزایی در توسعه هنر نقاشی ایرانی داشت و به عنوان یکی از چهره‌های برجسته هنر مینیاتور شناخته می‌شود.</li>
-                <li>سهراب سپهری: شاعر و نقاشی که در پیوند دادن شعر و هنر نقاشی نوآوری‌هایی انجام داد و تأثیراتش تا امروز ادامه دارد.</li>
-            </ul>
+                <li>شاه اسماعیل اول (885-930ه.ق) - بنیانگذار سلسله صفوی که با رسمی کردن مذهب شیعه، تحول عظیمی در هنر و معماری ایران ایجاد کرد.</li>
+                <li>شاه عباس اول (996-1038ه.ق) - مهمترین پادشاه صفوی که با ساخت مجموعه میدان نقش جهان و حمایت از هنرمندان، عصر طلایی هنر صفوی را رقم زد.</li>
+                <li>رضا عباسی (1000-1044ه.ق) - برجسته‌ترین نگارگر عصر صفوی که سبک شخصی او در نقاشی ایرانی تحولی بزرگ ایجاد کرد.</li>
+                <li>میرعماد حسنی (966-1024ه.ق) - استاد مسلم خط نستعلیق که آثارش به اوج زیبایی و ظرافت رسید.</li>
+                <li>شیخ بهایی (953-1030ه.ق) - عالم، معمار و هنرمندی که در طراحی بناهای اصفهان نقش داشت.</li>
+                <li>علی رضا عباسی (قرن 11ه.ق) - از خوشنویسان برجسته دربار صفوی که در تکامل خط ثلث و نستعلیق نقش مهمی داشت.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -2023,7 +2299,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">دودمان هوتکیان</div>
-        <div class="date">1709-1738 CE</div>
+        <div class="date">1709-1738</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2082,7 +2358,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله افشاریه</div>
-        <div class="date">1736-1796 CE</div>
+        <div class="date">1736-1796</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2136,12 +2412,12 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>نادرشاه: بنیان‌گذار سلسله افشاریه و یکی از بزرگ‌ترین فرماندهان نظامی تاریخ ایران که تلاش‌هایش در راستای بازگرداندن قدرت به ایران و مقابله با بیگانگان تأثیرگذار بود.</li>
-                <li>ادریس شیرازی: شاعر و نویسنده معروف دوره افشاریه که آثارش در شعر فارسی تأثیر عمیقی داشته و به‌عنوان یکی از چهره‌های برجسته ادبیات آن زمان شناخته می‌شود.</li>
-                <li>فخرالدین اسعد گرگانی: شاعر و نویسنده‌ای که با آثارش، نماینده فرهنگ و هنر آن دوره بوده و از جمله شاعران مهمی به شمار می‌آید که در شکل‌دهی به ادبیات فارسی نقش بسزایی داشت.</li>
-                <li>حسین خان نوری: یکی از فرماندهان نظامی و دولتمردان که در تحولات سیاسی و نظامی دوره افشاریه نقش مهمی ایفا کرد.</li>
-                <li>بانو طاهره: زن تأثیرگذاری که در محافل ادبی و فرهنگی آن زمان فعال بود و به ترویج شعر و ادبیات کمک کرد.</li>
-            </ul>
+                <li>نادرشاه افشار (1148-1160ه.ق) - بنیانگذار سلسله افشاریه که در مشهد و کلات نادری مجموعه‌های معماری مهمی ساخت.</li>
+                <li>عادل‌شاه افشار (1160-1161ه.ق) - در دوره کوتاه حکومتش به بازسازی بناهای مشهد پرداخت.</li>
+                <li>شاهرخ افشار (1161-1210ه.ق) - آخرین شاه مهم افشار که در خراسان به حمایت از هنر و معماری پرداخت.</li>
+                <li>حاج محمدحسین خان مروی - معمار مشهور این دوره که در ساخت بناهای کلات نادری نقش داشت.</li>
+                <li>محمدرضا امامی اصفهانی - از خوشنویسان برجسته دوره افشاریه که آثار مهمی در خط نستعلیق خلق کرد.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -2150,7 +2426,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله زندیه</div>
-        <div class="date">1750-1794 CE</div>
+        <div class="date">1750-1794</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2211,13 +2487,13 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>کریم‌خان زند: بنیان‌گذار سلسله زندیه که به‌عنوان حامی هنر و فرهنگ شناخته می‌شود و تلاش کرد تا ثبات را در کشور برقرار کند.</li>
-                <li>جعفرخان زند: جانشین کریم‌خان، که به‌دنبال حفظ توازن قدرت و گسترش روابط دیپلماتیک با دیگر کشورها بود.</li>
-                <li>حافظ شیرازی: شاعر بزرگ و نماد فرهنگ ایرانی که آثارش تا امروز در ادبیات فارسی تأثیرگذار است و با اشعارش احساسات عمیق انسانی را به تصویر کشیده است.</li>
-                <li>زین‌العابدین: معمار و هنرمند مشهور که با آثارش تأثیر عمیقی بر هنر معماری و تزئینات این دوره گذاشت.</li>
-                <li>شمس‌الدین شفیع: شاعر و نویسنده‌ای که در اشعارش به مسایل اجتماعی و سیاسی آن دوران پرداخته و از معروف‌ترین شعرای زندیه محسوب می‌شود.</li>
-                <li>بانو زینب: یکی از زنان تأثیرگذار که در تحولات فرهنگی و اجتماعی این دوره نقش فعالی ایفا کرد.</li>
-            </ul>
+                <li>کریم‌خان زند (1163-1193ه.ق) - بنیانگذار سلسله زندیه که شیراز را به مرکز هنری ایران تبدیل کرد و بناهای مهمی مانند ارگ کریم‌خانی را ساخت.</li>
+                <li>لطفعلی‌خان زند (1203-1209ه.ق) - آخرین پادشاه زند که علیرغم دوره کوتاه حکومتش، از هنر و معماری حمایت کرد.</li>
+                <li>میرزا محمد کلانتر - وزیر کریم‌خان که در ساخت بناهای مهم شیراز نقش داشت.</li>
+                <li>شیخ محمد شیرازی - از معماران مهم دوره زندیه که در ساخت مجموعه وکیل شیراز نقش اصلی داشت.</li>
+                <li>میرزا محمد نصیر شیرازی - از خوشنویسان برجسته این دوره که کتیبه‌های مهمی در بناهای زندیه خلق کرد.</li>
+                <li>استاد شیرازی - نقاش و تذهیب‌کار مشهور دربار زندیه که در تزیین بناها و کتاب‌آرایی فعال بود.</li>
+             </ul>
         </div>        
     </div>
 </div>
@@ -2226,7 +2502,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله قاجار</div>
-        <div class="date">1785-1925 CE</div>
+        <div class="date">1785-1925</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2288,13 +2564,13 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>فتحعلی‌شاه: دومین شاه قاجار که در دوره‌اش ایران دچار تحولات عمیق اجتماعی و سیاسی شد.</li>
-                <li>ناصرالدین‌شاه: سومین شاه قاجار که در تلاش برای مدرنیزاسیون و اصلاحات، ارتباطاتی با غرب برقرار کرد و تأثیرات زیادی بر تحولات فرهنگی و اجتماعی داشت.</li>
-                <li>میرزای شیرازی: روحانی و شخصیت تأثیرگذار در انقلاب مشروطه که با فتوای خود علیه تنباکو، حرکت‌های اعتراضی را به اوج رساند.</li>
-                <li>صادق هدایت: نویسنده و روشنفکر بزرگ، نماینده فرهنگی این دوره که با آثارش به نقد جامعه و هویت ایرانی پرداخت.</li>
-                <li>ایرج میرزا: شاعر و نویسنده انتقادی که با شعرهایش به مسائل اجتماعی و سیاسی دوران قاجار پرداخته است.</li>
-                <li>بانو امین‌الدوله: یکی از زنان تأثیرگذار که به‌عنوان مشاور سیاسی ناصرالدین‌شاه و در عرصه فرهنگ و هنر شناخته می‌شود.</li>
-                <li>قوام‌السلطنه: سیاستمدار و وزیر مهم در دوران قاجار که تأثیرات سیاسی عمیقی در تاریخ معاصر ایران داشت.</li>
+                <li>فتحعلی‌شاه (1772 - 1834) - حامی هنر درباری و نقاشی ایرانی. در دوران او هنر درباری ایران به اوج رسید.</li>
+                <li>میرزا ابوالحسن خان غفاری - کمال‌الملک (1847 - 1940) - تأثیرگذارترین نقاش عصر قاجار و پایه‌گذار هنر نوین ایران.</li>
+                <li>ناصرالدین‌شاه (1831 - 1896) - پیشگام عکاسی در ایران و حامی هنرهای نو. نقطه عطف ورود مدرنیته به هنر ایران.</li>
+                <li>صنیع‌الملک - ابوالحسن غفاری (1814 - 1866) - نقاش برجسته دربار و آغازگر واقع‌گرایی در نقاشی ایرانی.</li>
+                <li>علی‌اکبر خان مزین‌الدوله (1854 - 1932) - پایه‌گذار موسیقی نوین ایرانی و اولین مدرسه موسیقی.</li>
+                <li>محمود خان ملک‌الشعرا (1806 - 1882) - شاعر برجسته دربار و پایه‌گذار سبک بازگشت ادبی.</li>
+                <li>میرزا رضا کلهر (1829 - 1892) - خوشنویس برجسته و نوآور در خط نستعلیق.</li>
             </ul>
         </div>        
     </div>
@@ -2309,7 +2585,7 @@ html {
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله پهلوی</div>
-        <div class="date">1925-1979 CE</div>
+        <div class="date">1925-1979</div>
 
         <div class="rulers">
             <h3>حاکمان</h3>
@@ -2366,14 +2642,24 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>سهراب سپهری: شاعر و نقاش، نماینده فرهنگ و هنر مدرن ایرانی.</li>
-                <li>آیت‌الله خمینی: بنیان‌گذار جمهوری اسلامی و چهره کلیدی انقلاب.</li>
-                <li>دکتر مصدق: نخست‌وزیر و نماد ملی‌گرایی ایرانی.</li>
-                <li>پروین اعتصامی: شاعره‌ای که به تعهدات اجتماعی و فرهنگی در شعرش پرداخته است.</li>
-                <li>محمود دولت‌آبادی: نویسنده برجسته ادبیات داستانی ایران.</li>
-                <li>فریدون مشیری: شاعر معروف که در عرصه ادبیات معاصر ایران شناخته می‌شود.</li>
-                <li>شمس‌الواعظین: شاعر و نویسنده تأثیرگذار در ادبیات سیاسی.</li>
-                <li>دکتر شریعتی: روشنفکر و جامعه‌شناس که تأثیرات عمیقی بر جنبش‌های اجتماعی داشت.</li>
+                <li>کمال‌الملک (1847 - 1940) - مهمترین نقاش دوران گذار قاجار به پهلوی و بنیانگذار هنرستان صنایع مستظرفه.</li>
+                <li>سهراب سپهری (1307 - 1359) - نقاش و شاعر مدرنیست، از پیشگامان هنر انتزاعی و شعر نو در ایران.</li>
+                <li>جلال آل‌احمد (1302 - 1348) - نویسنده و روشنفکر تأثیرگذار در جریان‌های فکری و هنری معاصر.</li>
+                <li>فروغ فرخزاد (1313 - 1345) - شاعر نوگرا و فیلمساز، از پیشگامان شعر معاصر و مستندسازی.</li>
+                <li>علی‌نقی وزیری (1265 - 1358) - پایه‌گذار موسیقی آکادمیک و هنرستان موسیقی.</li>
+                <li>نیما یوشیج (1276 - 1338) - پدر شعر نو فارسی و تأثیرگذارترین شاعر معاصر ایران.</li>
+                <li>ابوالحسن صبا (1281 - 1336) - موسیقیدان برجسته و احیاکننده موسیقی سنتی ایران.</li>
+                <li>حسین بهزاد (1273 - 1347) - نقاش و مینیاتوریست برجسته، احیاکننده نگارگری ایرانی.</li>
+                <li>محمد حسین شهریار (1285 - 1367) - شاعر نامدار در هر دو زبان فارسی و ترکی.</li>
+                <li>مرتضی حنانه (1302 - 1368) - آهنگساز پیشرو و از بنیانگذاران موسیقی سمفونیک ایران.</li>
+                <li>هوشنگ سیحون (1299 - 1393) - معمار برجسته و طراح آرامگاه‌های مشاهیر ایران.</li>
+                <li>پرویز ناتل خانلری (1292 - 1369) - زبانشناس و ادیب تأثیرگذار در ادبیات معاصر.</li>
+                <li>صادق هدایت (1281 - 1330) - نویسنده پیشرو و تأثیرگذارترین داستان‌نویس معاصر ایران.</li>
+                <li>فریدون رهنما (1309 - 1354) - از پیشگامان سینمای روشنفکری ایران.</li>
+                <li>بزرگ علوی (1283 - 1375) - نویسنده و از پایه‌گذاران داستان‌نویسی مدرن ایران.</li>
+                <li>پرویز شهریاری (1305 - 1391) - ریاضیدان و نویسنده تأثیرگذار در آموزش علوم.</li>
+                <li>احمد شاملو (1304 - 1379) - شاعر، مترجم و پژوهشگر برجسته معاصر.</li>
+                <li>غلامحسین بنان (1290 - 1364) - خواننده برجسته موسیقی سنتی ایران.</li>
             </ul>
         </div>
     </div>
@@ -2434,13 +2720,20 @@ html {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>آیت‌الله خمینی - رهبر انقلاب اسلامی که وعده‌های آزادی و عدالت را داد، اما به ایجاد رژیمی سرکوبگر انجامید.</li>
-                <li>مهدی بازرگان - نخست‌وزیر نخستین دولت جمهوری اسلامی، که در تلاش برای پیشبرد اصلاحات با محدودیت‌های جدی مواجه شد.</li>
-                <li>دکتر محمد مصدق - نماد ملی‌گرایی و ملی‌سازی نفت که هنوز به عنوان الگو در یادها باقی مانده است.</li>
-                <li>محمد خاتمی - که تلاش‌هایش برای بهبود وضعیت سیاسی با مقاومت و سرکوب مواجه شد.</li>
-                <li>پروفسور احمد پوری - شاعری که به نقد اجتماعی و فرهنگی پرداخته و آثارش از عمیق‌ترین انتقادات به وضعیت موجود است.</li>
-                <li>عباس کیارستمی - کارگردانی که سینمای ایران را به سطح جهانی رساند و با آثارش به نقد جامعه پرداخته است.</li>
-                <li>شهرام ناظری - آوازخوان و پژوهشگر موسیقی که به حفظ و گسترش موسیقی ایرانی در دوران سخت پرداخته است.</li>
+                <li>عباس کیارستمی (1319 - 1395) - فیلمساز جهانی و برنده نخل طلای کن، تأثیرگذارترین کارگردان سینمای ایران.</li>
+                <li>محمود درویش‌خانی (1308 - 1396) - استاد برجسته خوشنویسی و از احیاکنندگان این هنر در دوره معاصر.</li>
+                <li>شهرام ناظری (1328) - خواننده پیشرو در موسیقی سنتی و تلفیقی ایران.</li>
+                <li>محمود فرشچیان (1308) - نگارگر برجسته معاصر و نوآور در نقاشی ایرانی.</li>
+                <li>پرویز مشکاتیان (1334 - 1388) - آهنگساز و نوازنده تأثیرگذار در موسیقی سنتی ایران.</li>
+                <li>محمدرضا شجریان (1319 - 1399) - استاد آواز ایران و چهره ماندگار موسیقی سنتی.</li>
+                <li>جعفر پناهی (1339) - فیلمساز برجسته و برنده جوایز متعدد بین‌المللی.</li>
+                <li>اصغر فرهادی (1351) - کارگردان دوبار برنده اسکار و چهره شاخص سینمای ایران.</li>
+                <li>حسین علیزاده (1330) - موسیقیدان و آهنگساز نوآور در موسیقی سنتی و تلفیقی.</li>
+                <li>علی‌رضا قهاری (1325) - معمار برجسته و طراح بناهای شاخص معاصر.</li>
+                <li>پرستو فروهر (1341) - هنرمند تجسمی معاصر با آثار شناخته شده جهانی.</li>
+                <li>کیهان کلهر (1342) - نوازنده و آهنگساز برجسته و برنده جایزه گرمی.</li>
+                <li>مجید مجیدی (1338) - فیلمساز شاخص با موضوعات انسانی و اجتماعی.</li>
+                <li>بهرام بیضایی (1317) - نمایشنامه‌نویس و کارگردان پیشرو تئاتر و سینما.</li>
             </ul>
         </div>
     </div>
@@ -2551,5 +2844,77 @@ html {
             });
         });
     });
+
+// Function to toggle dark mode on and off
+// Function to toggle dark mode on and off
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode'); // Toggle dark mode for the body
+    
+    // Toggle dark mode for the button itself
+    document.querySelector('.dark-mode-toggle').classList.toggle('dark-mode');
+
+    // Select all elements that need dark mode toggling
+    const timelineContents = document.querySelectorAll('.timeline-content');
+    const achievements = document.querySelectorAll('.achievements');
+    const culturalImpact = document.querySelectorAll('.cultural-impact');
+    const legacy = document.querySelectorAll('.legacy'); // Add legacy to the list
+    const notableFigures = document.querySelectorAll('.notable-figures'); // Add notable-figures to the list
+    const headerTitle = document.querySelectorAll('.header h1'); // Add header h1 to toggle
+    const headerParagraph = document.querySelectorAll('.header p'); // Add header paragraph to toggle
+    const periods = document.querySelectorAll('.period'); // Add period element to toggle
+    const rulersHeader = document.querySelectorAll('.rulers h3'); // Add rulers header to toggle
+    const eventsHeader = document.querySelectorAll('.events h3'); // Add events header to toggle
+    
+    // Toggle dark mode for timeline content
+    timelineContents.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+    // Toggle dark mode for achievements
+    achievements.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+    // Toggle dark mode for cultural impact
+    culturalImpact.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+    // Toggle dark mode for legacy section
+    legacy.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+    // Toggle dark mode for notable figures
+    notableFigures.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+        // Toggle dark mode for header title
+        headerTitle.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+        // Toggle dark mode for header paragraph
+        headerParagraph.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+        // Toggle dark mode for period element
+        periods.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+        // Toggle dark mode for rulers section header
+        rulersHeader.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+    // Toggle dark mode for events section header
+    eventsHeader.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+}
+
     </script>
 </html>
