@@ -117,12 +117,17 @@ body {
     will-change: height;
 }
 
+/* Timeline line for dark mode */
+.timeline.dark-mode::before {
+    background: #242426; /* Light blue for dark mode */
+}
+
 @keyframes growLine {
     from {
         height: 0;
     }
     to {
-        height: 42290px; /* Adjust as necessary */
+        height: 38450px; /* Adjust as necessary */
     }
 }
 
@@ -135,6 +140,12 @@ body {
     animation: fadeIn 0.8s ease forwards;
     will-change: transform, opacity;
 }
+
+/* Timeline item for dark mode */
+.timeline-item.dark-mode {
+    color: #ecf0f1; /* Light text color for dark mode */
+}
+
 
 @keyframes fadeIn {
     from {
@@ -161,9 +172,20 @@ body {
     z-index: 1;
 }
 
+/* Timeline item circle for dark mode */
+.timeline-item.dark-mode::before {
+    background: #242426; /* Dark background for circle in dark mode */
+    border: 10px solid #6970f3; /* Light blue border in dark mode */
+}
+
 .timeline-item:hover::before {
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(75, 53, 219, 0.3);
+}
+
+/* Timeline item hover effect for dark mode */
+.timeline-item.dark-mode:hover::before {
+    box-shadow: 0 0 15px rgba(105, 112, 243, 0.3); /* Light blue hover shadow */
 }
 
 .timeline-content {
@@ -213,7 +235,7 @@ body {
     position: absolute;
     left: 30px;
     top: 42px;
-    background-color: #cb252b;
+    background-color: #d6343a;
     border-radius: 50px;
     padding: 2px 15px;
     text-align: center;
@@ -225,7 +247,7 @@ body {
 
 .date:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(219, 25, 30, 0.3);
+    box-shadow: 0 0px 15px rgba(219, 25, 30, 0.3);
 }
 
 .rulers {
@@ -430,6 +452,24 @@ body {
     transform: translateY(-30px) scale(1.1); /* Start from above and slightly larger */
     animation: slideIn 1s ease forwards; /* Slide-in animation */
     animation-delay: 0.5s; /* Delay before starting the animation */
+}
+
+/* Use ::before for the SVG background */
+.header h1::before {
+    content: '';
+    position: absolute;
+    top: -240px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('iran.svg');
+    background-size: 700px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05; /* Adjust opacity of SVG independently */
+    z-index: -1; /* Place SVG behind text */
+    filter: brightness(0) saturate(100%) invert(22%) sepia(13%) saturate(1312%) hue-rotate(200deg) brightness(90%) contrast(97%);
+    /* Colorize the SVG using filter */
 }
 
 .header h1 {
@@ -874,7 +914,7 @@ body.dark-mode .notable-figures {
 
 /* Adjust date pill style */
 .date {
-    background: rgba(219, 25, 31, 0.841); /* Semi-transparent for glassy look */
+    background: rgba(232, 42, 48, 0.934); /* Semi-transparent for glassy look */
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
     color: #ffffff;
@@ -1034,7 +1074,7 @@ body.dark-mode .supplementary-info .note {
     margin-top: 30px;
     margin-bottom: 20px; /* Space between sources and copyright */
     line-height: 1.6;
-    direction: rtl; /* Set direction to RTL */
+    direction: ltr; /* Set direction to RTL */
 }
 
 .sources h3 {
@@ -1047,14 +1087,14 @@ body.dark-mode .supplementary-info .note {
 
 .sources ul {
     list-style-type: disc; /* Set to disc for bullets */
-    padding-right: 20px; /* Use padding to align bullets properly */
+    padding-left: 20px; /* Use padding to align bullets properly */
 }
 
 .sources li {
     margin-bottom: 10px;
     color: #191438;
     font-weight: 300;
-    text-align: right; /* Align list items to the right */
+    text-align: left; /* Align list items to the right */
 }
 
 .copyright {
@@ -1090,6 +1130,16 @@ body.dark-mode .copyright {
     border-top: 1px solid #666666; /* Darker border */
 }
        
+/* Button fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Button styles */
 .dark-mode-toggle {
     position: fixed;
@@ -1108,11 +1158,15 @@ body.dark-mode .copyright {
     transition: background-color 0.3s ease;
     font-size: 24px; /* Icon size */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 0.5s ease-out forwards; /* Fade-in animation */
+    animation-delay: 0.3s; /* Delay before animation starts */
 }
 
 /* Dark mode button style */
 .dark-mode-toggle.dark-mode {
-    background-color: #2c3e50; /* Dark background for dark mode */
+    background-color: #242426; /* Dark background for dark mode */
+    color: #6970f3;
 }
 
 /* Dark mode button hover effect */
@@ -1138,6 +1192,187 @@ body.dark-mode .copyright {
 .dark-mode-toggle.dark-mode .icon-moon {
     display: none;
 }
+
+/* Container for the button and dropdown */
+.search-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the search button */
+#searchButton {
+    width: 50px; /* Initial width of the circle */
+    height: 50px; /* Fixed height */
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%; /* Circle shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+    font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 0.5s ease-out forwards; /* Fade-in animation */
+    animation-delay: 0.5s; /* Delay before animation starts */
+}
+
+/* Dark mode styles for search button */
+#searchButton.dark-mode {
+    background-color: #242426; /* Dark background for dark mode */
+    color: #6970f3;
+}
+
+/* Initial state for the "choose" text */
+#searchButton .icon-choose {
+    display: none; /* Hide "choose" text initially */
+}
+
+/* Icon and text inside the button */
+#searchButton .icon-search {
+    display: block; /* Show the search icon when collapsed */
+    font-size: 24px; /* Icon size */
+}
+
+/* When the button expands */
+#searchButton.expanded {
+    width: 220px; /* Expanded width */
+    height: 50px; /* Keep the height */
+    border-radius: 25px; /* Make the button pill-shaped */
+    justify-content: flex-start; /* Align content to the left */
+    padding-left: 65px; /* Add padding for the text */
+    font-size: 16px; /* Smaller font size for the "choose" text */
+    font-weight: 700;
+}
+
+/* Hide the search icon and show the "choose" text when expanded */
+#searchButton.expanded .icon-search {
+    display: none; /* Hide the search icon */
+}
+
+#searchButton.expanded .icon-choose {
+    display: block; /* Show the "choose" text */
+    font-size: 16px; /* Font size for "choose" */
+    font-weight: 700;
+}
+
+/* Styling for dropdown */
+#periodDropdown {
+    display: none;
+    opacity: 0;
+    margin-top: 10px;
+    width: 220px; /* Same width as the expanded button */
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-height: 200px; /* Limit the height */
+    overflow-y: scroll; /* Enable vertical scrolling when content overflows */
+    overflow-x: hidden; /* Prevent horizontal scroll overflow */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+    padding-right: 10px; /* Space for the scrollbar */
+    box-sizing: content-box; /* Ensure padding doesn't affect the width */
+}
+
+/* Dark mode styles for dropdown */
+#periodDropdown.dark-mode {
+    background-color: #242426; /* Dark background for dark mode */
+    color: #ecf0f1; /* Light text color for dark mode */
+    border: 1px solid #242426; /* Dark border for dark mode */
+}
+
+/* Dark mode styles for individual items */
+#periodDropdown.dark-mode .dropdown-item {
+    color: #ecf0f1; /* Light text color in dark mode */
+    background-color: #242426; /* Dark background for items in dark mode */
+}
+
+/* Show dropdown when visible */
+#periodDropdown.visible {
+    display: block;
+    opacity: 1;
+    max-height: 200px;
+}
+
+/* Styling for individual items inside the dropdown */
+.dropdown-item {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 25px;
+}
+
+/* Item hover effect */
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #222;
+    border-radius: 25px;
+}
+
+/* Dark mode hover effect */
+#periodDropdown.dark-mode .dropdown-item:hover {
+    background-color: #6970f3; /* Dark mode hover effect */
+    color: #ecf0f1; /* Light text on hover in dark mode */
+    border-radius: 25px;
+}
+
+
+
+
+
+/* Scrollbar styles for the dropdown */
+#periodDropdown::-webkit-scrollbar {
+    width: 25px; /* Adjust width as needed */
+}
+
+#periodDropdown::-webkit-scrollbar-thumb {
+    background-color: #888; /* Default thumb color */
+    border-radius: 20px; /* Smooth rounded edges */
+
+}
+
+#periodDropdown::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker thumb when hovered */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+}
+
+#periodDropdown::-webkit-scrollbar-track {
+    background-color: transparent; /* Hides the track */
+}
+
+/* Dark mode scrollbar styles */
+#periodDropdown.dark-mode::-webkit-scrollbar-thumb {
+    background-color: #6970f3; /* Thumb color for dark mode */
+
+}
+
+#periodDropdown.dark-mode::-webkit-scrollbar-thumb:hover {
+    background-color: #4a52c7; /* Darker thumb on hover in dark mode */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7); /* Even darker shadow on hover */
+}
+
+#periodDropdown.dark-mode::-webkit-scrollbar-track {
+    background-color: transparent; /* Hide the track in dark mode as well */
+}
+
+
+
 
 
         /* Content box styling */
@@ -1184,6 +1419,23 @@ body.dark-mode .copyright {
     <span class="icon-sun fas fa-sun"></span> <!-- Font Awesome Sun icon -->
 </button>
 
+<!-- Search Button and Dropdown for Selecting Period -->
+<div class="search-container">
+    <button id="searchButton">
+        <!-- Search icon (collapsed state) -->
+        <span class="icon-search fas fa-search"></span>
+        
+        <!-- Choose text (expanded state) -->
+        <span class="icon-choose">انتخاب کنید</span>
+    </button>
+    <div id="periodDropdown" class="dropdown-menu">
+        <!-- Dropdown items will be populated here -->
+    </div>
+</div>
+
+
+
+
     <div class="container">
         <div class="header">
             <h1>تایملاین تاریخی ایران پس از اسلام</h1>
@@ -1198,67 +1450,67 @@ body.dark-mode .copyright {
         <div class="period">خلافت راشدین</div>
         <div class="date">633-651</div>
         
-        <div class="rulers">
-            <h3>حاکمان</h3>
-            <ul>
-                <li>ابوبکر (632-634)</li>
-                <li>عمر بن خطاب (634-644)</li>
-                <li>عثمان بن عفان (644-656)</li>
-                <li>علی بن ابی‌طالب (656-661)</li>
-            </ul>
-        </div>
-        
-        <div class="events">
-            <h3>رویدادهای کلیدی</h3>
-            <ul>
-                <li>636: نبرد قادسیه و شکست ارتش ساسانی به فرماندهی رستم فرخزاد</li>
-                <li>639: آتش‌سوزی و تخریب بخش مهمی از کتابخانه تیسفون و از دست رفتن منابع تاریخی</li>
-                <li>642: نبرد نهاوند و شکست قطعی امپراتوری ساسانی</li>
-                <li>644: تأسیس نظام اداری جدید اسلامی به دست عمر بن خطاب</li>
-                <li>650: مرگ یزدگرد سوم، آخرین پادشاه ساسانی، و پایان رسمی حکومت ساسانیان</li>
-            </ul>
-        </div>
-        
-        <div class="achievements">
-            <h3>نوآوری‌ها و دستاوردهای کلیدی</h3>
-            <ul>
-                <li>تأسیس نخستین نظام اداری منظم اسلامی، با اقتباس از سیستم ساسانی</li>
-                <li>آغاز استفاده گسترده از زبان و خط عربی در اسناد دولتی و کنار گذاشتن تدریجی خط پهلوی</li>
-                <li>برقراری اولین سیستم پولی اسلامی با حفظ موقت عناصر ساسانی در سکه‌ها</li>
-                <li>توسعه راهبردهای نظامی تازه با ترکیب تاکتیک‌های عربی و ایرانی</li>
-            </ul>
-        </div>
-        
-        <div class="cultural-impact">
-            <h3>تغییرات فرهنگی و اجتماعی</h3>
-            <ul>
-                <li>آغاز گسترش تدریجی اسلام در ایران، به ویژه در مناطق شهری</li>
-                <li>از بین رفتن بخشی از میراث فرهنگی و مکتوب دوره ساسانی در جریان فتوحات</li>
-                <li>اعمال فشار اقتصادی و اجتماعی بر غیرمسلمانان از طریق نظام جزیه و محدودیت‌های اجتماعی</li>
-                <li>آغاز فرآیند ادغام اجباری و تدریجی فرهنگ ایرانی-اسلامی</li>
-                <li>تأثیرات اولیه زبان عربی بر زبان فارسی و تضعیف تدریجی زبان پهلوی</li>
-            </ul>
-        </div>
-        
-        <div class="legacy">
-            <h3>میراث و تأثیرات پایدار</h3>
-            <ul>
-                <li>شکل‌گیری نظام طبقاتی جدید بر اساس دین، که منجر به تبعیض نسبت به غیرمسلمانان شد</li>
-                <li>از بین رفتن تدریجی برخی سنت‌های فرهنگی و هنری کهن ایرانی</li>
-                <li>ایجاد نظام‌های اداری و حکومتی که بر ساختار دولت‌های اسلامی بعدی تأثیر گذاشت</li>
-                <li>آغاز تلفیق معماری ساسانی با معماری اسلامی، که گاه با تخریب یا تغییر کاربری بناهای پیشین همراه بود</li>
-            </ul>
-        </div>
-        
-        <div class="notable-figures">
-            <h3>شخصیت‌های برجسته</h3>
-            <ul>
-                <li>سلمان فارسی - یکی از یاران نزدیک پیامبر اسلام که در مذاکرات فتح ایران نقش میانجی و کلیدی داشت.</li>
-                <li>هرمزان - یکی از فرماندهان ساسانی که پس از شکست به اسلام گروید و به دربار خلیفه پیوست و در ترویج فرهنگ اسلامی نقش داشت.</li>
-                <li>روزبه پسر دادویه (ابن مقفع) - از دبیران و مترجمان برجسته که در انتقال فرهنگ و دانش ایرانی به دوره اسلامی تأثیرگذار بود.</li>
-                <li>پیروز نهاوندی - از دبیران برجسته دوران گذار که در حفظ و ادامه سنت‌های دیوانی و اداری ایران نقش مهمی ایفا کرد.</li>
-            </ul>
-        </div>        
+        <div class="rulers"> 
+            <h3>حاکمان</h3> 
+            <ul> 
+                <li>ابوبکر (632-634)</li> 
+                <li>عمر بن خطاب (634-644)</li> 
+                <li>عثمان بن عفان (644-656)</li> 
+                <li>علی بن ابی‌طالب (656-661)</li> 
+            </ul> 
+        </div> 
+         
+        <div class="events"> 
+            <h3>رویدادهای کلیدی</h3> 
+            <ul> 
+                <li>636: نبرد قادسیه و شکست ساسانیان</li> 
+                <li>639: آتش‌سوزی و تخریب بخش مهمی از کتابخانه تیسفون و از دست رفتن منابع تاریخی</li> 
+                <li>642: نبرد نهاوند و شکست قطعی امپراتوری ساسانی</li> 
+                <li>644: تأسیس نظام اداری جدید اسلامی به دست عمر بن خطاب</li> 
+                <li>650: مرگ یزدگرد سوم، آخرین پادشاه ساسانی، و پایان رسمی حکومت ساسانیان</li> 
+            </ul> 
+        </div> 
+         
+        <div class="achievements"> 
+            <h3>نوآوری‌ها و دستاوردهای کلیدی</h3> 
+            <ul> 
+                <li>تأسیس نخستین نظام اداری منظم اسلامی، با اقتباس از سیستم ساسانی</li> 
+                <li>آغاز استفاده گسترده از زبان و خط عربی در اسناد دولتی و کنار گذاشتن تدریجی خط پهلوی</li> 
+                <li>برقراری اولین سیستم پولی اسلامی با حفظ موقت عناصر ساسانی در سکه‌ها</li> 
+                <li>توسعه راهبردهای نظامی تازه با ترکیب تاکتیک‌های عربی و ایرانی</li> 
+            </ul> 
+        </div> 
+         
+        <div class="cultural-impact"> 
+            <h3>تغییرات فرهنگی و اجتماعی</h3> 
+            <ul> 
+                <li>آغاز گسترش تدریجی اسلام در ایران، به ویژه در مناطق شهری</li> 
+                <li>از بین رفتن بخشی از میراث فرهنگی و مکتوب دوره ساسانی در جریان فتوحات</li> 
+                <li>اعمال فشار اقتصادی و اجتماعی بر غیرمسلمانان از طریق نظام جزیه و محدودیت‌های اجتماعی</li> 
+                <li>آغاز فرآیند ادغام فرهنگ ایرانی در فرهنگ اسلامی</li> 
+                <li>تأثیرات اولیه زبان عربی بر زبان فارسی و تضعیف تدریجی زبان پهلوی</li> 
+            </ul> 
+        </div> 
+         
+        <div class="legacy"> 
+            <h3>میراث و تأثیرات پایدار</h3> 
+            <ul> 
+                <li>شکل‌گیری نظام طبقاتی جدید بر اساس دین، که منجر به تبعیض نسبت به غیرمسلمانان شد</li> 
+                <li>تضعیف و تغییر تدریجی برخی از سنت‌های فرهنگی و هنری کهن ایرانی</li> 
+                <li>ایجاد نظام‌های اداری و حکومتی که بر ساختار دولت‌های اسلامی بعدی تأثیر گذاشت</li> 
+                <li>آغاز تلفیق معماری ساسانی با معماری اسلامی، که گاه با تخریب یا تغییر کاربری بناهای پیشین همراه بود</li> 
+            </ul> 
+        </div> 
+         
+        <div class="notable-figures"> 
+            <h3>شخصیت‌های برجسته</h3> 
+            <ul> 
+                <li>سلمان فارسی - یکی از یاران نزدیک پیامبر اسلام که در مذاکرات فتح ایران نقش میانجی و کلیدی داشت.</li> 
+                <li>هرمزان - یکی از فرماندهان ساسانی که پس از شکست به اسلام گروید و به دربار خلیفه پیوست و در ترویج فرهنگ اسلامی نقش داشت.</li> 
+                <li>روزبه پسر دادویه (ابن مقفع) - از دبیران و مترجمان برجسته که در انتقال فرهنگ و دانش ایرانی به دوره اسلامی تأثیرگذار بود.</li> 
+                <li>پیروز نهاوندی - از دبیران برجسته دوران گذار که در حفظ و ادامه سنت‌های دیوانی و اداری ایران نقش مهمی ایفا کرد.</li> 
+            </ul> 
+        </div>              
     </div>
 </div>
 
@@ -1277,19 +1529,19 @@ body.dark-mode .copyright {
                 <li>قُتَیبه بن مسلم (705-715) - فرمانده فتوحات شرقی</li>
             </ul>
         </div>
-
+    
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
                 <li>661: آغاز حکومت امویان و سرکوب مخالفان در ایران</li>
                 <li>680: واقعه کربلا و تأثیر عمیق آن بر جامعه ایران</li>
-                <li>674-676: ساخت مساجد جدید، اغلب بر ویرانه‌های آتشکده‌ها</li>
-                <li>696-697: تغییر سکه‌ها به خط عربی و حذف نمادهای ایرانی</li>
-                <li>702: اجباری شدن زبان عربی در دیوان و حذف زبان پهلوی</li>
+                <li>674-676: تبدیل بسیاری از آتشکده‌ها به مساجد جدید</li>
+                <li>696-697: حذف نمادهای ایرانی و استقرار سکه‌های با خط عربی</li>
+                <li>702: ممنوعیت رسمی استفاده از زبان پهلوی در امور دیوانی</li>
                 <li>747: آغاز جنبش ابومسلم خراسانی علیه ظلم امویان</li>
             </ul>
         </div>
-
+    
         <div class="achievements">
             <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
@@ -1299,18 +1551,18 @@ body.dark-mode .copyright {
                 <li>استانداردسازی شیوه‌های اداری با تکیه بر تجربه دیوانسالاران ایرانی</li>
             </ul>
         </div>
-
+    
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>تحمیل سیاست عربی‌سازی و ممنوعیت استفاده از زبان پهلوی در امور دیوانی</li>
+                <li>تحمیل سیاست عربی‌سازی و ممنوعیت رسمی استفاده از زبان پهلوی در امور دیوانی</li>
                 <li>تبعیض نژادی علیه ایرانیان موالی (مسلمانان غیرعرب)</li>
                 <li>شکل‌گیری جنبش‌های مقاومت فرهنگی و شعوبیه</li>
-                <li>اسلام آوردن اجباری بسیاری از ایرانیان برای فرار از جزیه و تبعیض</li>
+                <li>تشویق و فشار برای اسلام‌آوردن بسیاری از ایرانیان به منظور فرار از پرداخت جزیه و رفع تبعیض</li>
                 <li>آغاز مخفی‌سازی برخی سنت‌های ایرانی برای حفظ آنها</li>
             </ul>
         </div>
-
+    
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
@@ -1321,7 +1573,7 @@ body.dark-mode .copyright {
                 <li>پایه‌گذاری نظام اداری-سیاسی که الگوی حکومت‌های بعدی شد</li>
             </ul>
         </div>
-
+    
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
@@ -1357,9 +1609,9 @@ body.dark-mode .copyright {
                         <ul>
                             <li>750: پیروزی انقلاب عباسی با حمایت ایرانیان</li>
                             <li>762: تأسیس بغداد با الگوی شهرسازی ایرانی</li>
-                            <li>786: آغاز عصر طلایی با خلافت هارون‌الرشید</li>
+                            <li>786: آغاز دوره شکوفایی فرهنگی و علمی در عصر خلافت هارون‌الرشید</li>
                             <li>813: جنگ داخلی بین امین و مأمون</li>
-                            <li>821: تأسیس سلسله طاهریان در خراسان</li>
+                            <li>821: استقرار سلسله طاهریان به عنوان حکام نیمه‌مستقل خراسان</li>
                             <li>945: تسلط آل بویه بر بغداد</li>
                         </ul>
                     </div>
@@ -1380,7 +1632,7 @@ body.dark-mode .copyright {
                         <ul>
                             <li>احیای فرهنگ و زبان فارسی در دربار و جامعه</li>
                             <li>شکل‌گیری نهضت شعوبیه و احیای هویت ایرانی</li>
-                            <li>رواج عقل‌گرایی و مکتب معتزله</li>
+                            <li>گسترش مکتب فکری معتزله و افزایش گرایش به عقل‌گرایی</li>
                             <li>گسترش تصوف و عرفان ایرانی-اسلامی</li>
                             <li>رشد ادبیات فارسی و عربی</li>
                         </ul>
@@ -1430,7 +1682,7 @@ body.dark-mode .copyright {
                     <div class="events">
                         <h3>رویدادهای کلیدی</h3>
                         <ul>
-                            <li>821: تأسیس حکومت نیمه‌خودمختار در خراسان</li>
+                            <li>821: تأسیس حکومت نیمه‌مستقل طاهریان در خراسان</li>
                             <li>822: انتقال پایتخت به نیشابور</li>
                             <li>828: گسترش قلمرو به فرارود</li>
                             <li>830: تثبیت روابط با خلافت عباسی</li>
@@ -1557,82 +1809,84 @@ body.dark-mode .copyright {
                 </div>
             </div>
 
-            <!--  Samanid Dynasty -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="period">سلسله سامانیان</div>
-                    <div class="date">819-999</div>
-            
-                    <div class="rulers">
-                        <h3>حاکمان اصلی</h3>
-                        <ul>
-                            <li>اسماعیل سامانی (892-907) - بنیانگذار امپراتوری</li>
-                            <li>احمد بن اسماعیل (907-914)</li>
-                            <li>نصر دوم (914-943) - دوره اوج قدرت</li>
-                            <li>نوح اول (943-954)</li>
-                            <li>منصور اول (961-976)</li>
-                            <li>نوح دوم (976-997)</li>
-                        </ul>
-                    </div>
-            
-                    <div class="events">
-                        <h3>رویدادهای کلیدی</h3>
-                        <ul>
-                            <li>819: منصوب شدن به عنوان والیان خراسان</li>
-                            <li>875: دستیابی به استقلال عملی</li>
-                            <li>892: تأسیس پایتخت در بخارا</li>
-                            <li>900: اوج عصر طلایی فرهنگی</li>
-                            <li>999: سقوط به دست غزنویان</li>
-                        </ul>
-                    </div>
-            
-                    <div class="achievements">
-                        <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
-                        <ul>
-                            <li>ایجاد سیستم پستی کارآمد</li>
-                            <li>توسعه ادبیات فارسی</li>
-                            <li>تأسیس کتابخانه‌های بزرگ</li>
-                            <li>نوآوری‌های کشاورزی</li>
-                            <li>توسعه شبکه‌های تجاری</li>
-                        </ul>
-                    </div>
-            
-                    <div class="cultural-impact">
-                        <h3>تغییرات فرهنگی و اجتماعی</h3>
-                        <ul>
-                            <li>عصر طلایی ادبیات فارسی نو</li>
-                            <li>توسعه معماری فارسی-اسلامی</li>
-                            <li>احیای سنت‌های فرهنگی ایرانی</li>
-                            <li>ترویج علوم اسلامی</li>
-                            <li>ادغام عناصر نظامی ترکی</li>
-                        </ul>
-                    </div>
-            
-                    <div class="legacy">
-                        <h3>میراث و تأثیرات پایدار</h3>
-                        <ul>
-                            <li>رنسانس ادبی فارسی</li>
-                            <li>سیستم‌های اداری</li>
-                            <li>ایجاد سبک‌های معماری فارسی-اسلامی</li>
-                            <li>نوآوری‌های معماری</li>
-                            <li>الگویی برای همگرایی فرهنگی</li>
-                        </ul>
-                    </div>
-            
-                    <div class="notable-figures">
-                        <h3>شخصیت‌های برجسته</h3>
-                        <ul>
-                            <li>امیر اسماعیل سامانی - مؤسس واقعی دولت سامانی که در ایجاد رنسانس فرهنگی ایرانی نقش اساسی داشت.</li>
-                            <li>امیر نصر دوم سامانی - در دوره او دربار سامانی به مرکز مهم فرهنگی و ادبی تبدیل شد.</li>
-                            <li>رودکی - پدر شعر فارسی و شاعر دربار سامانی که پایه‌گذار سبک خراسانی در شعر فارسی شد.</li>
-                            <li>ابوعلی بلعمی - وزیر دانشمند سامانی که با ترجمه تاریخ طبری به فارسی، اولین تاریخ‌نگاری رسمی به زبان فارسی را بنیان نهاد.</li>
-                            <li>دقیقی - شاعر برجسته که آغازگر سرودن شاهنامه بود و در احیای داستان‌های ملی ایران نقش داشت.</li>
-                        </ul>
-                    </div>                    
-                </div>
-            </div>
+<!--  Samanid Dynasty -->
+<div class="timeline-item">
+    <div class="timeline-content">
+        <div class="period">سلسله سامانیان</div>
+        <div class="date">819-999</div>
 
-            <!--  Ghaznavid Dynasty -->
+        <div class="rulers">
+            <h3>حاکمان اصلی</h3>
+            <ul>
+                <li>اسماعیل سامانی (892-907) - بنیانگذار امپراتوری</li>
+                <li>احمد بن اسماعیل (907-914)</li>
+                <li>نصر دوم (914-943) - دوره اوج قدرت</li>
+                <li>نوح اول (943-954)</li>
+                <li>منصور اول (961-976)</li>
+                <li>نوح دوم (976-997)</li>
+            </ul>
+        </div>
+
+        <div class="events">
+            <h3>رویدادهای کلیدی</h3>
+            <ul>
+                <li>819: منصوب شدن به عنوان والیان خراسان</li>
+                <li>875: دستیابی به استقلال عملی</li>
+                <li>892: تأسیس پایتخت در بخارا</li>
+                <li>900: پیروزی بر صفاریان و تسلط کامل بر خراسان</li>
+                <li>943-954: گسترش نفوذ فرهنگی و سیاسی</li>
+                <li>980-990: درگیری با ترکان و آغاز افول تدریجی</li>
+                <li>999: سقوط به دست غزنویان</li>
+            </ul>
+        </div>
+
+        <div class="achievements">
+            <h3>دستاوردهای عمده</h3>
+            <ul>
+                <li>ایجاد سیستم پستی کارآمد (برید)</li>
+                <li>توسعه و حمایت از زبان و ادبیات فارسی</li>
+                <li>تأسیس کتابخانه‌های بزرگ و مراکز علمی</li>
+                <li>نوآوری‌های کشاورزی و آبیاری</li>
+                <li>توسعه شبکه‌های تجاری بین‌المللی</li>
+            </ul>
+        </div>
+
+        <div class="cultural-impact">
+            <h3>تغییرات فرهنگی و اجتماعی</h3>
+            <ul>
+                <li>شکوفایی ادبیات فارسی نو</li>
+                <li>توسعه معماری فارسی-اسلامی</li>
+                <li>احیای سنت‌های فرهنگی ایرانی</li>
+                <li>ترویج علوم اسلامی و ایجاد مدارس</li>
+                <li>ادغام عناصر نظامی ترکی در ساختار حکومت</li>
+            </ul>
+        </div>
+
+        <div class="legacy">
+            <h3>میراث و تأثیرات پایدار</h3>
+            <ul>
+                <li>پایه‌گذاری رنسانس ادبی و فرهنگی ایران</li>
+                <li>ایجاد نظام اداری کارآمد و الگوساز</li>
+                <li>توسعه سبک معماری فارسی-اسلامی</li>
+                <li>گسترش زبان فارسی در ماوراءالنهر</li>
+                <li>ارائه الگوی موفق همزیستی فرهنگی</li>
+            </ul>
+        </div>
+
+        <div class="notable-figures">
+            <h3>شخصیت‌های برجسته</h3>
+            <ul>
+                <li>امیر اسماعیل سامانی - مؤسس واقعی دولت سامانی که در ایجاد رنسانس فرهنگی ایرانی نقش اساسی داشت.</li>
+                <li>امیر نصر دوم سامانی - در دوره او دربار سامانی به مرکز مهم فرهنگی و ادبی تبدیل شد.</li>
+                <li>رودکی - پدر شعر فارسی و شاعر دربار سامانی که پایه‌گذار سبک خراسانی در شعر فارسی شد.</li>
+                <li>ابوعلی بلعمی - وزیر دانشمند سامانی که با ترجمه تاریخ طبری به فارسی، اولین تاریخ‌نگاری رسمی به زبان فارسی را بنیان نهاد.</li>
+                <li>دقیقی - شاعر برجسته که آغازگر سرودن شاهنامه بود و در احیای داستان‌های ملی ایران نقش داشت.</li>
+            </ul>
+        </div>                    
+    </div>
+</div>
+
+<!--  Ghaznavid Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله غزنویان</div>
@@ -1644,7 +1898,9 @@ body.dark-mode .copyright {
                 <li>سبکتگین (977-997) - بنیانگذار سلسله</li>
                 <li>محمود غزنوی (998-1030) - دوره اوج قدرت</li>
                 <li>مسعود غزنوی (1030-1041)</li>
+                <li>مودود (1041-1049) - احیای قدرت نسبی</li>
                 <li>ابراهیم (1059-1099) - دوره ثبات نسبی</li>
+                <li>بهرامشاه (1117-1157) - آخرین فرمانروای مقتدر</li>
             </ul>
         </div>
 
@@ -1653,14 +1909,16 @@ body.dark-mode .copyright {
             <ul>
                 <li>977: تأسیس سلسله در غزنی</li>
                 <li>998: آغاز فرمانروایی محمود غزنوی</li>
+                <li>999: پیروزی بر ایلک‌خانیان و تثبیت قدرت در خراسان</li>
                 <li>1001-1026: هفده لشکرکشی به هند</li>
+                <li>1025: فتح معبد سومنات</li>
                 <li>1040: شکست از سلجوقیان در نبرد دندانقان</li>
                 <li>1186: سقوط نهایی به دست غوریان</li>
             </ul>
         </div>
 
         <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
+            <h3>دستاوردهای عمده</h3>
             <ul>
                 <li>توسعه شهر غزنی به عنوان مرکز فرهنگی</li>
                 <li>تأسیس مدارس و کتابخانه‌های متعدد</li>
@@ -1698,89 +1956,90 @@ body.dark-mode .copyright {
                 <li>سلطان محمود غزنوی - مقتدرترین پادشاه غزنوی که دربارش مرکز مهم فرهنگی و علمی بود و از شاعران و دانشمندان حمایت می‌کرد.</li>
                 <li>فردوسی - شاعر حماسه‌سرای بزرگ ایران و سراینده شاهنامه که در احیای زبان و فرهنگ ایران نقش بی‌بدیلی داشت.</li>
                 <li>ابوریحان بیرونی - دانشمند جامع‌الاطراف که در ریاضیات، نجوم، تاریخ و مردم‌شناسی آثار مهمی پدید آورد.</li>
-                <li>عنصری - ملک‌الشعرای دربار محمود و پایه‌گذار سبک مدح در شعر فارسی.</li>
+                <li>عنصری - ملک‌الشعرای دربار محمود و از برجسته‌ترین قصیده‌سرایان عصر غزنوی.</li>
                 <li>فرخی سیستانی - از بزرگترین قصیده‌سرایان فارسی که در توصیف و مدح سرآمد بود.</li>
             </ul>
         </div>        
     </div>
 </div>
 
-           <!-- Seljuk Dynasty -->
-<div class="timeline-item">
-    <div class="timeline-content">
-        <div class="period">سلسله سلجوقیان</div>
-        <div class="date">1037-1194</div>
-
-        <div class="rulers">
-            <h3>حاکمان اصلی</h3>
-            <ul>
-                <li>طغرل (1037-1063) - بنیانگذار سلسله</li>
-                <li>آلپ ارسلان (1063-1072) - فاتح ملازگرد</li>
+<!-- Seljuk Dynasty --> 
+<div class="timeline-item"> 
+    <div class="timeline-content"> 
+        <div class="period">سلسله سلجوقیان</div> 
+        <div class="date">1037-1194</div> 
+ 
+        <div class="rulers"> 
+            <h3>حاکمان اصلی</h3> 
+            <ul> 
+                <li>طغرل (1037-1063) - بنیانگذار سلسله</li> 
+                <li>آلپ ارسلان (1063-1072) - فاتح ملازگرد</li> 
                 <li>ملکشاه اول (1072-1092) - دوره اوج قدرت</li>
-                <li>سنجر (1118-1157) - آخرین فرمانروای قدرتمند</li>
-                <li>طغرل سوم (1176-1194) - آخرین سلطان</li>
-            </ul>
-        </div>
-
-        <div class="events">
-            <h3>رویدادهای کلیدی</h3>
-            <ul>
-                <li>1037: تأسیس حکومت در نیشابور</li>
-                <li>1055: تسلط بر بغداد و کسب مشروعیت از خلافت عباسی</li>
-                <li>1071: پیروزی در نبرد ملازگرد و گشایش آناتولی</li>
-                <li>1092: مرگ ملکشاه و آغاز جنگ‌های داخلی</li>
-                <li>1141: شکست از قراختائیان در نبرد قطوان</li>
-                <li>1153: حمله غزها و اسارت سلطان سنجر</li>
-                <li>1194: سقوط نهایی به دست خوارزمشاهیان</li>
-            </ul>
-        </div>
-
-        <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
-            <ul>
-                <li>ایجاد نظام آموزشی منسجم با تأسیس مدارس نظامیه</li>
-                <li>توسعه نظام اقطاع و سازماندهی ارتش حرفه‌ای</li>
-                <li>گسترش شبکه کاروانسراها و راه‌های تجاری</li>
-                <li>پیشرفت در فنون معماری و ساخت بناهای عظیم</li>
-                <li>ایجاد نظام دیوانسالاری کارآمد به زبان فارسی</li>
-            </ul>
-        </div>
-
-        <div class="cultural-impact">
-            <h3>تغییرات فرهنگی و اجتماعی</h3>
-            <ul>
-                <li>تنش‌های مذهبی بین شیعیان و سنی‌ها</li>
-                <li>مهاجرت گسترده قبایل ترک به ایران و آناتولی</li>
-                <li>رسمیت یافتن مذهب اشعری و فقه شافعی</li>
-                <li>شکل‌گیری طبقه جدید نظامی-اداری</li>
-                <li>افول تدریجی شهرنشینی در شرق ایران</li>
-                <li>گسترش تصوف و طریقت‌های صوفیانه</li>
-            </ul>
-        </div>
-
-        <div class="legacy">
-            <h3>میراث و تأثیرات پایدار</h3>
-            <ul>
-                <li>تأثیر عمیق بر معماری اسلامی دوره‌های بعد</li>
-                <li>الگوی حکومتی برای سلسله‌های ترک‌تبار</li>
-                <li>میراث غنی در هنر و صنایع دستی</li>
-                <li>پایه‌گذاری نظام آموزشی مدرسه‌ای</li>
-                <li>تغییر دائمی ترکیب جمعیتی ایران و آناتولی</li>
-                <li>تضعیف نهادهای محلی و سنتی قدرت</li>
-            </ul>
-        </div>
-
-        <div class="notable-figures">
-            <h3>شخصیت‌های برجسته</h3>
-            <ul>
-                <li>خواجه نظام‌الملک - وزیر مقتدر سلجوقی که با تأسیس مدارس نظامیه، نظام آموزشی نوینی در جهان اسلام پایه‌گذاری کرد.</li>
-                <li>امام محمد غزالی - متفکر بزرگ که با تألیف "احیاء علوم الدین" و دیگر آثارش، در آشتی دادن شریعت و عرفان نقش کلیدی داشت.</li>
-                <li>عمر خیام - دانشمند و شاعر چندوجهی که در ریاضیات، نجوم و شعر آثار ماندگاری از خود به جا گذاشت.</li>
-                <li>انوری - شاعر برجسته که در تکامل قصیده فارسی و مضمون‌پردازی نقش مهمی داشت.</li>
-                <li>سنایی غزنوی - شاعر و عارفی که پایه‌گذار شعر عرفانی فارسی شد و بر مولوی و عطار تأثیر عمیقی گذاشت.</li>
-            </ul>
-        </div>        
-    </div>
+                <li>محمد و برکیارق (1092-1105) - دوره رقابت‌های داخلی</li>
+                <li>سنجر (1118-1157) - آخرین فرمانروای قدرتمند</li> 
+                <li>طغرل سوم (1176-1194) - آخرین سلطان</li> 
+            </ul> 
+        </div> 
+ 
+        <div class="events"> 
+            <h3>رویدادهای کلیدی</h3> 
+            <ul> 
+                <li>1037: تأسیس حکومت در نیشابور</li> 
+                <li>1055: تسلط بر بغداد و کسب مشروعیت از خلافت عباسی</li> 
+                <li>1071: پیروزی در نبرد ملازگرد و گشایش آناتولی</li> 
+                <li>1092: مرگ ملکشاه و آغاز جنگ‌های داخلی</li> 
+                <li>1141: شکست از قراختائیان در نبرد قطوان</li> 
+                <li>1153: حمله غزها و اسارت سلطان سنجر</li> 
+                <li>1194: سقوط نهایی به دست خوارزمشاهیان</li> 
+            </ul> 
+        </div> 
+ 
+        <div class="achievements"> 
+            <h3>نوآوری‌ها و دستاوردهای عمده</h3> 
+            <ul> 
+                <li>ایجاد نظام آموزشی منسجم با تأسیس مدارس نظامیه</li> 
+                <li>توسعه نظام اقطاع و سازماندهی ارتش حرفه‌ای</li> 
+                <li>گسترش شبکه کاروانسراها و راه‌های تجاری</li> 
+                <li>پیشرفت در فنون معماری و ساخت بناهای عظیم</li> 
+                <li>ایجاد نظام دیوانسالاری کارآمد به زبان فارسی</li> 
+            </ul> 
+        </div> 
+ 
+        <div class="cultural-impact"> 
+            <h3>تغییرات فرهنگی و اجتماعی</h3> 
+            <ul> 
+                <li>تنش‌های مذهبی بین شیعیان و سنی‌ها</li> 
+                <li>مهاجرت گسترده قبایل ترک به ایران و آناتولی</li> 
+                <li>رسمیت یافتن مذهب اشعری و فقه شافعی و حنفی در مناطق مختلف قلمرو</li> 
+                <li>شکل‌گیری طبقه جدید نظامی-اداری</li> 
+                <li>افول تدریجی شهرنشینی در شرق ایران</li> 
+                <li>گسترش تصوف و طریقت‌های صوفیانه</li> 
+            </ul> 
+        </div> 
+ 
+        <div class="legacy"> 
+            <h3>میراث و تأثیرات پایدار</h3> 
+            <ul> 
+                <li>تأثیر عمیق بر معماری اسلامی دوره‌های بعد</li> 
+                <li>الگوی حکومتی برای سلسله‌های ترک‌تبار</li> 
+                <li>میراث غنی در هنر و صنایع دستی</li> 
+                <li>پایه‌گذاری نظام آموزشی مدرسه‌ای</li> 
+                <li>تغییر دائمی ترکیب جمعیتی ایران و آناتولی</li> 
+                <li>تضعیف نهادهای محلی و سنتی قدرت</li> 
+            </ul> 
+        </div> 
+ 
+        <div class="notable-figures"> 
+            <h3>شخصیت‌های برجسته</h3> 
+            <ul> 
+                <li>خواجه نظام‌الملک - وزیر مقتدر سلجوقی که با تأسیس مدارس نظامیه، نظام آموزشی نوینی در جهان اسلام پایه‌گذاری کرد.</li> 
+                <li>امام محمد غزالی - متفکر بزرگ که با تألیف "احیاء علوم الدین" و دیگر آثارش، در آشتی دادن شریعت و عرفان نقش کلیدی داشت.</li> 
+                <li>عمر خیام - دانشمند و شاعر چندوجهی که در ریاضیات، نجوم و شعر آثار ماندگاری از خود به جا گذاشت.</li> 
+                <li>انوری - شاعر برجسته که در تکامل قصیده فارسی و مضمون‌پردازی نقش مهمی داشت.</li> 
+                <li>سنایی غزنوی - از پیشگامان و تأثیرگذارترین شاعران در حوزه شعر عرفانی فارسی که بر مولوی و عطار تأثیر عمیقی گذاشت.</li> 
+            </ul> 
+        </div>         
+    </div> 
 </div>
 
             <!-- Khwarazmian Dynasty -->
@@ -1795,27 +2054,28 @@ body.dark-mode .copyright {
                 <li>انوشتگین (1077-1097) - بنیانگذار سلسله</li>
                 <li>قطب‌الدین محمد (1097-1127)</li>
                 <li>اتسز (1127-1156) - اعلام استقلال</li>
+                <li>ایل ارسلان (1156-1172)</li>
                 <li>تکش (1172-1200) - شکست سلجوقیان</li>
                 <li>علاءالدین محمد (1200-1220) - دوره اوج و سقوط</li>
                 <li>جلال‌الدین منکبرنی (1220-1231) - آخرین شاه</li>
             </ul>
         </div>
-
+    
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
                 <li>1077: آغاز حکومت به عنوان والیان سلجوقی در خوارزم</li>
                 <li>1156: استقلال از سلجوقیان و گسترش قلمرو</li>
                 <li>1194: پیروزی بر آخرین سلطان سلجوقی و تصرف خراسان</li>
-                <li>1215: درگیری با خلافت عباسی و تصرف بغداد</li>
+                <li>1217: تنش شدید با خلافت عباسی و تهدید بغداد</li>
                 <li>1218: قتل بازرگانان مغول و سفیر چنگیز</li>
                 <li>1220: حمله مغول و فروپاشی سریع حکومت</li>
                 <li>1231: شکست و مرگ جلال‌الدین در آناتولی</li>
             </ul>
         </div>
-
+    
         <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
+            <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
                 <li>گسترش قلمرو از ماوراءالنهر تا عراق</li>
                 <li>توسعه راه‌های تجاری بین شرق و غرب</li>
@@ -1824,7 +2084,7 @@ body.dark-mode .copyright {
                 <li>ایجاد ارتش منظم و حرفه‌ای</li>
             </ul>
         </div>
-
+    
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
@@ -1836,7 +2096,7 @@ body.dark-mode .copyright {
                 <li>تداوم سنت‌های دیوانی ایرانی</li>
             </ul>
         </div>
-
+    
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
@@ -1847,7 +2107,7 @@ body.dark-mode .copyright {
                 <li>میراث معماری در استحکامات و بناهای نظامی</li>
             </ul>
         </div>
-
+    
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
@@ -1856,155 +2116,6 @@ body.dark-mode .copyright {
                 <li>زمخشری - عالم و مفسر بزرگ قرآن که "الکشاف" او از مهمترین تفاسیر قرآن است.</li>
                 <li>نظامی عروضی سمرقندی - نویسنده "چهار مقاله" که اطلاعات ارزشمندی درباره فرهنگ و ادب این دوره ارائه کرده است.</li>
                 <li>فخر رازی - فیلسوف و متکلم بزرگ که در تفسیر قرآن و فلسفه اسلامی آثار ماندگاری خلق کرد.</li>
-            </ul>
-        </div>        
-    </div>
-</div>
-
-            <!-- Eldiguzid Dynasty -->
-<div class="timeline-item">
-    <div class="timeline-content">
-        <div class="period">سلسله اتابکان ایلدگز (ایلدگوزیان)</div>
-        <div class="date">1135-1225</div>
-
-        <div class="rulers">
-            <h3>حاکمان اصلی</h3>
-            <ul>
-                <li>شمس‌الدین ایلدگز (1135-1175) - مؤسس سلسله</li>
-                <li>محمد جهان پهلوان (1175-1186) - دوره اوج قدرت</li>
-                <li>قزل ارسلان (1186-1191)</li>
-                <li>ابوبکر (1191-1210)</li>
-                <li>اوزبک (1210-1225) - آخرین حاکم</li>
-            </ul>
-        </div>
-
-        <div class="events">
-            <h3>رویدادهای کلیدی</h3>
-            <ul>
-                <li>1135: انتصاب ایلدگز به اتابکی آذربایجان</li>
-                <li>1160: ازدواج با بیوه سلطان طغرل دوم و افزایش نفوذ در دربار سلجوقی</li>
-                <li>1175: گسترش قلمرو به اران، نخجوان و همدان</li>
-                <li>1186: تنش‌های داخلی و جنگ قدرت</li>
-                <li>1191: از دست دادن کنترل بر عراق عجم</li>
-                <li>1225: سقوط به دست خوارزمشاهیان</li>
-            </ul>
-        </div>
-
-        <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
-            <ul>
-                <li>ایجاد نظام اداری مستقل در آذربایجان</li>
-                <li>توسعه سیستم اقطاع نظامی</li>
-                <li>ساخت قلاع و استحکامات در مناطق مرزی</li>
-                <li>احداث کاروانسراها در مسیرهای تجاری</li>
-                <li>حفظ و تداوم سنت‌های دیوانسالاری سلجوقی</li>
-            </ul>
-        </div>
-
-        <div class="cultural-impact">
-            <h3>تغییرات فرهنگی و اجتماعی</h3>
-            <ul>
-                <li>ترکیب عناصر فرهنگی ترکی و ایرانی</li>
-                <li>شکل‌گیری مکتب معماری آذری</li>
-                <li>رواج زبان فارسی در دیوانسالاری</li>
-                <li>تنش‌های قومی میان نخبگان ترک و ایرانی</li>
-                <li>گسترش نفوذ طبقه نظامی ترک در ساختار قدرت</li>
-            </ul>
-        </div>
-
-        <div class="legacy">
-            <h3>میراث و تأثیرات پایدار</h3>
-            <ul>
-                <li>تثبیت الگوی حکومت اتابکی در ایران</li>
-                <li>تأثیر بر شکل‌گیری هویت فرهنگی آذربایجان</li>
-                <li>میراث معماری در قلاع و کاروانسراها</li>
-                <li>الگوی ناکارآمد تمرکز قدرت نظامی</li>
-                <li>نمونه‌ای از ضعف ساختاری حکومت‌های محلی</li>
-            </ul>
-        </div>
-
-        <div class="notable-figures">
-            <h3>شخصیت‌های برجسته</h3>
-            <ul>
-                <li>نظامی گنجوی - شاعر بزرگ و خالق خمسه که در داستان‌سرایی منظوم به اوج هنر رسید و تأثیر عمیقی بر ادبیات فارسی گذاشت.</li>
-                <li>خاقانی شروانی - شاعر نوآور و قصیده‌سرای بزرگ که در ابداع مضامین تازه و ترکیبات بدیع شهره بود.</li>
-                <li>مجیرالدین بیلقانی - شاعر برجسته دربار ایلدگزیان که در قصیده‌سرایی و مدح شهرت داشت.</li>
-                <li>فلکی شروانی - شاعر دربار که در سرودن قصاید فنی و علمی تبحر داشت.</li>
-            </ul>
-        </div>        
-    </div>
-</div>
-
-           <!-- Atabegs of Yazd -->
-<div class="timeline-item">
-    <div class="timeline-content">
-        <div class="period">اتابکان یزد</div>
-        <div class="date">1141-1319</div>
-
-        <div class="rulers">
-            <h3>حاکمان اصلی</h3>
-            <ul>
-                <li>رکن‌الدین سام (1141-1188) - بنیانگذار سلسله</li>
-                <li>عزالدین لنگر (1188-1220)</li>
-                <li>قطب‌الدین محمود (1220-1247)</li>
-                <li>علاءالدوله کالیجار (1247-1276)</li>
-                <li>یوسف‌شاه (1276-1319) - آخرین حاکم مستقل</li>
-            </ul>
-        </div>
-
-        <div class="events">
-            <h3>رویدادهای کلیدی</h3>
-            <ul>
-                <li>1141: انتصاب رکن‌الدین سام به حکومت یزد توسط سلجوقیان</li>
-                <li>1188: گسترش قلمرو و استحکام قدرت محلی</li>
-                <li>1220: مقاومت موفق در برابر حملات اولیه مغول</li>
-                <li>1233: پذیرش تابعیت مغول و حفظ خودمختاری نسبی</li>
-                <li>1275: دوره اوج شکوفایی معماری و صنایع دستی</li>
-                <li>1319: ادغام کامل در حکومت ایلخانی</li>
-            </ul>
-        </div>
-
-        <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
-            <ul>
-                <li>ابداع و توسعه سیستم قنات‌های چند طبقه</li>
-                <li>ساخت بادگیرها و معماری اقلیمی</li>
-                <li>گسترش صنعت نساجی و تولید پارچه‌های ابریشمی</li>
-                <li>احداث کاروانسراها و تقویت تجارت منطقه‌ای</li>
-                <li>ایجاد شبکه مدارس و مراکز علمی</li>
-            </ul>
-        </div>
-
-        <div class="cultural-impact">
-            <h3>تغییرات فرهنگی و اجتماعی</h3>
-            <ul>
-                <li>شکل‌گیری سبک معماری خاص یزدی</li>
-                <li>توسعه فنون مهندسی آب در مناطق کویری</li>
-                <li>رونق صنایع دستی و هنرهای سنتی</li>
-                <li>تداوم فرهنگ ایرانی در دوره مغول</li>
-                <li>گسترش مدارس و مراکز آموزشی</li>
-            </ul>
-        </div>
-
-        <div class="legacy">
-            <h3>میراث و تأثیرات پایدار</h3>
-            <ul>
-                <li>معماری سازگار با اقلیم کویری</li>
-                <li>سیستم‌های پیشرفته مدیریت آب</li>
-                <li>الگوی موفق تعامل با حکومت مرکزی</li>
-                <li>سنت‌های صنعتی در نساجی و سرامیک</li>
-                <li>حفظ هویت فرهنگی در دوران گذار</li>
-            </ul>
-        </div>
-
-        <div class="notable-figures">
-            <h3>شخصیت‌های برجسته</h3>
-            <ul>
-                <li>سید رکن‌الدین محمد قاضی یزد - از مهم‌ترین وزرای اتابکان یزد که نقش کلیدی در رونق فرهنگی و هنری یزد داشت و مدارس و مساجد متعددی به دستور او ساخته شد.</li>
-                <li>شرف‌الدین علی یزدی (قرن ۹ه.ق) - مورخ و نویسنده مشهور کتاب ظفرنامه و از بزرگترین نویسندگان تاریخ یزد در دوره تیموری که در دوره پایانی اتابکان می‌زیست.</li>
-                <li>علاءالدوله اتابک یزد - از حکمرانان مهم این سلسله که در گسترش معماری و هنر یزد نقش داشت و در زمان او مجموعه‌های معماری مهمی ساخته شد.</li>
-                <li>قطب‌الدین محمد - از اتابکان مهم یزد که در دوره او هنر کاشی‌کاری و معماری یزد به اوج رسید و مسجد جامع یزد در زمان او توسعه یافت.</li>
-                <li>یوسف شاه مظفری - آخرین اتابک یزد که در زمان او مدارس و کتابخانه‌های متعددی ساخته شد و نقش مهمی در گسترش علم و هنر داشت.</li>
             </ul>
         </div>        
     </div>
@@ -2019,73 +2130,80 @@ body.dark-mode .copyright {
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
             <ul>
-                <li>نصیرالدین مهربانی (1236-1258) - بنیانگذار سلسله</li>
+                <li>تاج‌الدین عثمان شاه (1236-1258) - بنیانگذار سلسله</li>
                 <li>مظفرالدین محمد (1258-1285)</li>
                 <li>شمس‌الدین علی (1285-1346)</li>
                 <li>جلال‌الدین مهربانی (1346-1383) - حاکم در زمان حمله تیمور</li>
-                <li>سید غیاث‌الدین (1480-1505) - آغاز افول قدرت</li>
+                <li>نظام‌الدین محمد (1383-1420)</li>
+                <li>رکن‌الدین محمود (1420-1458)</li>
+                <li>سید غیاث‌الدین (1458-1505) - آغاز افول قدرت</li>
+                <li>نظام‌الدین محمد دوم (1505-1568)</li>
+                <li>شاه محمود مهربانی (1568-1601) - آخرین حکمران</li>
             </ul>
         </div>
-
+    
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1236: تأسیس سلسله در سیستان توسط نصیرالدین مهربانی</li>
+                <li>1236: تأسیس سلسله در سیستان توسط تاج‌الدین عثمان شاه</li>
                 <li>1260: پذیرش سروری مغول‌ها برای حفظ استقلال نسبی</li>
+                <li>1285: گسترش قلمرو به سمت مناطق شرقی و جنوبی</li>
                 <li>1346: اوج نفوذ منطقه‌ای و دوران شکوفایی</li>
-                <li>1383: مقاومت شدید در برابر حمله تیمور و تضعیف قدرت</li>
-                <li>1480: کاهش نفوذ و آغاز افول</li>
-                <li>1601: پایان سلسله با الحاق سیستان به صفویان</li>
+                <li>1383: مقاومت در برابر حمله تیمور و آسیب جدی به قدرت حکومت</li>
+                <li>1420: آغاز دوره بازسازی و احیای تدریجی قدرت</li>
+                <li>1458: شروع دوره افول تدریجی</li>
+                <li>1505: از دست دادن بخش‌های مهمی از قلمرو</li>
+                <li>1601: پایان سلسله با الحاق به حکومت صفویان</li>
             </ul>
         </div>
-
+    
         <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
+            <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
-                <li>حفظ خودمختاری و استقلال نسبی</li>
-                <li>توسعه و نوآوری در سیستم‌های آبیاری</li>
-                <li>ساخت استحکامات و قلعه‌های دفاعی</li>
-                <li>ترویج کشاورزی و بهبود تکنیک‌های زراعی</li>
-                <li>حفظ و ترویج فرهنگ و آداب سیستانی</li>
+                <li>حفظ خودمختاری در دوره حکومت ایلخانان و تیموریان</li>
+                <li>بازسازی و توسعه شبکه‌های آبیاری باستانی سیستان</li>
+                <li>ساخت قلاع دفاعی استراتژیک در مرزهای شرقی</li>
+                <li>تدوین نظام مدیریت آب و تقسیم عادلانه منابع آبی</li>
+                <li>ایجاد نظام اداری کارآمد برای مدیریت منطقه‌ای</li>
             </ul>
         </div>
-
+    
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>حفظ و گسترش سنت‌ها و آداب محلی</li>
-                <li>توسعه سبک معماری منطقه‌ای متأثر از شرایط بومی</li>
-                <li>حمایت از ادبیات فارسی و تشویق شاعران محلی</li>
-                <li>ادغام عناصر فرهنگی مختلف قومی</li>
-                <li>پشتیبانی از هنرها و صنایع دستی بومی</li>
+                <li>تداوم سنت‌های کهن سیستانی در دوره اسلامی</li>
+                <li>توسعه معماری تلفیقی با عناصر ایرانی-اسلامی</li>
+                <li>حمایت از شعر و ادب فارسی و تأسیس مدارس</li>
+                <li>حفظ هویت فرهنگی منطقه در برابر تهاجمات خارجی</li>
+                <li>گسترش صنایع دستی و هنرهای بومی سیستان</li>
             </ul>
         </div>
-
+    
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
-                <li>الگوهای حکمرانی مستقل و منطقه‌ای</li>
-                <li>روش‌های نوین در مدیریت آب و آبیاری</li>
-                <li>سنت‌های حفاظت از فرهنگ محلی</li>
-                <li>توسعه پایدار در سیستم‌های کشاورزی</li>
-                <li>استمرار سنت‌های اداری بومی</li>
+                <li>الگوی موفق حکمرانی محلی در شرق ایران</li>
+                <li>سیستم مدیریت آب مبتنی بر تجربیات تاریخی منطقه</li>
+                <li>معماری دفاعی متناسب با شرایط اقلیمی</li>
+                <li>تداوم سنت‌های اداری و مدیریتی بومی</li>
+                <li>حفظ و انتقال دانش کشاورزی و آبیاری سنتی</li>
             </ul>
         </div>
-
+    
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>تاج‌الدین عثمان شاه - بنیانگذار سلسله مهربانیان که در توسعه معماری و هنر سیستان نقش مهمی داشت و در زمان او چندین بنای مهم ساخته شد.</li>
-                <li>قطب‌الدین محمد مهربانی - از مهمترین حاکمان این سلسله که در دوره او هنر و معماری سیستان به اوج خود رسید و کتابخانه‌های متعددی تأسیس شد.</li>
-                <li>نظام‌الدین محمد مهربانی - آخرین حکمران مهربانی که در حفظ و گسترش هنرهای سنتی سیستان کوشید و از شاعران و هنرمندان حمایت می‌کرد.</li>
-                <li>شمس‌الدین علی سیستانی - از شاعران و نویسندگان مهم این دوره که آثارش بازتاب‌دهنده فرهنگ و هنر سیستان در عصر مهربانیان است.</li>
+                <li>تاج‌الدین عثمان شاه (1236-1258) - بنیانگذار سلسله که پایه‌های حکومت مستقل در سیستان را بنا نهاد</li>
+                <li>شمس‌الدین علی (1285-1346) - از مهمترین حکمرانان که دوره او عصر طلایی هنر و معماری سیستان بود</li>
+                <li>جلال‌الدین مهربانی (1346-1383) - حاکم مقتدری که در برابر تیمور مقاومت کرد</li>
+                <li>نظام‌الدین محمد (1383-1420) - آغازگر دوره بازسازی پس از حمله تیمور</li>
             </ul>
         </div>        
     </div>
 </div>
 
             
-           <!-- Kurt Dynasty -->
+<!-- Kurt Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله کورت</div>
@@ -2098,7 +2216,7 @@ body.dark-mode .copyright {
                 <li>رکن‌الدین ابراهیم (1278-1305) - به رسمیت شناخته‌شده توسط ایلخانان</li>
                 <li>غیاث‌الدین (1305-1332) - توسعه‌دهنده سرزمینی</li>
                 <li>معزالدین حسین (1332-1370) - حاکم در اوج قدرت</li>
-                <li>ملک فخرالدین (1370-1389) - آخرین حاکم، مواجهه با تیمور</li>
+                <li>غیاث‌الدین پیر علی (1370-1389) - آخرین حاکم، مواجهه با تیمور</li>
             </ul>
         </div>
 
@@ -2150,13 +2268,13 @@ body.dark-mode .copyright {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>شمس‌الدین محمد (۶۴۳-۶۷۷ه.ق) - بنیان‌گذار سلسله کورت که در احیای فرهنگی هرات نقش داشت و مدارس و کتابخانه‌های متعددی ساخت.</li>
-                <li>فخرالدین کرت (۷۰۶-۷۲۹ه.ق) - از مهم‌ترین حکمرانان این سلسله که در دوره او هنر و معماری هرات به اوج رسید و مسجد جامع هرات را گسترش داد.</li>
-                <li>معزالدین حسین کرت (۷۳۲-۷۷۱ه.ق) - در دوره او هرات به مرکز مهم فرهنگی و هنری تبدیل شد و هنرمندان و دانشمندان زیادی به دربار او آمدند.</li>
-                <li>غیاث‌الدین کرت (۷۷۱-۷۲۹ه.ق) - از حامیان بزرگ هنر و معماری که در زمان او مجموعه‌های معماری مهمی در هرات ساخته شد.</li>
-                <li>ملک غیاث‌الدین پیر علی (۷۹۱-۷۹۲ه.ق) - آخرین حکمران کرت که تا پایان از هنر و فرهنگ هرات حمایت کرد.</li>
-             </ul>
-        </div>        
+                <li>شمس‌الدین محمد (1245-1278) - بنیان‌گذار سلسله کورت که در احیای فرهنگی هرات نقش داشت و مدارس و کتابخانه‌های متعددی ساخت.</li>
+                <li>فخرالدین کرت (1306-1329) - از مهم‌ترین حکمرانان این سلسله که در دوره او هنر و معماری هرات به اوج رسید و مسجد جامع هرات را گسترش داد.</li>
+                <li>معزالدین حسین کرت (1332-1370) - در دوره او هرات به مرکز مهم فرهنگی و هنری تبدیل شد و هنرمندان و دانشمندان زیادی به دربار او آمدند.</li>
+                <li>غیاث‌الدین کرت (1329-1370) - از حامیان بزرگ هنر و معماری که در زمان او مجموعه‌های معماری مهمی در هرات ساخته شد.</li>
+                <li>غیاث‌الدین پیر علی (1370-1389) - آخرین حکمران کرت که تا پایان از هنر و فرهنگ هرات حمایت کرد.</li>
+            </ul>
+        </div>      
     </div>
 </div>
 
@@ -2223,13 +2341,13 @@ body.dark-mode .copyright {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>عبدالرزاق باشتینی (۷۳۷ه.ق) - بنیانگذار جنبش سربداران که قیام مردمی را رهبری کرد و در شکل‌گیری اولین حکومت شیعی ایران نقش داشت.</li>
+                <li>عبدالرزاق باشتینی (1337) - بنیانگذار جنبش سربداران که قیام مردمی را رهبری کرد و در شکل‌گیری اولین حکومت شیعی ایران نقش داشت.</li>
                 <li>شیخ حسن جوری - رهبر معنوی و فکری سربداران که اندیشه‌های او در معماری مذهبی و هنر این دوره تأثیرگذار بود.</li>
-                <li>وجیه‌الدین مسعود (۷۳۸-۷۴۳ه.ق) - از مهم‌ترین حاکمان سربدار که در دوره او هنر و معماری سبزوار رونق گرفت.</li>
-                <li>خواجه علی مؤید (۷۶۶-۷۸۸ه.ق) - آخرین حاکم سربداران که مدارس و مساجد متعددی ساخت و از هنرمندان حمایت کرد.</li>
+                <li>وجیه‌الدین مسعود (1337-1342) - از مهم‌ترین حاکمان سربدار که در دوره او هنر و معماری سبزوار رونق گرفت.</li>
+                <li>خواجه علی مؤید (1364-1386) - آخرین حاکم سربداران که مدارس و مساجد متعددی ساخت و از هنرمندان حمایت کرد.</li>
                 <li>شمس‌الدین علی - از وزرای مهم این دوره که در گسترش هنر و معماری شیعی نقش داشت.</li>
-             </ul>
-        </div>        
+            </ul>
+        </div>      
     </div>
 </div>
 
@@ -2244,7 +2362,9 @@ body.dark-mode .copyright {
             <ul>
                 <li>تیمور (1370-1405) - بنیان‌گذار امپراتوری تیموری</li>
                 <li>شاهرخ (1405-1447) - تثبیت‌کننده امپراتوری و حامی هنر</li>
-                <li>سلطان حسین بایقرا (1469-1506) - حاکم دوران طلایی هرات</li>
+                <li>الغ بیگ (1447-1449) - دانشمند و ستاره‌شناس برجسته</li>
+                <li>ابوسعید میرزا (1451-1469) - احیاکننده قدرت تیموریان</li>
+                <li>سلطان حسین بایقرا (1469-1507) - حاکم دوران طلایی هرات</li>
             </ul>
         </div>
 
@@ -2252,12 +2372,13 @@ body.dark-mode .copyright {
             <h3>رویدادهای کلیدی</h3>
             <ul>
                 <li>1370: تیمور به قدرت می‌رسد و سمرقند را به عنوان پایتخت انتخاب می‌کند</li>
-                <li>1387: فتح مناطق ایران و شام توسط تیمور</li>
+                <li>1387: لشکرکشی به ایران و آغاز فتوحات گسترده</li>
                 <li>1398: حمله و غارت دهلی در هندوستان</li>
                 <li>1405: مرگ تیمور و آغاز جنگ‌های جانشینی</li>
-                <li>1447: شاهرخ امپراتوری را دوباره متحد می‌سازد و هنرها را ترویج می‌کند</li>
+                <li>1409: شاهرخ بر بیشتر قلمرو تیموری مسلط می‌شود</li>
+                <li>1447: مرگ شاهرخ و آغاز دوره گذار</li>
                 <li>1469: آغاز سلطنت سلطان حسین بایقرا و شکوفایی هنر و ادبیات</li>
-                <li>1507: سقوط سلسله تیموری با حمله اوزبک‌ها</li>
+                <li>1507: سقوط سلسله تیموری با حمله ازبکان</li>
             </ul>
         </div>
 
@@ -2294,14 +2415,14 @@ body.dark-mode .copyright {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>تیمور (۷۷۱-۸۰۷ه.ق) - بنیانگذار سلسله تیموری که با جمع‌آوری هنرمندان از سراسر ایران، موجب شکل‌گیری مکتب هنری سمرقند شد.</li>
-                <li>شاهرخ (۸۰۷-۸۵۰ه.ق) - دوران او اوج شکوفایی هنر تیموری بود. کتابخانه سلطنتی هرات را تاسیس کرد و مکتب هنری هرات در زمان او پایه‌گذاری شد.</li>
-                <li>بایسنقر میرزا (۷۹۹-۸۳۷ه.ق) - مهمترین حامی هنر کتاب‌آرایی که کتابخانه-کارگاه او در هرات، شاهکارهای نگارگری و خوشنویسی را خلق کرد.</li>
-                <li>سلطان حسین بایقرا (۸۷۵-۹۱۱ه.ق) - در دوران او هرات به مهمترین مرکز هنری جهان اسلام تبدیل شد. کمال‌الدین بهزاد در دربار او به اوج هنر نگارگری رسید.</li>
-                <li>الغ بیگ (۸۵۰-۸۵۳ه.ق) - در سمرقند مدرسه و رصدخانه ساخت و مرکز علمی-هنری مهمی ایجاد کرد.</li>
-                <li>گوهرشاد آغا - همسر شاهرخ که مسجد گوهرشاد و مجموعه‌های معماری مهمی در مشهد و هرات ساخت.</li>
+                <li>تیمور (1336-1405) - بنیانگذار سلسله تیموری که با جمع‌آوری هنرمندان از سراسر ایران، موجب شکل‌گیری مکتب هنری سمرقند شد.</li>
+                <li>شاهرخ (1405-1447) - دوران او اوج شکوفایی هنر تیموری بود. کتابخانه سلطنتی هرات را تاسیس کرد و مکتب هنری هرات در زمان او پایه‌گذاری شد.</li>
+                <li>بایسنقر میرزا (1397-1433) - مهمترین حامی هنر کتاب‌آرایی که کتابخانه-کارگاه او در هرات، شاهکارهای نگارگری و خوشنویسی را خلق کرد.</li>
+                <li>سلطان حسین بایقرا (1469-1506) - در دوران او هرات به مهمترین مرکز هنری جهان اسلام تبدیل شد. کمال‌الدین بهزاد در دربار او به اوج هنر نگارگری رسید.</li>
+                <li>الغ بیگ (1447-1449) - در سمرقند مدرسه و رصدخانه ساخت و مرکز علمی-هنری مهمی ایجاد کرد.</li>
+                <li>گوهرشاد آغا (درگذشت 1457) - همسر شاهرخ که مسجد گوهرشاد و مجموعه‌های معماری مهمی در مشهد و هرات ساخت.</li>
              </ul>
-        </div>        
+        </div>     
     </div>
 </div>
 
@@ -2321,6 +2442,7 @@ body.dark-mode .copyright {
             <h3>حاکمان اصلی</h3>
             <ul>
                 <li>شاه اسماعیل اول (1501-1524) - بنیان‌گذار دولت صفوی و مروج تشیع</li>
+                <li>شاه طهماسب اول (1524-1576) - تثبیت‌کننده حکومت صفوی</li>
                 <li>شاه عباس اول (1588-1629) - اصلاح‌گر ارتش و اقتصاد و سازنده اصفهان به عنوان مرکز فرهنگی</li>
                 <li>شاه سلطان حسین (1694-1722) - دوران انحطاط و ضعف دولت</li>
             </ul>
@@ -2331,17 +2453,20 @@ body.dark-mode .copyright {
             <ul>
                 <li>1501: شاه اسماعیل اول تبریز را تصرف و دولت صفوی را تأسیس کرد</li>
                 <li>1514: نبرد چالدران و شکست از عثمانی‌ها</li>
+                <li>1524: آغاز سلطنت شاه طهماسب اول</li>
+                <li>1555: معاهده صلح آماسیه با عثمانی</li>
+                <li>1588: آغاز سلطنت شاه عباس اول</li>
                 <li>1598: انتقال پایتخت از قزوین به اصفهان توسط شاه عباس</li>
-                <li>1629: اوج قدرت و گسترش اقتصادی و فرهنگی تحت سلطنت شاه عباس اول</li>
+                <li>1629: درگذشت شاه عباس اول</li>
                 <li>1722: حمله افغان‌ها و سقوط اصفهان</li>
             </ul>
         </div>
 
         <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
+            <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
                 <li>تثبیت مذهب تشیع دوازده‌امامی به عنوان مذهب رسمی</li>
-                <li>ایجاد و تقویت ارتش دائمی و سازمان‌یافته (قزلباش)</li>
+                <li>ایجاد و تقویت ارتش دائمی و سازمان‌یافته (قورچیان و غلامان)</li>
                 <li>رونق و توسعه صنعت فرش ایرانی در بازارهای جهانی</li>
                 <li>ساخت بناهای شاخص همچون مسجد شاه و میدان نقش‌جهان</li>
                 <li>ایجاد شبکه‌های تجاری گسترده با اروپا و شرق دور</li>
@@ -2373,19 +2498,19 @@ body.dark-mode .copyright {
         <div class="notable-figures">
             <h3>شخصیت‌های برجسته</h3>
             <ul>
-                <li>شاه اسماعیل اول (885-930ه.ق) - بنیانگذار سلسله صفوی که با رسمی کردن مذهب شیعه، تحول عظیمی در هنر و معماری ایران ایجاد کرد.</li>
-                <li>شاه عباس اول (996-1038ه.ق) - مهمترین پادشاه صفوی که با ساخت مجموعه میدان نقش جهان و حمایت از هنرمندان، عصر طلایی هنر صفوی را رقم زد.</li>
-                <li>رضا عباسی (1000-1044ه.ق) - برجسته‌ترین نگارگر عصر صفوی که سبک شخصی او در نقاشی ایرانی تحولی بزرگ ایجاد کرد.</li>
-                <li>میرعماد حسنی (966-1024ه.ق) - استاد مسلم خط نستعلیق که آثارش به اوج زیبایی و ظرافت رسید.</li>
-                <li>شیخ بهایی (953-1030ه.ق) - عالم، معمار و هنرمندی که در طراحی بناهای اصفهان نقش داشت.</li>
-                <li>علی رضا عباسی (قرن 11ه.ق) - از خوشنویسان برجسته دربار صفوی که در تکامل خط ثلث و نستعلیق نقش مهمی داشت.</li>
-             </ul>
-        </div>        
+                <li>شاه اسماعیل اول (1487-1524) - بنیانگذار سلسله صفوی که با رسمی کردن مذهب شیعه، تحول عظیمی در ساختار مذهبی ایران ایجاد کرد.</li>
+                <li>شاه عباس اول (1571-1629) - مهمترین پادشاه صفوی که با ساخت مجموعه میدان نقش جهان و اصلاحات گسترده، عصر طلایی صفوی را رقم زد.</li>
+                <li>رضا عباسی (حدود 1550-1635) - برجسته‌ترین نگارگر عصر صفوی که سبک شخصی او در نقاشی ایرانی تحولی بزرگ ایجاد کرد.</li>
+                <li>میرعماد حسنی (1554-1615) - استاد مسلم خط نستعلیق که آثارش به اوج زیبایی و ظرافت رسید.</li>
+                <li>شیخ بهایی (1547-1621) - عالم، معمار و هنرمندی که در طراحی بناهای اصفهان نقش داشت.</li>
+                <li>علیرضا عباسی (درگذشت 1628) - از خوشنویسان برجسته دربار صفوی که در تکامل خط ثلث و نستعلیق نقش مهمی داشت.</li>
+            </ul>
+        </div>      
     </div>
 </div>
 
 
-            <!-- Hotaki Dynasty -->
+<!-- Hotaki Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">دودمان هوتکیان</div>
@@ -2395,6 +2520,7 @@ body.dark-mode .copyright {
             <h3>حاکمان اصلی</h3>
             <ul>
                 <li>میر ویس هوتک (1709-1715) - بنیان‌گذار سلسله هوتکی و رهبر شورش علیه صفویان</li>
+                <li>عبدالعزیز هوتک (1715-1717) - جانشین میرویس</li>
                 <li>محمود هوتک (1717-1725) - فاتح اصفهان و پایان‌دهنده به حکومت صفویان</li>
                 <li>اشرف هوتک (1725-1729) - توسعه‌دهنده حکومت هوتکی تا شکست از نادرشاه</li>
                 <li>حسین هوتک (1729-1738) - آخرین حاکم هوتکی که به نادرشاه تسلیم شد</li>
@@ -2405,97 +2531,77 @@ body.dark-mode .copyright {
             <h3>رویدادهای کلیدی</h3>
             <ul>
                 <li>1709: میر ویس هوتک علیه سلطه صفویان شورش کرد و حکومت مستقل افغان را تأسیس نمود</li>
-                <li>1715: محمود هوتک اصفهان را تصرف کرد و صفویان را سرنگون کرد</li>
-                <li>1722: محمود هوتک به ایران حمله کرد و پایتخت صفویان را تصرف نمود</li>
-                <li>1725: اشرف هوتک به گسترش حکومت هوتکی پرداخت و ارتش صفویان را شکست داد</li>
+                <li>1715: میر ویس هوتک درگذشت و عبدالعزیز جانشین او شد</li>
+                <li>1717: محمود هوتک به قدرت رسید</li>
+                <li>1722: محمود هوتک اصفهان را تصرف کرد و صفویان را سرنگون کرد</li>
+                <li>1725: اشرف هوتک به قدرت رسید و به گسترش حکومت هوتکی پرداخت</li>
                 <li>1729: اشرف هوتک توسط نادرشاه افشار شکست خورد و قلمرو هوتکی تضعیف شد</li>
                 <li>1738: حسین هوتک به نادرشاه تسلیم شد و پایان دودمان هوتکی رقم خورد</li>
-            </ul>
-        </div>
-
-        <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
-            <ul>
-                <li>تأسیس یک دولت مستقل افغان و پایان دادن به حاکمیت صفویان در بخش‌هایی از ایران</li>
-                <li>حمایت از فرهنگ و زبان پشتو و تقویت ادبیات افغان</li>
-                <li>اصلاحاتی در زمینه مالیات و بهبود ساختارهای مدیریتی</li>
-                <li>گسترش شبکه‌های تجاری و روابط بازرگانی</li>
-            </ul>
-        </div>
-
-        <div class="cultural-impact">
-            <h3>تغییرات فرهنگی و اجتماعی</h3>
-            <ul>
-                <li>ترویج زبان و فرهنگ پشتو در افغانستان و بخش‌هایی از ایران</li>
-                <li>تأکید بر هویت ملی و قومی افغان و احیای احساس خودمختاری</li>
-                <li>تقویت و ترویج اسلام سنی در منطقه</li>
-            </ul>
-        </div>
-
-        <div class="legacy">
-            <h3>میراث و تأثیرات پایدار</h3>
-            <ul>
-                <li>الگویی برای سلسله‌های آینده افغان و پایه‌گذاری هویت مستقل افغان</li>
-                <li>تضعیف قدرت صفویان و کمک به فروپاشی این سلسله</li>
-                <li>ترویج و تثبیت سنت‌های فرهنگی و زبانی افغان</li>
-                <li>نقش مؤثر در توسعه تجارت و بازرگانی منطقه‌ای</li>
             </ul>
         </div>
     </div>
 </div>
 
-           <!-- Afsharid Dynasty -->
+
+<!-- Afsharid Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله افشاریه</div>
-        <div class="date">1736-1796</div>
+        <div class="date">1736-1795</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
             <ul>
                 <li>نادرشاه (1736-1747) - بنیان‌گذار سلسله افشاریه و فاتح هندوستان</li>
-                <li>عادل شاه (1747-1748) - حاکم ناتوان که تنها مدت کوتاهی سلطنت کرد</li>
-                <li>شاه‌رخ (1748-1796) - آخرین حاکم افشاری که به نابینایی و زندانی شدن دچار شد</li>
+                <li>عادل شاه (1747-1748) - جانشین نادرشاه</li>
+                <li>شاه‌رخ (1748-1795) - آخرین حاکم افشاری</li>
             </ul>
         </div>
 
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1736: نادرشاه آخرین حاکم هوتکی را برکنار کرده و سلسله افشاریه را تأسیس می‌کند</li>
-                <li>1738: نادرشاه به هندوستان حمله کرده و امپراتوری مغول را فتح می‌کند</li>
-                <li>1747: نادرشاه به قتل می‌رسد و رقابت‌های قدرت آغاز می‌شود</li>
-                <li>1748: عادل شاه به مدت کوتاهی به تخت می‌نشید و سپس برکنار می‌شود</li>
-                <li>1796: شاه‌رخ، آخرین حاکم افشاری، نابینا و زندانی می‌شود</li>
+                <li>1729: نادر شروع به بازپس‌گیری قلمرو صفوی از افغان‌ها می‌کند</li>
+                <li>1736: نادر در دشت مغان تاج‌گذاری می‌کند و سلسله افشاریه را تأسیس می‌کند</li>
+                <li>1738-1739: لشکرکشی به هندوستان و تصرف دهلی</li>
+                <li>1740: فتح خوارزم و بخارا و گسترش قلمرو به آسیای میانه</li>
+                <li>1747: قتل نادرشاه در قوچان و آغاز دوره کشمکش‌های داخلی</li>
+                <li>1748: به قدرت رسیدن شاه‌رخ در خراسان</li>
+                <li>1795: پایان حکومت شاه‌رخ و سلسله افشاریه</li>
             </ul>
         </div>
 
         <div class="achievements">
-            <h3>نوآوری‌ها و نوآوری‌ها و دستاوردهای عمده</h3>
+            <h3>دستاوردهای عمده</h3>
             <ul>
-                <li>تأسیس امپراتوری ایرانی قدرتمند که با عثمانی‌ها و مغول‌ها رقابت می‌کند</li>
-                <li>حمایت از هنرها و علوم و توسعه معماری، از جمله ساخت مقبره نادرشاه</li>
-                <li>گسترش زبان و ادبیات فارسی به عنوان زبان رسمی و فرهنگی</li>
-                <li>نوآوری‌های معماری و ادغام سبک‌های آسیای مرکزی و ایرانی</li>
+                <li>بازسازی قدرت نظامی ایران و ایجاد ارتش منظم</li>
+                <li>اصلاحات مالیاتی و نظام اداری برای تأمین مخارج ارتش</li>
+                <li>گسترش مرزهای ایران از هند تا قفقاز</li>
+                <li>توسعه تجارت با هند، آسیای میانه و روسیه</li>
+                <li>ساخت بناهای نظامی و حکومتی در مشهد و کلات نادری</li>
+                <li>انتقال جواهرات سلطنتی از جمله الماس کوه نور از هند به ایران</li>
             </ul>
         </div>
 
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>تعریف و تقویت هویت ایرانی در برابر تهدیدات خارجی</li>
-                <li>رونق هنرهای سنتی و ادبیات فارسی در این دوره</li>
-                <li>توسعه و ترویج نقاشی مینیاتوری و کاشیکاری</li>
-                <li>تغییرات اجتماعی و سیاسی که به تأثیرات فرهنگی بر جامعه منجر شد</li>
+                <li>تعریف مجدد هویت ایرانی با ترکیب عناصر نظامی و سیاسی</li>
+                <li>رونق هنرهای تزئینی و معماری در مشهد و کلات</li>
+                <li>توسعه صنایع نظامی و فلزکاری</li>
+                <li>گسترش مبادلات فرهنگی با هند و آسیای میانه</li>
+                <li>رشد شهر مشهد به عنوان پایتخت جدید</li>
             </ul>
         </div>
 
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
-                <li>ایجاد الگوهایی برای دودمان‌های آینده، به‌ویژه قاجاریان</li>
-                <li>تأثیرات ماندگار بر چشم‌انداز سیاسی و فرهنگی ایران</li>
-                <li>توسعه مفاهیم هویتی ملی و فرهنگی در جامعه ایرانی</li>
+                <li>تثبیت مرزهای شرقی ایران و تأثیر آن بر جغرافیای سیاسی منطقه</li>
+                <li>معرفی اصلاحات نظامی که الگویی برای دوره‌های بعدی شد</li>
+                <li>تأسیس سیستم اداری متمرکز برای کنترل قلمرو گسترده</li>
+                <li>ایجاد روابط سیاسی و تجاری با هند که در دوره‌های بعد ادامه یافت</li>
+                <li>توسعه شهر مشهد به عنوان مرکز مذهبی و سیاسی در شرق ایران</li>
             </ul>
         </div>
 
@@ -2512,20 +2618,20 @@ body.dark-mode .copyright {
     </div>
 </div>
 
-           <!-- Zand Dynasty -->
+<!-- Zand Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله زندیه</div>
-        <div class="date">1750-1794</div>
+        <div class="date">1751-1794</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
             <ul>
                 <li>کریم‌خان زند (1751-1779) - بنیان‌گذار سلسله زندیه و معروف به "وکیل‌الرعایا"</li>
                 <li>ابوالفتح‌خان زند (1779) - حاکم کوتاه‌مدت پس از کریم‌خان</li>
-                <li>صادق‌خان زند (1779-1781) - حاکمی با سلطنتی ناپایدار</li>
+                <li>صادق‌خان زند (1779-1781) - حاکمی با دوره حکومت کوتاه</li>
                 <li>علی‌مرادخان زند (1781-1785) - از مدعیان قدرت در دوران زندیه</li>
-                <li>جعفرخان زند (1785-1789) - حاکمی درگیر جنگ‌های داخلی</li>
+                <li>جعفرخان زند (1785-1789) - حاکم دوره بعد از علی‌مرادخان</li>
                 <li>لطفعلی‌خان زند (1789-1794) - آخرین حاکم زندیه که توسط آقا محمدخان قاجار شکست خورد</li>
             </ul>
         </div>
@@ -2533,44 +2639,45 @@ body.dark-mode .copyright {
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1750: کریم‌خان قدرت را به دست می‌گیرد و سلسله زند را در شیراز تأسیس می‌کند.</li>
-                <li>1760s: کریم‌خان کنترل خود را بر ایران جنوبی و مرکزی تحکیم می‌بخشد.</li>
-                <li>1779: کریم‌خان درگذشت و به رقابت‌های قدرت میان جانشینانش منجر شد.</li>
-                <li>1789: جعفرخان به تخت می‌نشیند، اما با چالش‌هایی از سوی گروه‌های رقیب روبرو می‌شود.</li>
-                <li>1794: سلسله زند توسط آقا محمدخان، بنیان‌گذار سلسله قاجار، سرنگون می‌شود.</li>
+                <li>1747: کریم‌خان شروع به گسترش قدرت در مناطق مرکزی ایران می‌کند</li>
+                <li>1751: کریم‌خان رسماً قدرت را به دست می‌گیرد و سلسله زند را در شیراز تأسیس می‌کند</li>
+                <li>1760s: کریم‌خان کنترل خود را بر ایران جنوبی و مرکزی تحکیم می‌بخشد</li>
+                <li>1779: کریم‌خان درگذشت و رقابت قدرت میان جانشینان آغاز شد</li>
+                <li>1785: جعفرخان زند به حکومت می‌رسد</li>
+                <li>1794: سلسله زند توسط آقا محمدخان، بنیان‌گذار سلسله قاجار، به پایان می‌رسد</li>
             </ul>
         </div>
 
         <div class="achievements">
             <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
-                <li>تأسیس حکومتی نسبتاً باثبات و موفق در ایران جنوبی و مرکزی، اما با چالش‌های درونی و قدرت‌های خارجی.</li>
-                <li>حمایت از هنرها و معماری، با تأکید بر تقویت هویت فرهنگی ایرانی.</li>
-                <li>اصلاحات در سیستم مالیاتی و ساختارهای اداری، گرچه ناکارآمدی‌های آن‌ها نیز قابل توجه بود.</li>
-                <li>گسترش روابط تجاری با اروپا و هند، که به نوبه خود تأثیراتی بر فرهنگ و سیاست گذاشت.</li>
-                <li>تلاش برای توازن قدرت میان گروه‌ها و قبایل رقیب که نشان‌دهنده عدم ثبات سیاسی بود.</li>
+                <li>تأسیس حکومت در ایران جنوبی و مرکزی با مرکزیت شیراز</li>
+                <li>حمایت از هنرها و معماری، با تأکید بر تقویت هویت فرهنگی ایرانی</li>
+                <li>اصلاحات در سیستم مالیاتی و ساختارهای اداری</li>
+                <li>گسترش روابط تجاری با اروپا و هند و تأثیر آن بر فرهنگ و سیاست</li>
+                <li>تلاش برای ایجاد توازن قدرت میان گروه‌ها و قبایل مختلف</li>
             </ul>
         </div>
 
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>شکوفایی فرهنگ و شعر فارسی در شیراز، اما با چالش‌های مربوط به حفظ و انتقال این میراث.</li>
-                <li>ترویج شیراز به عنوان مرکز هنر و دانش، اگرچه این وضعیت در برابر تهدیدات سیاسی آسیب‌پذیر بود.</li>
-                <li>ادغام سنت‌های ترکی و ایرانی در دربار سلطنتی، که در عین حال به گسست‌های فرهنگی منجر می‌شد.</li>
-                <li>حفظ سبک‌ها و مهارت‌های هنری دوره صفوی، اما با نقصان در نوآوری.</li>
-                <li>بهبود روابط با قدرت‌های اروپایی و منجر به تبادل فرهنگی، اگرچه این تبادل می‌تواند چالش‌هایی به همراه داشته باشد.</li>
+                <li>شکوفایی فرهنگ و شعر فارسی در شیراز</li>
+                <li>ترویج شیراز به عنوان مرکز هنر و دانش در دوره زندیه</li>
+                <li>ادغام سنت‌های ترکی و ایرانی در دربار سلطنتی</li>
+                <li>تداوم سبک‌ها و مهارت‌های هنری دوره صفوی</li>
+                <li>گسترش تبادلات فرهنگی با قدرت‌های اروپایی</li>
             </ul>
         </div>
 
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
-                <li>به عنوان دوره‌ای انتقالی بین سلسله‌های صفوی و قاجار خدمت کرد، با نقاط قوت و ضعف.</li>
-                <li>پتانسیل یک سلسله ایرانی متمرکز بر منطقه‌ای را به نمایش گذاشت، اما با ناپایداری سیاسی.</li>
-                <li>به توسعه شیراز به عنوان یک مرکز فرهنگی و اقتصادی کمک کرد، که اثرات آن در تاریخ بعدی مشهود است.</li>
-                <li>الگویی برای توازن منافع گروه‌ها و قبایل مختلف فراهم کرد، اما این توازن به راحتی حفظ نشد.</li>
-                <li>راه را برای ظهور سلسله قاجار که متمرکزتر بود هموار کرد، اما با چالش‌هایی از نظر مشروعیت.</li>
+                <li>ایفای نقش دوره انتقالی بین سلسله‌های صفوی و قاجار</li>
+                <li>ارائه الگوی حکومت متمرکز بر منطقه جنوب و مرکز ایران</li>
+                <li>توسعه شیراز به عنوان یک مرکز فرهنگی و اقتصادی مهم</li>
+                <li>ایجاد الگویی برای مدیریت منافع گروه‌ها و قبایل مختلف</li>
+                <li>فراهم کردن زمینه‌های تحول سیاسی برای دوره بعد</li>
             </ul>
         </div>
 
@@ -2588,11 +2695,11 @@ body.dark-mode .copyright {
     </div>
 </div>
 
-            <!-- Qajar Dynasty -->
+<!-- Qajar Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله قاجار</div>
-        <div class="date">1785-1925</div>
+        <div class="date">1789-1925</div>
 
         <div class="rulers">
             <h3>حاکمان اصلی</h3>
@@ -2610,11 +2717,11 @@ body.dark-mode .copyright {
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1785: آقا محمدخان پس از شکست زندها، دودمان قاجار را تأسیس می‌کند.</li>
-                <li>1796: آقا محمدخان ترور می‌شود و فتحعلی‌شاه به جای او می‌نشیند.</li>
+                <li>1789: آقا محمدخان پس از شکست زندها، دودمان قاجار را تأسیس می‌کند.</li>
+                <li>1797: آقا محمدخان درگذشت و فتحعلی‌شاه به جای او نشست.</li>
                 <li>1813: امضای قرارداد گلستان که منجر به واگذاری سرزمین‌هایی به امپراتوری روسیه می‌شود و نشانه‌ای از ضعف دیپلماسی است.</li>
-                <li>1856-1857: جنگ انگلیس و ایران منجر به واگذاری‌های بیشتر سرزمینی به بریتانیا و تشدید نارضایتی‌های داخلی می‌شود.</li>
-                <li>1906-1911: انقلاب مشروطه ایران مجلس را تأسیس می‌کند و چالش‌های جدی برای قدرت قاجار ایجاد می‌کند.</li>
+                <li>1856-1857: جنگ انگلیس و ایران که منجر به جدایی هرات از ایران شد.</li>
+                <li>1905-1911: انقلاب مشروطه ایران مجلس را تأسیس می‌کند و چالش‌های جدی برای قدرت قاجار ایجاد می‌کند.</li>
                 <li>1925: احمدشاه عزل می‌شود و دودمان پهلوی تأسیس می‌گردد، نشانه‌ای از عدم رضایت عمومی از قاجار.</li>
             </ul>
         </div>
@@ -2637,7 +2744,7 @@ body.dark-mode .copyright {
                 <li>حفظ سنت‌های فرهنگی و سبک‌های معماری فارسی، اما با چالش‌هایی در برابر مدرنیته.</li>
                 <li>افزایش تعامل بین ایران و غرب، منجر به تبادل فرهنگی، اما با آثار منفی نیز همراه بود.</li>
                 <li>ظهور هویت و آگاهی ملی مدرن ایرانی که در پس‌زمینه نارضایتی از سلطنت قاجار شکل گرفت.</li>
-                <li>ترویج شیعه‌گری به عنوان عنصر مرکزی هویت ایرانی، که می‌تواند به اختلافات اجتماعی منجر شود.</li>
+                <li>ترویج شیعه‌گری به عنوان عنصر مرکزی هویت ایرانی در دوره قاجار.</li>
             </ul>
         </div>
 
@@ -2646,7 +2753,7 @@ body.dark-mode .copyright {
             <ul>
                 <li>تأسیس دودمانی قوی که بیش از یک قرن حکومت کرد، اما با بحران‌های جدی سیاسی و اقتصادی روبرو شد.</li>
                 <li>تلاش برای حفظ استقلال ایران در برابر امپریالیسم اروپایی، اما ناکامی در برخی مواقع.</li>
-                <li>پایه‌گذاری مدرنیزاسیون دولت ایرانی، اما با عدم موفقیت‌های فراوان.</li>
+                <li>پایه‌گذاری مدرنیزاسیون دولت ایرانی، که با چالش‌های متعدد در اجرا روبرو شد.</li>
                 <li>کمک به ظهور ملی‌گرایی ایرانی و انقلاب مشروطه، که پیامدهای اجتماعی و فرهنگی عمیقی داشت.</li>
             </ul>
         </div>
@@ -2671,7 +2778,7 @@ body.dark-mode .copyright {
                     <p>بخش 3: دوران مدرن (1925-تا کنون)</p>
                 </div>
 
-           <!-- Pahlavi Dynasty -->
+<!-- Pahlavi Dynasty -->
 <div class="timeline-item">
     <div class="timeline-content">
         <div class="period">سلسله پهلوی</div>
@@ -2680,52 +2787,53 @@ body.dark-mode .copyright {
         <div class="rulers">
             <h3>حاکمان</h3>
             <ul>
-                <li>رضا شاه (1925-1941)</li>
-                <li>محمدرضا شاه (1941-1979)</li>
+                <li>رضا شاه (1925-1941): بنیانگذار نوسازی نظام‌مند ایران معاصر</li>
+                <li>محمدرضا شاه (1941-1979): ادامه‌دهنده مسیر مدرنیزاسیون و توسعه صنعتی</li>
             </ul>
         </div>
 
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1925: تاج‌گذاری رضا شاه و آغاز دوره پهلوی</li>
-                <li>1935: تغییر نام کشور به "ایران" به منظور تقویت هویت ملی</li>
-                <li>1941: اشغال ایران توسط متفقین و عزل رضا شاه</li>
-                <li>1953: کودتای آژاکس و بازگشت محمدرضا شاه به قدرت</li>
-                <li>1963: اجرای انقلاب سفید و تلاش برای اصلاحات اجتماعی</li>
-                <li>1979: انقلاب اسلامی و سقوط سلطنت پهلوی</li>
+                <li>1925: تاج‌گذاری رضا شاه و آغاز دوره نوین توسعه ملی</li>
+                <li>1935: تغییر نام رسمی کشور به "ایران" در راستای احیای هویت تاریخی</li>
+                <li>1941: اشغال ایران در جریان جنگ جهانی دوم و کناره‌گیری رضا شاه</li>
+                <li>1953: تحولات سیاسی منجر به تثبیت حکومت محمدرضا شاه</li>
+                <li>1963: آغاز انقلاب سفید و اصلاحات گسترده اجتماعی-اقتصادی</li>
+                <li>1971: جشن‌های 2500 ساله و تأکید بر پیوستگی تاریخی ایران</li>
+                <li>1979: پایان دوره پهلوی در پی تحولات اجتماعی-سیاسی</li>
             </ul>
         </div>
 
         <div class="achievements">
             <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
-                <li>نوسازی زیرساخت‌ها و ایجاد تغییرات اقتصادی مهم</li>
-                <li>اصلاحات آموزشی که به توسعه علمی و فرهنگی کمک کرد</li>
-                <li>توسعه صنایع بزرگ و سرمایه‌گذاری در اقتصاد ملی</li>
-                <li>نوسازی ارتش و تقویت قدرت نظامی کشور</li>
-                <li>اصلاحات در نظام حقوقی و تقویت نهادهای قضائی</li>
+                <li>مدرنیزاسیون زیرساخت‌ها: احداث راه‌آهن سراسری، شبکه جاده‌ای مدرن و توسعه شهری</li>
+                <li>اصلاحات آموزشی: تأسیس دانشگاه تهران، اعزام دانشجو به خارج و گسترش مدارس نوین</li>
+                <li>توسعه صنعتی: ایجاد کارخانجات بزرگ، صنایع پتروشیمی و پایه‌گذاری صنایع مادر</li>
+                <li>نوسازی نظامی: تجهیز ارتش به فناوری‌های پیشرفته و تقویت نیروی هوایی</li>
+                <li>اصلاحات حقوقی: تدوین قوانین مدرن و ایجاد نظام قضایی نوین</li>
             </ul>
         </div>
 
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>غربی‌سازی و تأثیرات فرهنگی خارجی بر جامعه ایرانی</li>
-                <li>توسعه نظام آموزشی مدرن با تأکید بر علوم جدید</li>
-                <li>پیشرفت حقوق زنان و گسترش فرصت‌های شغلی</li>
-                <li>نهادینه‌سازی سکولاریسم در سیاست و جامعه</li>
-                <li>ظهور جامعه صنعتی و تغییر در ساختار اجتماعی</li>
+                <li>مدرنیزاسیون اجتماعی: تلفیق سنت‌های ایرانی با دستاوردهای تمدن معاصر</li>
+                <li>توسعه نظام آموزشی: گسترش مدارس و دانشگاه‌ها با استانداردهای بین‌المللی</li>
+                <li>ارتقاء موقعیت زنان: حق رأی، حضور در عرصه‌های اجتماعی و تحصیلی</li>
+                <li>تحول در مدیریت شهری: شهرسازی مدرن و بهبود خدمات عمومی</li>
+                <li>رشد طبقه متوسط: شکل‌گیری قشر تحصیل‌کرده و متخصص</li>
             </ul>
         </div>
 
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
-                <li>زیرساخت‌های مدرن و مؤسسات آموزشی با استانداردهای جهانی</li>
-                <li>ایجاد پایه صنعتی که تأثیراتش تا امروز ادامه دارد</li>
-                <li>توسعه سازمان‌های نظامی و تقویت هویت ملی</li>
-                <li>چارچوب قانونی که زمینه‌ساز تحولات بعدی شد</li>
+                <li>زیرساخت‌های اساسی: شبکه حمل و نقل، صنایع مادر و مراکز آموزشی که پایه توسعه بعدی شد</li>
+                <li>نظام آموزشی مدرن: دانشگاه‌ها و مراکز تحقیقاتی با اعتبار بین‌المللی</li>
+                <li>میراث صنعتی: پایه‌های صنعتی که در توسعه اقتصادی کشور نقش مهمی ایفا کرد</li>
+                <li>نوسازی اداری: ساختارهای مدیریتی و اداری که زیربنای نظام برنامه‌ریزی کشور شد</li>
             </ul>
         </div>
 
@@ -2765,45 +2873,45 @@ body.dark-mode .copyright {
         <div class="events">
             <h3>رویدادهای کلیدی</h3>
             <ul>
-                <li>1979: انقلاب اسلامی - انقلابی که به نام «آزادی» شکل گرفت، اما در عمل به ظهور رژیمی سرکوبگر و دیکتاتوری انجامید.</li>
-                <li>1980-1988: جنگ ایران و عراق - جنگی طولانی و ویرانگر که عواقب انسانی، اجتماعی و اقتصادی عمیقی برای کشور به همراه داشت.</li>
-                <li>1989: درگذشت آیت‌الله خمینی - این واقعه منجر به انتقال رهبری به نسل جدیدی از روحانیان و به‌وجود آمدن چالش‌های جدید سیاسی شد.</li>
-                <li>1997-2005: جنبش اصلاحات - حرکتی که به دنبال بازنگری در سیاست‌ها و گسترش آزادی‌های اجتماعی بود، اما به شدت با سرکوب مواجه شد.</li>
-                <li>2015: توافق هسته‌ای - امیدی به بهبود روابط بین‌المللی که در عمل با عدم پایبندی و نقض‌های متقابل دچار چالش شد.</li>
-                <li>2018: خروج ایالات متحده از توافق هسته‌ای - اقدامی که به تحریم‌های شدید و تشدید بحران اقتصادی انجامید.</li>
-                <li>2024: نابودی نیروهای نیابتی جمهوری اسلامی - تغییراتی در ساختار قدرت منطقه‌ای که ناشی از سیاست‌های نادرست جمهوری اسلامی است.</li>
+                <li>1979: انقلاب اسلامی - تغییر بنیادین نظام سیاسی ایران که منجر به تحولات عمیق و گاه پرتنش در ساختارهای اجتماعی، سیاسی و اقتصادی کشور شد.</li>
+                <li>1980-1988: جنگ ایران و عراق - منازعه‌ای طولانی که علاوه بر تلفات سنگین انسانی، زیرساخت‌های اقتصادی کشور را به شدت تحت تأثیر قرار داد.</li>
+                <li>1989: درگذشت آیت‌الله خمینی و آغاز دوره رهبری جدید - دورانی که با تغییرات ساختاری و تمرکز قدرت همراه بود.</li>
+                <li>1997-2005: دوره اصلاحات - تلاش ناکام برای ایجاد تغییرات در ساختارهای سیاسی و اجتماعی که با مقاومت‌های جدی مواجه شد.</li>
+                <li>2015: توافق هسته‌ای - مذاکرات پیچیده بین‌المللی که علیرغم امیدهای اولیه، نتوانست به گشایش پایدار اقتصادی بینجامد.</li>
+                <li>2018: خروج ایالات متحده از برجام - رویدادی که به تشدید بحران اقتصادی و معیشتی در کشور منجر شد.</li>
+                <li>2022-2024: تحولات داخلی و منطقه‌ای - دوره‌ای همراه با تنش‌های اجتماعی و چالش‌های جدی در عرصه داخلی و خارجی.</li>
             </ul>
         </div>
 
         <div class="achievements">
             <h3>نوآوری‌ها و دستاوردهای عمده</h3>
             <ul>
-                <li>توسعه فناوری هسته‌ای - دستاوردی که نه تنها به استقلال ملی کمک کرد، بلکه نگرانی‌های جهانی را افزایش و ایران را در انزوا قرار داد.</li>
-                <li>پیشرفت برنامه فضایی - یک موفقیت که به جای افتخار، سوالاتی درباره اولویت‌ها و هزینه‌های آن مطرح می‌کند.</li>
-                <li>صنعت نظامی خودکفا - این خودکفایی بیشتر به تقویت نظامی و سرکوب داخلی انجامیده است.</li>
-                <li>گسترش آموزش - آموزشی که به رغم پیشرفت‌ها، تحت نظارت و محدودیت‌های شدیدی قرار دارد.</li>
-                <li>توسعه تحقیقات علمی - تحقیقات علمی که به دلیل تحریم‌ها و سیاست‌های داخلی با چالش‌های جدی مواجه است.</li>
+                <li>توسعه فناوری هسته‌ای - برنامه‌ای پرهزینه که منجر به انزوای بین‌المللی و تحریم‌های گسترده شد.</li>
+                <li>پیشرفت برنامه فضایی - دستاوردهایی که با صرف منابع قابل توجه و در شرایط محدودیت‌های اقتصادی حاصل شده است.</li>
+                <li>توسعه صنایع نظامی - گسترش توانمندی‌های دفاعی که با هزینه‌های سنگین اقتصادی و فشار بر معیشت عمومی همراه بوده است.</li>
+                <li>گسترش کمی آموزش عالی - افزایش دسترسی به آموزش عالی، همراه با افت کیفیت و بحران بیکاری فارغ‌التحصیلان.</li>
+                <li>پیشرفت در حوزه تحقیقات علمی - دستاوردهایی محدود که تحت تأثیر انزوای علمی و کمبود منابع قرار داشته است.</li>
             </ul>
         </div>
 
         <div class="cultural-impact">
             <h3>تغییرات فرهنگی و اجتماعی</h3>
             <ul>
-                <li>مدل حکمرانی اسلامی - حکومتی که به جای تحقق دموکراسی، آزادی‌های فردی را سرکوب کرده است.</li>
-                <li>سیستم آموزش دینی - آموزشی که غالباً بر ترویج باورها و ارزش‌های خاص تمرکز دارد و فرصت‌های کمتری برای پرورش تفکر انتقادی و خلاقیت فراهم می‌آورد.</li>
-                <li>بازتعریف نقش زنان - در حالی که تلاش‌هایی برای ارتقاء حقوق زنان انجام می‌شود، محدودیت‌های جدی همچنان برقرار است.</li>
-                <li>تأکید بر استقلال فرهنگی - اما بسیاری از ارزش‌های فرهنگی در سایه سیاست‌های سختگیرانه نادیده گرفته می‌شود.</li>
-                <li>تمرکز بر پیشرفت علمی - با وجود تلاش‌های صورت‌گرفته، پیشرفت‌ها اغلب تحت فشار سیاسی و اقتصادی قرار دارند.</li>
+                <li>استقرار نظام حکمرانی دینی - ایجاد ساختار سیاسی-مذهبی که با کاهش تدریجی مشارکت عمومی روبرو شده است.</li>
+                <li>تحول در نظام آموزشی - تغییرات ساختاری که موجب فاصله گرفتن از استانداردهای جهانی شده است.</li>
+                <li>تغییر در موقعیت اجتماعی زنان - پیشرفت‌های محدود در برخی عرصه‌ها، همراه با تداوم محدودیت‌های قانونی و اجتماعی.</li>
+                <li>تحولات در عرصه فرهنگ - شکاف فزاینده میان فرهنگ رسمی و گرایش‌های اجتماعی.</li>
+                <li>تغییرات در ساختار اجتماعی - افزایش نابرابری‌های اجتماعی و شکاف طبقاتی.</li>
             </ul>
         </div>
 
         <div class="legacy">
             <h3>میراث و تأثیرات پایدار</h3>
             <ul>
-                <li>درد برای مردم - میراثی که شامل نابرابری اجتماعی، سرکوب آزادی‌ها و نارضایتی عمیق از وضعیت موجود است.</li>
-                <li>آسیب‌های اجتماعی و اقتصادی - که ناشی از سیاست‌های نادرست و مدیریت ضعیف در طی سال‌ها است.</li>
-                <li>نارضایتی عمومی - که به بحران‌های مستمر اجتماعی و سیاسی منجر شده و هنوز راهی برای حل آن وجود ندارد.</li>
-                <li>تداوم فساد - معضل جدی در سیستم حکومتی که اعتماد عمومی را به شدت تضعیف کرده است.</li>
+                <li>چالش‌های اقتصادی - بحران‌های ساختاری اقتصاد که منجر به کاهش قدرت خرید و گسترش فقر شده است.</li>
+                <li>تحولات اجتماعی - افزایش نارضایتی‌های عمومی و کاهش سرمایه اجتماعی.</li>
+                <li>مسائل زیست‌محیطی - تخریب گسترده منابع طبیعی و بحران‌های زیست‌محیطی.</li>
+                <li>ساختار اداری - بوروکراسی ناکارآمد و چالش‌های جدی در مدیریت منابع عمومی.</li>
             </ul>
         </div>
 
@@ -2829,50 +2937,184 @@ body.dark-mode .copyright {
     </div>
 </div>
 
-<div class="supplementary-info">
-    <h3>نکات تکمیلی و دیسکلیمر</h3>
-    
-    <p>این تایملاین تلاش دارد تا دیدگاهی فشرده و مبتنی بر منابع معتبر درباره تحولات تاریخی ایران پس از اسلام ارائه دهد. در گردآوری این محتوا از ابزارهای هوش مصنوعی استفاده شده که با وجود دقت بالا، احتمال وجود خطاهای جزئی در آن‌ها دور از انتظار نیست. از این رو، برای دست‌یابی به درکی کامل‌تر، مراجعه به منابع تخصصی توصیه می‌شود.</p>
+<div class="container">
+    <div class="header">
+        <p>نکات تکمیلی و دیسکلیمر</p>
+    </div>
+
+    <div class="supplementary-info">
+        <h4>نکات تکمیلی</h4>
+        <p>این تحقیق تلاش داشته است تا مروری جامع و مبتنی بر شواهد تاریخی از تحولات مهم دوران پس از اسلام در ایران ارائه دهد. با بررسی سلسله‌های خوارزمشاهیان، مهربانیان، کورتیان و سربداران، سعی شده است تا روند تکاملی حکومت‌های محلی و منطقه‌ای در این دوره پرتلاطم تاریخ ایران ترسیم گردد.</p>
+
+        <p>با این حال، همانطور که در متن اصلی این پژوهش نیز بیان شده است، تفسیر و تحلیل رویدادهای تاریخی همواره با چالش‌ها و پیچیدگی‌های فراوانی روبرو است. تناقض در روایات تاریخی، تغییرات مداوم مرزهای جغرافیایی و مفهومی "ایران"، و همچنین نگرش‌های مذهبی و ایدئولوژیک حاکم بر منابع موجود می‌توانند بر درک ما از گذشته تأثیر بگذارند.</p>
+
+        <p>به عنوان نمونه، در مورد خوارزمشاهیان، اگرچه این سلسله توانست به گسترش قلمرو و رونق اقتصادی و تجاری بپردازد، اما تصمیمات نسنجیده سیاسی آنان از جمله تنش با خلافت عباسی و قتل بازرگانان و سفیر مغول، در نهایت به فروپاشی حکومت آنها منجر شد. در چنین مواردی، نیاز به بررسی دقیق‌تر انگیزه‌ها و زمینه‌های تاریخی رخدادها احساس می‌شود.</p>
+
+        <p>همچنین، در مورد سربداران، اگرچه این جنبش مردمی با اهداف عدالت‌طلبانه آغاز شده بود، اما تحلیل‌های متفاوت درباره ماهیت سیاسی و مذهبی آن در منابع وجود دارد. برخی آن را صرفاً جنبشی شیعی می‌دانند، در حالی که برخی دیگر بر جنبه‌های عدالت‌طلبانه و مردمی آن تأکید دارند. این تفاوت‌ها در برداشت‌ها می‌تواند ناشی از نگاه ایدئولوژیک منابع باشد.</p>
+
+        <p>از این رو، این محتوا صرفاً تلاشی برای ارائه چشم‌اندازی فشرده و مبتنی بر شواهد موجود است و مراجعه به منابع تخصصی برای دستیابی به درکی عمیق‌تر و دقیق‌تر ضروری به نظر می‌رسد. همچنین، با توجه به تحولات مستمر در حوزه باستان‌شناسی و پژوهش‌های تاریخی، ممکن است برخی از اطلاعات ارائه‌شده نیاز به بازبینی و به‌روزرسانی داشته باشند.</p>
+
 
     <div class="methodological-considerations">
-        <h4>ملاحظات تاریخی و دقت منابع</h4>
-        <p>تاریخ ایران پس از اسلام با پیچیدگی‌های فراوانی در اسناد و روایت‌ها مواجه است. بسیاری از منابع تاریخی آن دوره به دلیل ماهیت درباری یا مذهبی، ممکن است رویدادها را با جهت‌گیری‌های خاصی بیان کرده باشند. همچنین، یافته‌های باستان‌شناسی جدید گاه برداشت‌های متفاوتی از دوره‌های تاریخی ارائه می‌دهند. توجه به این نکته مهم است که برخی از اطلاعات موجود ممکن است به‌روزرسانی یا بازبینی نیاز داشته باشد.</p>
+        <h4>پی‌نوشت</h4>
+        <p>تفاوت‌های شیعه و سنی در دوره‌های اولیه اسلامی به شکل امروزی نبوده و مرزهای مذهبی ماهیتی منعطف‌تر داشتند. اما با روی کار آمدن سلسله صفویان و رسمیت یافتن تشیع به عنوان مذهب رسمی ایران، این کشور وارد مرحله‌ای جدید از هویت مذهبی شد که تا به امروز تأثیرات فرهنگی و سیاسی آن قابل مشاهده است.</p>
+
+        <p>مفهوم "ایران" در طول تاریخ دچار تغییرات جغرافیایی و مفهومی متعددی بوده است. به طور مثال، در دوران خوارزمشاهیان، قلمرو این حکومت از ماوراءالنهر تا عراق گسترش یافته بود، اما با سقوط این سلسله و ظهور حکومت‌های محلی جدید، مرزهای جغرافیایی ایران دچار دگرگونی شد. از این رو، برخی بخش‌های این تحقیق ممکن است با ساختار سیاسی-جغرافیایی امروز ایران هم‌خوانی کامل نداشته باشند.</p>
+
+        <p>در کنار سلسله‌های مورد بررسی در این پژوهش، حکومت‌های دیگری چون علویان طبرستان، آل بویه، آل زیار، ایلخانان، آل مظفر، مشعشعیان، قراقویونلوها و آق‌قویونلوها نیز در طول تاریخ در ایران و مناطق همجوار قدرت داشته‌اند که می‌توان به مطالعه آن‌ها نیز پرداخت. هر یک از این حکومت‌ها تأثیرات خاص خود را بر تحولات فرهنگی، سیاسی و اجتماعی ایران داشته‌اند که می‌تواند موضوع مطالعات جداگانه‌ای باشد.</p>
     </div>
+
 
     <div class="historical-complexities">
         <h4>ملاحظات مفهومی و فرهنگی</h4>
         <p>تفسیر برخی از رویدادها و تحولات فرهنگی در این تایملاین ممکن است نیازمند دقت بیشتری باشد. برای مثال، دوره‌بندی‌های ارائه‌شده که شامل عناوینی چون «دوره میان‌سالی» و «دوره مدرن» است، عمدتاً برگرفته از سنت‌های تاریخ‌نگاری غربی می‌باشد و ممکن است به‌طور کامل با ساختارهای تاریخی ایران هماهنگ نباشد. همچنین، تحولات فرهنگی و مذهبی همچون ظهور صفویان و رسمیت یافتن تشیع به عنوان مذهب ملی، بر هویت فرهنگی ایران تأثیری عمیق گذاشته که در درک رویدادها اهمیت دارد.</p>
-        
-        <h4>چالش‌های برداشت‌های مذهبی و ایدئولوژیک</h4>
-        <p>در دوره‌های اولیه اسلامی، تفاوت‌های شیعه و سنی به وضوح امروزی نبوده و مرزهای مذهبی به شکلی منعطف‌تر وجود داشته است. اما با روی کار آمدن سلسله صفوی و رسمیت یافتن تشیع، ایران وارد مرحله‌ای جدید از هویت مذهبی شد که اثرات فرهنگی و سیاسی آن تا امروز مشهود است. این موضوع می‌تواند در برداشت‌های تاریخی مرتبط با هویت ملی تأثیرگذار باشد.</p>
 
-        <h4>پیچیدگی‌های جغرافیایی و مفهومی</h4>
-        <p>تغییرات جغرافیایی و مفهومی «ایران» در دوره‌های مختلف تاریخی، باعث شده است که مفهوم «ایران» در طول تاریخ به محدوده‌های مختلفی اطلاق شود. از این رو، پژوهش حاضر تلاش کرده است تا تفاوت‌های جغرافیایی و مرزی هر دوره را مد نظر قرار دهد، اما ممکن است برخی بخش‌ها با ساختار مرزی امروز ایران هم‌خوانی نداشته باشد.</p>
-    </div>
+        <h4>دیسکلیمر</h4>
+        <p>این تایملاین با استفاده از ابزارهای هوش مصنوعی تهیه شده است. با وجود تلاش برای استفاده از منابع معتبر تاریخی، امکان وجود خطاهای جزئی در آن دور از انتظار نیست. همچنین، برخی تفاسیر و تحلیل‌های ارائه‌شده نیز ممکن است نیازمند بازبینی و به‌روزرسانی باشند. به عنوان مثال، درباره ماهیت جنبش سربداران و تأثیر آن بر تحولات فرهنگی و مذهبی آن دوره، منابع موجود دچار اختلاف نظر هستند که نیاز به بررسی دقیق‌تر دارد.</p>
 
-    <div class="note">
-        <p>این نکات برای ارائه دیدگاهی عمیق‌تر و دقیق‌تر از تاریخ ایران تهیه شده‌اند و ممکن است با یافته‌های جدید باستان‌شناسی و پژوهش‌های نوین دستخوش تغییر شوند. پژوهشگران و خوانندگان می‌توانند برای تکمیل دانش خود به منابع دیگر نیز مراجعه کنند تا از صحت و دقت داده‌ها اطمینان بیشتری حاصل کنند.</p>
+        <p>از این رو، پژوهشگران و عموم علاقه‌مندان به تاریخ ایران می‌توانند برای تکمیل و تعمیق دانش خود به منابع متنوع دیگر نیز مراجعه کنند. همچنین، با توجه به تحولات مستمر در حوزه مطالعات باستان‌شناسی و تاریخی، این محتوا ممکن است نیازمند به‌روزرسانی و بازبینی دوره‌ای باشد.</p>
+
+
     </div>
 </div>
 
 <div class="sources">
     <h3>منابع و ابزارهای استفاده‌شده</h3>
     <ul>
-        <li>مقالات علمی و کتب معتبر تاریخی</li>
+        <!-- Sources Provided by User -->
+        <li>Heilbrunn Timeline of Art History - The Metropolitan Museum of Art</li>
+        <li>Sheila S. Blair & Jonathan M. Bloom, The Mirage of Islamic Art: Reflections on the Study of an Unwieldy Field, The Art Bulletin 85/1 (2003)</li>
+        <li>Leyla Diba, The Formation of Modern Iranian Art: From Kamal-al-Molk to Zenderoudi</li>
+        <li>Mehmet Erbudak, The Uniqueness of the Medieval Persian Art, Qeios, DOI:10.32388/JF5S4N.3</li>
+        <li>Sahar Ayoubzadeh, History of Art after Islam (ResearchGate, 2019)</li>
+        <li>Calligraphy in Islamic Art - Heilbrunn Timeline of Art History, The Metropolitan Museum of Art</li>
+        <li>Geometric Patterns in Islamic Art - Heilbrunn Timeline of Art History, The Metropolitan Museum of Art</li>
+        <li>Wendy M.K. Shaw, Islamic Art History: The Myth of Secularity</li>
+        <li>Abbas Rattani, The West's Islamic Art Problem</li>
+        <li>Timeline of Iranian History - Wikipedia</li>
+        <li>Dragan Potoĉnik, Persian Art and Science from the Arrival of Islam to the Safavid Dynasty, International Journal of Latest Research in Humanities and Social Science</li>
+        <li>Gülru Necipoğlu, The Concept of Islamic Art: Inherited Discourses and New Approaches in Islamic Art and the Museum</li>
+        <li>Avinoam Shalem, What do we mean when we say ‘Islamic art’? A plea for a critical rewriting of the history of the arts of Islam</li>
+        <li>Wendy M.K. Shaw, The Islam in Islamic Art History: Secularism and Public Discourse, Journal of Art Historiography</li>
+        <li>Hamid Keshmirshekan, Discourses on Postrevolutionary Iranian Art: Neotraditionalism during the 1990s, Muqarnas, Vol. 23 (2006)</li>
+        <li>Hisae Nakanishi & Saeedeh Mousavi, The Analysis of Iran’s Art and Cultural Policies in the Post-Revolutionary Period: Special Reference to Animation</li>
+        <li>Idham Mohammed Hanash, The Theory of Islamic Art: Aesthetic Concept and Epistemic Structure</li>
+        <li>Solmaz Tabe Afshar, The Study of Consequences of Mongolians' Invasion and Establishment of the Ilkhanate Dynasty on Iranian Culture, Art, and Architecture</li>
+        <li>Leila Ghaffari & Jamal Arabzadeh, The Visual Representation of Human in Islamic Art: A Critique on the Book “The Human Figure in Islamic Art”</li>
+        <li>Layla M. Heidari, Framing Iran: How ‘Politics of Perception’ Inform Our View of Iranian Contemporary Art (Honors Thesis, Brown University)</li>
+        <li>Dr. Sondos Baslouh, A Philosophical Approach to The Study of Islamic Art</li>
+        <li>Unveiled: Art and Censorship in Iran, ARTICLE 19, London, 2006</li>
+        <li>Dogan Kuban, Perspectives on Islamic History and Art</li>
+        <li>Islamic Art and Culture: A Resource for Teachers, National Gallery of Art, Washington</li>
+        <li>Maryam D. Ekhtiar & Claire Moore (Eds.), Art of the Islamic World: A Resource for Educators</li>
+        <li>Dr. Nanyoung Kim, Islamic Art in Context, CArtsCon 2018</li>
+        <li>Laura U. Marks, Enfoldment and Infinity: An Islamic Genealogy of New Media Art</li>
+        <li>Margaret S. Graves, Fracture, Facture, and the Collecting of Islamic Art</li>
+
+        <!-- Sources Introduced by ChatGPT -->
+        <li>The Cambridge History of Iran</li>
+        <li>A History of Islamic Societies by Ira M. Lapidus</li>
+        <li>Iran Between Two Revolutions by Ervand Abrahamian</li>
+        <li>Encyclopaedia Iranica</li>
+        <li>Britannica</li>
+        <li>Tārīkh al-Tabarī (The History of al-Tabari) by Muhammad ibn Jarir al-Tabari</li>
+        <li>Ancient History Encyclopedia</li>
+        <li>JSTOR</li>
+        <li>Persian Digital Library</li>
+        <li>The Persians: Ancient, Mediaeval and Modern Iran by Homa Katouzian</li>
+        <li>Safavid Iran: Rebirth of a Persian Empire by Andrew J. Newman</li>
+        <li>Siyasatnama by Nizam al-Mulk</li>
+        <li>Safarnama by Nasir Khusraw</li>
+
+        <!-- Tools Used for Assistance -->
         <li>ChatGPT 4.0</li>
+        <li>ChatGPT 3.5</li>
         <li>Claude 3.5 Sonnet</li>
+        <li>Claude 3.5 Haiku</li>
         <li>Google NotebookLM</li>
     </ul>
 </div>
 
 <div class="copyright">
-    &copy; این محتوا توسط عرفان کریمی گردآوری شده است. تمامی حقوق محفوظ است. هرگونه استفاده از محتوا بدون اجازه ممنوع است.
+    &copy; این محتوا توسط عرفان کریمی گردآوری شده است. حقوق این مجموعه برای تهیه‌کننده محفوظ است.
 </div>
 
 
             </div>
         </div>
     </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const button = document.getElementById('searchButton');
+        const dropdown = document.getElementById('periodDropdown');
+    
+        // Function to toggle dropdown visibility and button expansion
+        function toggleDropdown() {
+            button.classList.toggle('expanded'); // Toggle expanded class for animation
+            
+            // Update dropdown visibility
+            if (button.classList.contains('expanded')) {
+                populateDropdown(); // Populate dropdown items
+                dropdown.classList.add('visible'); // Show dropdown
+            } else {
+                dropdown.classList.remove('visible'); // Hide dropdown
+            }
+        }
+    
+        // Populate dropdown with period titles
+        function populateDropdown() {
+            dropdown.innerHTML = ''; // Clear previous items
+    
+            const periods = document.querySelectorAll('.timeline-content .period');
+            if (periods.length === 0) {
+                console.error("No periods found! Please check the .timeline-content .period elements.");
+                return;
+            }
+    
+            // Loop through each period and create dropdown items
+            periods.forEach((period, index) => {
+                const parentTimelineContent = period.closest('.timeline-content');
+                const periodId = `period-${index}`;
+                parentTimelineContent.id = periodId;
+    
+                const div = document.createElement('div');
+                div.classList.add('dropdown-item');
+                div.textContent = period.textContent;
+                div.dataset.id = periodId;
+                dropdown.appendChild(div);
+            });
+        }
+    
+        // Handle item selection from the dropdown
+        dropdown.addEventListener('click', function(e) {
+            if (e.target && e.target.matches('.dropdown-item')) {
+                const selectedPeriodId = e.target.dataset.id;
+                if (selectedPeriodId) {
+                    document.getElementById(selectedPeriodId).scrollIntoView({ behavior: 'smooth' });
+                    button.classList.remove('expanded');
+                    dropdown.classList.remove('visible');
+                }
+            }
+        });
+    
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(e) {
+            if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+                button.classList.remove('expanded');
+                dropdown.classList.remove('visible');
+            }
+        });
+    
+        // Attach the toggle function to the button
+        button.addEventListener('click', toggleDropdown);
+    });
+    </script>
+    
+    
+    
+
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -2943,6 +3185,14 @@ function toggleDarkMode() {
     // Toggle dark mode for the button itself
     document.querySelector('.dark-mode-toggle').classList.toggle('dark-mode');
 
+    // Toggle dark mode for the search button
+    const searchButton = document.getElementById('searchButton');
+    searchButton.classList.toggle('dark-mode'); // Toggling dark mode for the search button
+
+    // Toggle dark mode for the dropdown
+    const periodDropdown = document.getElementById('periodDropdown');
+    periodDropdown.classList.toggle('dark-mode'); // Toggling dark mode for the dropdown
+
     // Select all elements that need dark mode toggling
     const timelineContents = document.querySelectorAll('.timeline-content');
     const achievements = document.querySelectorAll('.achievements');
@@ -2955,7 +3205,7 @@ function toggleDarkMode() {
     const rulersHeader = document.querySelectorAll('.rulers h3'); // Add rulers header to toggle
     const eventsHeader = document.querySelectorAll('.events h3'); // Add events header to toggle
     const supplementaryInfo = document.querySelectorAll('.supplementary-info'); // Select supplementary info section
-    
+
     // Toggle dark mode for timeline content
     timelineContents.forEach(item => {
         item.classList.toggle('dark-mode');
@@ -2981,23 +3231,23 @@ function toggleDarkMode() {
         item.classList.toggle('dark-mode');
     });
 
-        // Toggle dark mode for header title
-        headerTitle.forEach(item => {
+    // Toggle dark mode for header title
+    headerTitle.forEach(item => {
         item.classList.toggle('dark-mode');
     });
 
-        // Toggle dark mode for header paragraph
-        headerParagraph.forEach(item => {
+    // Toggle dark mode for header paragraph
+    headerParagraph.forEach(item => {
         item.classList.toggle('dark-mode');
     });
 
-        // Toggle dark mode for period element
-        periods.forEach(item => {
+    // Toggle dark mode for period element
+    periods.forEach(item => {
         item.classList.toggle('dark-mode');
     });
 
-        // Toggle dark mode for rulers section header
-        rulersHeader.forEach(item => {
+    // Toggle dark mode for rulers section header
+    rulersHeader.forEach(item => {
         item.classList.toggle('dark-mode');
     });
 
@@ -3006,10 +3256,33 @@ function toggleDarkMode() {
         item.classList.toggle('dark-mode');
     });
 
-        // Toggle dark mode for supplementary info
-        supplementaryInfo.forEach(item => {
+    // Toggle dark mode for supplementary info
+    supplementaryInfo.forEach(item => {
         item.classList.toggle('dark-mode');
     });
+
+    // Dark mode for timeline
+    const timeline = document.querySelector('.timeline');
+    if (timeline) {
+        timeline.classList.toggle('dark-mode');
+    }
+
+    // Dark mode for timeline line before
+    const timelineLine = document.querySelectorAll('.timeline::before');
+    timelineLine.forEach(line => {
+        line.classList.toggle('dark-mode');
+    });
+
+    // Dark mode for timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        item.classList.toggle('dark-mode');
+    });
+
+
+    /////////////////////////
+
+    
 }
 
     </script>
