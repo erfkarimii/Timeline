@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Fa">
 <head>
     <meta charset="UTF-8">
     <title>تایملاین تاریخی ایران پس از اسلام</title>
@@ -1031,7 +1031,7 @@ body.dark-mode .supplementary-info {
 }
 
 body.dark-mode .supplementary-info ul li {
-    color: #782a2a; /* Lighter color for list items */
+    color: #e0e0e0; /* Lighter color for list items */
 }
 
 .supplementary-info ul li::before {
@@ -1051,11 +1051,6 @@ body.dark-mode .supplementary-info ul li::before {
     transform: translateX(-3px);
 }
 
-.supplementary-info:hover {
-    background-color: #f0f4fc;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 .supplementary-info .note {
     font-size: 15px;
     color: #717a94;
@@ -1070,13 +1065,8 @@ body.dark-mode .supplementary-info ul li::before {
 }
 
 body.dark-mode .supplementary-info ul li:hover {
-    color: #b0b0b0; /* Lighter hover color for list items */
+    color: #6970f3; /* Lighter hover color for list items */
     transform: translateX(-3px);
-}
-
-body.dark-mode .supplementary-info:hover {
-    background-color: #444444; /* Dark background on hover */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Darker shadow effect */
 }
 
 body.dark-mode .supplementary-info .note {
@@ -1088,7 +1078,7 @@ body.dark-mode .supplementary-info .note {
     background-color: #f5f5f5;
     padding: 15px;
     border: 1px solid #e0e0e0;
-    border-radius: 25px;
+    border-radius: 40px;
     margin-top: 30px;
     margin-bottom: 20px; /* Space between sources and copyright */
     line-height: 1.6;
@@ -1097,6 +1087,14 @@ body.dark-mode .supplementary-info .note {
 
 .sources h3 {
     font-size: 24px;
+    font-weight: 600;
+    color: #4B35DB;
+    margin-bottom: 15px;
+    text-align: right; /* Align heading to the right */
+}
+
+.sources h4 {
+    font-size: 28px;
     font-weight: 600;
     color: #4B35DB;
     margin-bottom: 15px;
@@ -1116,6 +1114,45 @@ body.dark-mode .supplementary-info .note {
     text-align: left; /* Align list items to the right */
 }
 
+
+
+.sources2 {
+    font-size: 23px;
+    color: #4B35DB;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Space between sources and copyright */
+    line-height: 1.6;
+    direction: rtl; /* Set direction to RTL */
+}
+
+.sources2 h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #4B35DB;
+    margin-bottom: 15px;
+    text-align: right; /* Align heading to the right */
+}
+
+.sources2 ul {
+    list-style-type: disc; /* Set to disc for bullets */
+    padding-right: 30px; /* Use padding to align bullets properly */
+    color: #181148;
+}
+
+.sources2 li {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #181148;
+    font-weight: 300;
+    text-align: right; /* Align list items to the right */
+}
+
+
+
 .copyright {
     font-size: 12px;
     color: #888888;
@@ -1123,6 +1160,13 @@ body.dark-mode .supplementary-info .note {
     padding: 20px;
     border-top: 1px solid #e0e0e0;
     margin-top: 30px;
+}
+
+.version-info {
+    font-size: 12px;
+    color: #888888;
+    text-align: center;
+    margin-top: 5px;
 }
 
 /* Dark Mode Styles */
@@ -1143,6 +1187,27 @@ body.dark-mode .sources ul {
 body.dark-mode .sources li {
     color: #e0e0e0; /* Lighter text color for list items */
 }
+
+
+
+body.dark-mode .sources2 {
+    background-color: #333333; /* Dark background */
+    border: 1px solid #444444; /* Darker border */
+    color: #6970f3; /* Light text color */
+}
+
+body.dark-mode .sources2 h3 {
+    color: #6970f3; /* Lighter color for heading */
+}
+
+body.dark-mode .sources2 ul {
+    color: #b0b0b0; /* Light color for list items */
+}
+
+body.dark-mode .sources2 li {
+    color: #e0e0e0; /* Lighter text color for list items */
+}
+
 
 body.dark-mode .copyright {
     color: #bbbbbb; /* Light gray text for copyright */
@@ -1262,6 +1327,11 @@ body.dark-mode .copyright {
     display: block; /* Show the search icon when collapsed */
     font-size: 24px; /* Icon size */
     z-index: 99999;
+}
+
+/* search button hover effect */
+.searchButton:hover {
+    background-color: #575757; /* Dark button on hover */
 }
 
 /* When the button expands */
@@ -3070,9 +3140,54 @@ body.dark-mode .copyright {
     </ul>
 </div>
 
+<div class="sources2">
+    <h3>در آپدیت‌های بعدی</h3>
+
+    <p><strong>ورژن 2.0</strong></p>
+    <ul>
+        <li>تاریخ پیش از اسلام: اضافه کردن دوره‌های تاریخی مانند هخامنشی، اشکانی، و ساسانی.</li>
+        <li>رویدادهای تأثیرگذار جهانی: نمایش تعاملات ایران با تمدن‌های دیگر.</li>
+        <li>جستجوی پیشرفته: افزودن فیلترهای زمانی، مکانی و موضوعی.</li>
+        <li>نقشه‌های تعاملی تاریخی: نمایش مرزهای جغرافیایی ایران و همسایگانش در هر دوره.</li>
+        <li>ویدیو و پادکست: محتوای چندرسانه‌ای برای رویدادهای مهم.</li>
+        <li>انیمیشن‌های تعاملی: نمایش وقایع به‌صورت انیمیشن.</li>
+        <li>واقعیت افزوده (AR): تجربه بازدید از مکان‌های تاریخی.</li>
+        <li>آزمون‌های یادگیری: اضافه کردن تست‌ها و چالش‌های تاریخی.</li>
+        <li>چاپ و دانلود: قابلیت ذخیره و چاپ تایملاین یا بخش‌های خاص.</li>
+        <li>طراحی واکنش‌گرا و حالت تیره: بهینه‌سازی تجربه کاربری.</li>
+        <li>پشتیبانی چندزبانه و دسترسی‌پذیری برای نابینایان.</li>
+        <li>افزایش سرعت و امکان استفاده آفلاین.</li>
+    </ul>
+
+    <p><strong>ورژن 3.0</strong></p>
+    <ul>
+        <li>گسترش تایملاین به کشورهای دیگر: افزودن تاریخ تمدن‌های مصر، یونان، روم، چین، هند، مایا و آزتک.</li>
+        <li>تایملاین‌های موازی: مقایسه دوره‌های تاریخی تمدن‌های مختلف.</li>
+        <li>تعاملات بین‌تمدنی: نمایش تأثیرات فرهنگی، تجاری و نظامی بین کشورها.</li>
+        <li>نقشه‌های جهانی چندلایه: نقشه‌های تاریخی پویا با تمرکز بر هر کشور.</li>
+        <li>نقشه‌های تجاری و فرهنگی: نمایش راه‌ها و مسیرهای مهاجرت تمدن‌ها.</li>
+        <li>نمایش هنر و معماری جهانی: آثار هنری برجسته از تمدن‌ها.</li>
+        <li>توضیح باورها و ادیان: بررسی باورهای دینی تمدن‌ها و تأثیرات آنها.</li>
+        <li>تحلیل تطبیقی: ابزار مقایسه جنگ‌ها، پیشرفت‌ها و هنر تمدن‌ها.</li>
+        <li>پشتیبانی چندزبانه کامل و بومی‌سازی محتوا برای هر تمدن.</li>
+        <li>مقایسه اختراعات و اکتشافات تمدن‌ها در یک دوره مشابه.</li>
+        <li>موسیقی و صداهای تاریخی: موسیقی سنتی و اصوات تاریخی تمدن‌ها.</li>
+        <li>تور مجازی سه‌بعدی از بناهای تاریخی معروف.</li>
+        <li>ابزار شبیه‌سازی تاریخی: تصمیم‌گیری کاربران در وقایع تاریخی شبیه‌سازی‌شده.</li>
+        <li>مرجع داده‌های تاریخی جامع برای پژوهشگران.</li>
+        <li>ابزارهای تحلیل آماری تاریخی در حوزه‌های اجتماعی و نظامی.</li>
+    </ul>
+</div>
+
+
 <div class="copyright">
     &copy; این محتوا توسط عرفان کریمی گردآوری شده است. حقوق این مجموعه برای تهیه‌کننده محفوظ است.
 </div>
+
+<div class="version-info">
+    Version 1.0.7
+</div>
+
 
 
             </div>
